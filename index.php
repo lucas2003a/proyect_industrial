@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>JHON F. KENNEDY - CHINCHA</title>
+  <title>Title</title>
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -10,67 +10,52 @@
   <!-- Bootstrap CSS v5.2.1 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 </head>
-    <div id="carouselId" class="carousel slide carousel-fade" data-bs-ride="carousel">
-      <ol class="carousel-indicators">
-        <li data-bs-target="#carouselId" data-bs-slide-to="0" class="active" aria-current="true" aria-label="First slide"></li>
-        <li data-bs-target="#carouselId" data-bs-slide-to="1" aria-label="Second slide"></li>
-        <li data-bs-target="#carouselId" data-bs-slide-to="2" aria-label="Third slide"></li>
-      </ol>
-      <div class="carousel-inner" role="listbox">
-        <div class="carousel-item active">
-          <img src="views/img/industrial.jpg" class="w-100 d-block mx-auto" style ="height:60vh" alt="First slide">
-        </div>
-        <div class="carousel-item">
-          <img src="views/img/industrial2.jpg" class="w-100 d-block mx-auto" style ="height:60vh" alt="Second slide">
-        </div>
-        <div class="carousel-item">
-          <img src="views/img/industrial3.jpg" class="w-100 d-block mx-auto" style ="height:60vh" alt="Third slide">
-        </div>
-      </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselId" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselId" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-        </button>
 
-    <nav class="navbar navbar-expand-sm navbar-dark bg-danger">
-        <a class="navbar-brand" href="#">Navbar</a>
-        <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId"
-            aria-expanded="false" aria-label="Toggle navigation"></button>
-        <div class="collapse navbar-collapse" id="collapsibleNavId">
-            <ul class="navbar-nav me-auto mt-2 mt-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link active" href="#" aria-current="page">Home <span class="visually-hidden">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-                    <div class="dropdown-menu" aria-labelledby="dropdownId">
-                        <a class="dropdown-item" href="#">Action 1</a>
-                        <a class="dropdown-item" href="#">Action 2</a>
-                    </div>
-                </li>
-            </ul>
-            <form class="d-flex my-2 my-lg-0">
-                <input class="form-control me-sm-2" type="text" placeholder="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </form>
-        </div>
-    </nav>
 <body>
   <header>
     <!-- place navbar here -->
   </header>
   <main>
-
   </main>
+    <section class="vh-100 gradient custom">
+      <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+          <div class="col-12 col-md-8 col-lg-6 col-xl5">
+            <div class="card bg-primary text-white">
+              <div class="card-body p-5 text-center" style="border-radius: 1rem;">
+                <div class="mb-md-5 mt-md-4 pb-5">
+                  <h1 class="fw-bold mb-2 text-uppercase">login</h1>
+                  <p class="text-white-50 mb-5">Ingrese sus credenciales por favor</p>
+                  <div class="form-outline form-white mb-4">
+                    <input type="email" id="emailX" class="form-control form-control-lg">
+                    <label for="emailX" class="form-label">Email</label>
+                  </div>
+                  <div class="form-otuline form-white mb-4">
+                    <input type="password" id="passwordX" class="form-control form-control-lg">
+                    <label for="passwordX" class="form-label">Contraseña</label>
+                  </div>
+                  <p class="small mb-5 pb-lg-2"><a href="#" class="text-white-50">Olvidaste la contraseña?</a></p>
+                  <button class="btn btn-outline-light btn-lg px-5">Login</button>
+                  <div class="d-flex justify-content-center text-center mt4 pt-1">
+                    <a href="#" class="text-white"><i class="fab fa-facebook-f fa-lg"></i></a>
+                    <a href="#" class="text-white"><i class="fab fa-twitter fa-lg mx-4 px-2"></i></a>
+                    <a href="#" class="text-white"><i class="fab fa-google fa-lg"></i></a>
+                  </div>
+                  <div>
+                    <p class="mb=0">No tienes una cuenta? <a href="#" class="text-white-50 fw-bold">Registrate</a></p>
+                  </div>
+                </div>
+              </div>
+              </div>
+            </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   <footer>
     <!-- place footer here -->
   </footer>
@@ -81,6 +66,7 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
     integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+
   </script>
 </body>
 
