@@ -1,0 +1,10 @@
+.bg-image{
+
+    background-image    :   url(../views/img/industrial.jpg);
+    height   :  100vh;
+}
+
+.navbar .nav-link{
+
+    color : #fff !important;
+}
