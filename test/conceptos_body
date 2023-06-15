@@ -1,1 +1,49 @@
 <body id="page-top">
+<!--
+La estiqueta 'body' idica el inicio del contenido del cuerpo de la pagina en html.
+El atributo 'id="page-top"' asigna un identificador único a este elemento del cuerpo de la página.
+-->
+
+<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+<!--
+    Esta estiqueta 'nav' define una barra de navegación en la parte superior de la página.
+    La clase 'navbar' indica wque se trata de una barra de navegación.
+    Las classes adicionales 'navbar-expand-lg'(que espande la barra de navegacón en dispositivos grnades)y 'navbar-light'(que utiliza un estilo de baar de navegacuón clara).
+    el atributo 'id' asigna el identificador "mainNav" al elemento de una navegación, loq que permite referenciaelo en otros lugares del código
+-->
+
+<div class="container px-4 px-lg-5">
+<!--
+    Esta etiqueta define un contenedor 'div' con la clase 'container' y las clases adicionales 'px-4' y 'px-lg-5' que establece un relleno horizontal en el contenedor.
+    El contenedor se utiliza para agrupar y alinear los elementos de la barra de navegación
+-->
+
+<a class="navbar-brand" href="#page-top">Inicio</a>
+<!--
+    Esta etiqueta define un enlace 'a' con la clase 'navar-brand', que se utiliza para mostrar un logotipo o texto como marca de la barra de navegación.
+    El atributo 'href="#page-top"'' especifica que el enlace lleva al elemento con el identificador "page-top" en el documento.
+-->
+
+<button class="navbar-togglernavbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"></button>
+<!--
+    Esta etiqueta define un botón 'button' con las clases 'navbar-toggler' y 'navbar-toggler-rigth'.Este botón se utiliza para mostrar u ocultar los elementos de navegación en dispositivos móvules cuando se hace click en él.
+    Los atributos 'data-bs-toggle="collapese"' y 'data-bs-target="#navabarResponsive"' indican que el btón interactúa con el elemento de navegación con el identificador "navbarResponsive".
+    Los atributos 'aria-controls="navbarResponsive"' y 'aria-expanded="false"' proporconan información adicional para la accesibilidad
+-->
+
+<div calss="collapse navbar-collapse" id="navabarResponsive">
+<!--
+    Esta etiqueta define un contenedor 'div' con la clase 'collapse' y las clases adicionales 'navbar-collapse'.
+    El atributo 'id' asigna el identificador "navbarResponsive" al contendedor de elementos de navegación, lo que permite controlar su visibilidad
+-->
+<ul class="navbar-nav ms-auto">
+<!--
+    Esta etiqueta define una lista no ordenada 'ul' con la clase 'navbar-nav' y la clase adicional 'ms-auto' para alinear los elementos de navegación a la derecha de la barra de navegación.
+    Los elementos de esta lista representan los enlaces de navegación.
+-->
+<li class="nav-item"><a class="nav-link" href="#conocenos">Conocenos</a></li>
+<!--
+    Esta etiqueta define un elemento de lista 'li' con la clase 'nav-item'.
+    El contenido del elemento de la lista es un enlace 'a' con la clase 'nav-link' y el atributo 'href="#conocenos"', que lleva al elemento con el identificador "conocenos" en el documento.
+    Esto respresenta un enlace de navegación llamado "Conocenos" 
+-->
