@@ -1,0 +1,26 @@
+<meta charset="utf-8"> 
+<!--especifica el juego de carateres, UTF-8 es un conjunto de caracteres ampliamante utilizado y compatible con varios idiomas y símbolos-->
+
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!--estable la vista del documento en un dispisitivo movil: width= device-width <<indica que el ancho de la vista debe ser igaul al ancho del dispositivo>> initial-sacel=1<<establece el nivel de zoom inicial en 1>> shrink-to-fit=no <<evita que a pagina se ajuste automaticamente al ancho de la pantalla>> -->
+
+<meta name="description" content=""/>
+<!---este atributo define una descripcion breve del contennido de la página, en este caso, el contenido esta vacío y se espera que lo completees con uns descripcion adecuada--->
+
+<meta name="author" content="" />
+<!---este atributo define a los autores del contenido de la página.Al igual que la descrición, este está vacio y se espera que lo completes con los detalles correspondientes-->
+
+<link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+<!--este ttributo enlaza el ícono de la página.El atributo 'href' especifíca la ruta del archivo de ícono(favicon.ico) ubicado en la carpeta 'assets'-->
+
+<script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+<!--este atributo enlaza el script de Font Awesome, una biblioteca de iconos popúlares.El atributo 'src' especifíca la ubicación del archivo en línea-->
+
+<link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
+<!--este atributo enlaza la fuente "Valera Round" desde Googel Fonts.El atributo 'href' especifica la ubicación del arachivo fuente-->
+
+<link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
+<!--este atributo enlaza lafuente "Nunito" en diferentes pesos y estilos desde Google Fonts.El atributo 'href' especifíca la ubicación del archivo de la fuente-->
+
+<link href="css/styles.css" rel="stylesheet" />
+<!--este atributo enlaza la hoja de estilo principal del tema.El atributo 'href' especifíca la ubicación del archivo CSS llamado "styes.css" en la carpete "css" -->
