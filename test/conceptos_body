@@ -41,9 +41,54 @@ El atributo 'id="page-top"' asigna un identificador único a este elemento del c
     Esta etiqueta define una lista no ordenada 'ul' con la clase 'navbar-nav' y la clase adicional 'ms-auto' para alinear los elementos de navegación a la derecha de la barra de navegación.
     Los elementos de esta lista representan los enlaces de navegación.
 -->
+
 <li class="nav-item"><a class="nav-link" href="#conocenos">Conocenos</a></li>
 <!--
     Esta etiqueta define un elemento de lista 'li' con la clase 'nav-item'.
     El contenido del elemento de la lista es un enlace 'a' con la clase 'nav-link' y el atributo 'href="#conocenos"', que lleva al elemento con el identificador "conocenos" en el documento.
     Esto respresenta un enlace de navegación llamado "Conocenos" 
+-->
+
+<li class="nav-item"><a class="nav-link" href="trabajos">Trabajos</a></li>
+<li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+<!--
+    Estos códigos son similares a los anteriores
+-->
+
+<header class="masthead">
+<!--
+    Esta etiqueta define el encabezado 'header' con la clase 'masthead', que representa el área principal del contenido de la página.
+-->
+
+<div class="container px-4 px-5 px-lg-5 d-flex h-100 align-items-center justify-content-center">
+<!--
+    Esta etiqueta define un contendor 'div' con la clase 'container', las clases adicionales 'px-4' y 'px-lg-5' para establecer el relleno horizontal, y las clases 'd-flex','h-100','align-items-center' y 'justify-content-center' para alinear y centrar verticalmenten su contenido
+-->
+
+<div class="d-flex justify-content-center">
+<!---
+    Esta etiqueta define un contenedor 'div' con la clase 'd-flex' que y la calse 'justify-content-center', que alinea horizontalmente su contenido en el centro.
+-->
+
+<div class="text-center">
+<!--
+    Esta etiqueta define un contenedor 'div' con la clase 'text-center' , que alinea el contenido de manera centrada horizontalmente.   
+-->
+
+<h1 class="mx-auto my-0 text-uppercase">Grayscale</h1>
+<!--
+    Esta etiqueta defien un encabezado de nivel1 'h1' con las clases 'mx-auto'(margen horizontal automático),'my-0'(sin margen vertical) y 'text-uppercase'(texto en mayúsculas).El contenido de "Grayscale"
+-->
+
+<h2 class="text-white-50 mx-auto mt-2 mb-5">responsive, one page Bootstrap theme created by Start Bootstrap.</h2>
+<!--
+    Esta etiqueta define un encabezado de nivel2 'h2' con la clase 'text-white-50' (texto en color blanco con opacidad del %50), las clases 'mx-auto'(margen horizontal automático),'mt2'(margen superior de 2 unidades)y 'mb-5'(margen inferior de 5 unidades).
+    El contenido del encabezado es una descripción del tema "Grayscale" creado por Start Bootstrap.
+-->
+
+<a class="btn btn-primary" href="#conocenos">¡Comienza ya!</a>
+<!--
+    Esta etiqueta define un enlace 'a' con la clase 'btn' y 'btn-primary', que muestra un botón con un estilo de botón primario.
+    Este atributo 'href="#conocenos"' especifica que el enlace lleva al elemento con el identificador "conocenos" en el documento.
+    El texto del botón es "Get Started".
 -->
