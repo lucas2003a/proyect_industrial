@@ -44,7 +44,7 @@
               <a class="nav-link" href="#trabajos">Trabajos</a>
             </li>
             <li class ="nav-item">
-              <a class="nav-link" href="#singup">Contacto</a>
+              <a class="nav-link" href="#signup">Contacto</a>
             </li>
           </ul>
         </div>
@@ -68,8 +68,8 @@
         <div class="row gx-4 gx-lg-5 justify-content-center">
           <div class="col-lg-8">
             <div>
-              <h2 class="text-primary mb-4">Hecho por Lucas</h2>
-              <p class="text-primary"> <!--white-50"> -->
+              <h2 class="text-white mb-4">Hecho por Lucas</h2>
+              <p class="text-white-50"> 
               Grayscale is a free Bootstrap theme created by Start Bootstrap. It can be yours right now, simply download the template on 
               <a href="https://startbootstrap.com/theme/grayscale/">vista previa</a>
               The theme is open source, and you can use it for any purpose, personal or commercial.
@@ -126,8 +126,8 @@
         </div>
       </div>
     </section>
-    <!--singup-->
-    <section class="singup-section" id="singup">
+    <!--signup-->
+    <section class="signup-section" id="signup">
       <div class="container px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5">
           <div class="col-md-10 col-lg-8 mx-auto text-center">
@@ -140,14 +140,14 @@
             <!-- To make this form functional, sign up at-->
             <!-- https://startbootstrap.com/solution/contact-forms-->
             <!-- to get an API token!-->
-            <form class="form-singup" id="contacForm" data-sb-form-api-token="API_TOKEN">
+            <form class="form-signup" id="contacForm" data-sb-form-api-token="API_TOKEN">
               <!--Email address input-->
               <div class="row input-group-newsletter">
                 <div class="col">
                   <input class="form-control" id="emailAddress" type="email" placeholder="Ingresa tu dirección email ..." arial-label="Ingresa tu dirección email ..." data-sb-validations="required,email">
                 </div>
                 <div class="col-auto">
-                  <button class="btn btn-disabled" id="submitButton" type="submit">Notify me</button>
+                  <button class="btn btn-primary disabled" id="submitButton" type="submit">Notify me</button>
                 </div>  
               </div>
               <div class="invalid-feedback mt-2" data-sb-feedback="emailAddress:required">An email is required</div>
