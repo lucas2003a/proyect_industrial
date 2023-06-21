@@ -18,14 +18,11 @@
   <!-- Core theme CSS (includes Bootstrap)-->
   <link href="css/style.css" rel="stylesheet"/>
 
-  <!-- Bootstrap CSS v5.2.1 -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
 
 </head>
 
 <body id="page-top">
-  <!--Navitagion-->
+  <!--Navigation-->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
       <div class="container px-4 px-lg-5">
         <a class="navbar-brand" href="#page-top">Inicio</a>
@@ -37,15 +34,9 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ms-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="#conocenos">Conocenos</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#trabajos">Trabajos</a>
-            </li>
-            <li class ="nav-item">
-              <a class="nav-link" href="#signup">Contacto</a>
-            </li>
+            <li class="nav-item"><a class="nav-link" href="#conocenos">Conocenos</a></li>
+            <li class="nav-item"><a class="nav-link" href="#trabajos">Trabajos</a></li>
+            <li class ="nav-item"><a class="nav-link" href="#signup">Contacto</a></li>
           </ul>
         </div>
       </div>
@@ -55,7 +46,9 @@
       <div class="container px-4 px-lg-5 d-flex h-100 align-items-center justify-content-center">
         <div class="d-flex justify-content-center">
           <div class="text-center">
-            <h1 class="mx-auto my-0 text-uppercase">Grayscale</h1>
+            <h1 class="mx-auto my-0 text-uppercase">Jhon.f kennedy</h1>
+            <h3 class="mx-auto my-0 text-uppercase">industrial</h3>
+            <h4 class="mx-auto my-0 text-uppercase">chincha</h4>
             <h2 class="text-white-50 mx-auto mt-2 mb-5">A free, responsive, one page Bootstrap theme created by Start Bootstrap.</h2>
             <a class="btn btn-primary" href="#conocenos">¡Comienza ya!</a>
           </div>
@@ -131,8 +124,8 @@
       <div class="container px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5">
           <div class="col-md-10 col-lg-8 mx-auto text-center">
-            <i class="far fa-paper-plane fa-2x mb-2 text-black"></i>
-            <h2 class="text-black mb-5">Subscribete para recibir actualizaciones</h2>
+            <i class="far fa-paper-plane fa-2x mb-2 text-white"></i>
+            <h2 class="text-white mb-5">Subscribete para recibir actualizaciones</h2>
             <!-- * * * * * * * * * * * * * * *-->
             <!-- * * SB Forms Contact Form * *-->
             <!-- * * * * * * * * * * * * * * *-->
@@ -157,7 +150,7 @@
               <!-- This is what your users will see when the form-->
               <!-- has successfully submitted-->
               <div class="d-none" id="submitSuccessMessage">
-                <div class="text-center mb-3 mt-2 text-black">
+                <div class="text-center mb-3 mt-2 text-white">
                   <div class="fw-bolder">Subscripción a formulario exitosa!</div>
                   Para activar ete formulario, registrate en
                   <br>
@@ -239,14 +232,6 @@
   <footer class="footer bg-black small text-center text-white-50"><div class="container px-4 px-lg-5">Copyright &copy; Your Website 2023</div>
   <!-- place footer here -->
   </footer>
-  <!-- Bootstrap JavaScript Libraries -->
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
-    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
-  </script>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
-    integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
-  </script>
   <!-- Bootstrap core JS-->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
   <!-- Core theme JS-->
