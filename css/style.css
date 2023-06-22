@@ -2849,14 +2849,14 @@ textarea.form-control-lg {
 
 .btn-primary {
   --bs-btn-color: #fff;
-  --bs-btn-bg: #64a19d;
+  --bs-btn-bg: #0552f8;
   --bs-btn-border-color: #64a19d;
   --bs-btn-hover-color: #fff;
-  --bs-btn-hover-bg: #558985;
+  --bs-btn-hover-bg: #0043d3;
   --bs-btn-hover-border-color: #50817e;
   --bs-btn-focus-shadow-rgb: 123, 175, 172;
   --bs-btn-active-color: #fff;
-  --bs-btn-active-bg: #50817e;
+  --bs-btn-active-bg: #023ab4;
   --bs-btn-active-border-color: #4b7976;
   --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
   --bs-btn-disabled-color: #fff;
@@ -2934,10 +2934,10 @@ textarea.form-control-lg {
 
 .btn-danger {
   --bs-btn-color: #fff;
-  --bs-btn-bg: #254dd2;
+  --bs-btn-bg: #f80011;
   --bs-btn-border-color: #a16468;
   --bs-btn-hover-color: #fff;
-  --bs-btn-hover-bg: #1c40b5;
+  --bs-btn-hover-bg: #c70310;
   --bs-btn-hover-border-color: #815053;
   --bs-btn-focus-shadow-rgb: 175, 123, 127;
   --bs-btn-active-color: #fff;
@@ -3018,14 +3018,14 @@ textarea.form-control-lg {
 }
 
 .btn-outline-primary {
-  --bs-btn-color: #64a19d;
+  --bs-btn-color: #0043d3;
   --bs-btn-border-color: #64a19d;
   --bs-btn-hover-color: #fff;
-  --bs-btn-hover-bg: #64a19d;
+  --bs-btn-hover-bg: #0043d3;
   --bs-btn-hover-border-color: #64a19d;
   --bs-btn-focus-shadow-rgb: 100, 161, 157;
   --bs-btn-active-color: #fff;
-  --bs-btn-active-bg: #64a19d;
+  --bs-btn-active-bg: #023ab4;
   --bs-btn-active-border-color: #64a19d;
   --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
   --bs-btn-disabled-color: #64a19d;
@@ -11146,6 +11146,11 @@ body {
   margin-bottom: 5rem;
 }
 
+.conocenos-section .img-fluid{
+  max-width: 600px;
+  max-height: 465px;
+  padding-bottom: 2%;
+}
 .trabajos-section {
   padding: 10rem 0;
 }
@@ -11163,14 +11168,21 @@ body {
   font-size: 90%;
 }
 @media (min-width: 992px) {
-  .trabajos-section .project-text {
-    padding: 5rem;
+  .trabajos-section .project-text1 {
+    padding: 0 0 0 2rem;
+    border-right: 0.5rem solid #64a19d;
+  }
+}
+@media (min-width: 992px) {
+  .trabajos-section .project-text2 {
+    padding: 0 0 0 2rem;
+    border-left: 0.5rem solid #64a19d;
   }
 }
 
 .signup-section {
   padding: 10rem 0;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.5) 75%, #000 100%), url("../views/img/bg-signup.jpg");
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.5) 75%, #000 100%), url("../views/img/fondo.png");
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: scroll;

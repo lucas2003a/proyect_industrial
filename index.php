@@ -37,6 +37,7 @@
             <li class="nav-item"><a class="nav-link" href="#conocenos">Conocenos</a></li>
             <li class="nav-item"><a class="nav-link" href="#trabajos">Trabajos</a></li>
             <li class ="nav-item"><a class="nav-link" href="#signup">Contacto</a></li>
+            <li><a type="button" class="btn btn-outline-primary mt-2" href="views/login.php">login</a></li>
           </ul>
         </div>
       </div>
@@ -50,7 +51,7 @@
             <h3 class="mx-auto my-0 text-uppercase">industrial</h3>
             <h4 class="mx-auto my-0 text-uppercase">chincha</h4>
             <h2 class="text-white-50 mx-auto mt-2 mb-5 text-uppercase">honor, lealtad y disciplina</h2>
-            <a class="btn btn-danger" href="#conocenos">¡Comienza ya!</a>
+            <a class="btn btn-primary" href="#conocenos">¡Comienza ya!</a>
           </div>
         </div>
       </div>
@@ -69,7 +70,7 @@
               </p>
             </div>
           </div>
-          <img class="img-fluid" src="views/img/jhon_f.kennedy-removebg-preview.png" alt="...">
+          <img class="img-fluid justify-content-center" src="views/img/Escudo_de_Chincha_alta1.png" alt="...">
       </div>
     </section>
     <!--trabajos-->
@@ -78,7 +79,7 @@
         <!--proyecto presentado-->
         <div class="row gx-0 mb-4 mb-lg-5 align-items-center">
           <div class="col-xl-8 col-lg-7">
-            <img class="img-fluid mb-3 mb-lg-0" src="views/img/fondo.png" alt="...">
+            <img class="img-fluid mb-3 mb-lg-0" src="views/img/jhon_f.kennedy-removebg-preview.png" alt="...">
           </div>
           <div class="col-xl-4 col-lg-5">
             <div class="presentado-text text-center">
@@ -91,11 +92,11 @@
         <div class="row gx-0 mb-5 mb-lg-0 justify-content-center">
           <div class="col-lg-6"><img class="img-fluid" src="views/img/banda.png" alt="..."></div>
           <div class="col-lg-6">
-            <div class="bg-black text-center h-100 project">
+            <div class="text-center h-100 project">
               <div class="d-flex h-100">
-                <div class="project-text w-100 my-auto text-center text-lg-left">
-                  <h4 class="text-white">Misty</h4>
-                  <p class="mb-0 text-white-50">An example of where you can put an image of a project, or anything else, along with a description</p>
+                <div class="project-text1 w-100 my-auto text-center text-lg-left">
+                  <h4 class="text-black">Misty</h4>
+                  <p class="mb-0 text-black-50">An example of where you can put an image of a project, or anything else, along with a description</p>
                 </div>
               </div>
             </div>
@@ -107,11 +108,11 @@
             <img class="img-fluid" src="views/img/colegio.png" alt="...">
           </div>
           <div class="col-lg-6 order-lg-first">
-            <div class="bg-black text-center h-100 project">
+            <div class="text-center h-100 project">
               <div class="d-flex h-100">
-                <div class="project-text w-100 my-auto text-center text-lg-rigth">
-                  <h4 class="text-white">Mountains</h4>
-                  <p class="mb-0 text-white-50">Another example of a project with its respective description. These sections work well responsively as well!</p>
+                <div class="project-text2 w-100 my-auto text-center text-lg-rigth">
+                  <h4 class="text-black">Mountains</h4>
+                  <p class="mb-0 text-black-50">Another example of a project with its respective description. These sections work well responsively as well!</p>
                 </div>
               </div>
             </div>
