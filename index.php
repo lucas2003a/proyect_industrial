@@ -49,8 +49,8 @@
             <h1 class="mx-auto my-0 text-uppercase">Jhon.f kennedy</h1>
             <h3 class="mx-auto my-0 text-uppercase">industrial</h3>
             <h4 class="mx-auto my-0 text-uppercase">chincha</h4>
-            <h2 class="text-white-50 mx-auto mt-2 mb-5">A free, responsive, one page Bootstrap theme created by Start Bootstrap.</h2>
-            <a class="btn btn-primary" href="#conocenos">¡Comienza ya!</a>
+            <h2 class="text-white-50 mx-auto mt-2 mb-5 text-uppercase">honor, lealtad y disciplina</h2>
+            <a class="btn btn-danger" href="#conocenos">¡Comienza ya!</a>
           </div>
         </div>
       </div>
@@ -69,7 +69,7 @@
               </p>
             </div>
           </div>
-          <img class="img-fluid" src="views/img/ipad.png" alt="...">
+          <img class="img-fluid" src="views/img/jhon_f.kennedy-removebg-preview.png" alt="...">
       </div>
     </section>
     <!--trabajos-->
@@ -78,7 +78,7 @@
         <!--proyecto presentado-->
         <div class="row gx-0 mb-4 mb-lg-5 align-items-center">
           <div class="col-xl-8 col-lg-7">
-            <img class="img-fluid mb-3 mb-lg-0" src="views/img/bg-masthead.jpg" alt="...">
+            <img class="img-fluid mb-3 mb-lg-0" src="views/img/fondo.png" alt="...">
           </div>
           <div class="col-xl-4 col-lg-5">
             <div class="presentado-text text-center">
@@ -89,7 +89,7 @@
         </div>
         <!---project one row-->
         <div class="row gx-0 mb-5 mb-lg-0 justify-content-center">
-          <div class="col-lg-6"><img class="img-fluid" src="views/img/demo-image-01.jpg" alt="..."></div>
+          <div class="col-lg-6"><img class="img-fluid" src="views/img/banda.png" alt="..."></div>
           <div class="col-lg-6">
             <div class="bg-black text-center h-100 project">
               <div class="d-flex h-100">
@@ -104,7 +104,7 @@
         <!--project two row-->
         <div class="row gx-0 justify-content-center">
           <div class="col-lg-6">
-            <img class="img-fluid" src="views/img/demo-image-02.jpg" alt="...">
+            <img class="img-fluid" src="views/img/colegio.png" alt="...">
           </div>
           <div class="col-lg-6 order-lg-first">
             <div class="bg-black text-center h-100 project">

@@ -2934,10 +2934,10 @@ textarea.form-control-lg {
 
 .btn-danger {
   --bs-btn-color: #fff;
-  --bs-btn-bg: #a16468;
+  --bs-btn-bg: #254dd2;
   --bs-btn-border-color: #a16468;
   --bs-btn-hover-color: #fff;
-  --bs-btn-hover-bg: #895558;
+  --bs-btn-hover-bg: #1c40b5;
   --bs-btn-hover-border-color: #815053;
   --bs-btn-focus-shadow-rgb: 175, 123, 127;
   --bs-btn-active-color: #fff;
@@ -11069,7 +11069,7 @@ body {
   height: auto;
   min-height: 35rem;
   padding: 15rem 0;
-  background: linear-gradient(to bottom, rgba(210, 209, 209, 1) 0%, rgba(0, 0, 0, 0.7) 75%, #000 100%), url("../views/img/descarga-removebg-preview.png");
+  background: linear-gradient(to bottom, rgba(210, 209, 209, 1) 0%, rgba(0, 0, 0, 0.7) 75%, #000 100%), url("../views/img/zyro-image.png");
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: scroll;
@@ -11102,6 +11102,17 @@ body {
   line-height: 2.5rem;
   letter-spacing: 0.8;
   background: linear-gradient(rgba(214, 3, 3, 1),rgba(57, 17, 242, 1));
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+          background-clip: text;
+}
+
+.masthead h4, .masthead .h4{
+  font-family: "Varela Round", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 2rem;
+  line-height: 2rem;
+  letter-spacing: 0.4rem;
+  background: linear-gradient(rgba(255, 250, 105, 0.8),rgba(0, 0, 0, 1));
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
           background-clip: text;
