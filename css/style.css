@@ -11292,4 +11292,23 @@ body {
   background-color: #023ab4;
 }
 
+.registro-section{
+  position: relative;
+  height: 100%;
+  width: 100%;
+  min-height: 35rem;
+  padding: 15rem;
+  background: linear-gradient(to bottom,rgba(210, 209, 209, 1) 0%, rgba(0, 0, 0, 0.7) 75%, #000 100%), url("../views/img/zyro-image.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-size: cover;
+}
 
+.registro-section .card-header{
+  color: #0552f8;
+  font-size: 80px;
+  font-weight: 800;
+  letter-spacing: 0.2rem;
+  margin-bottom: 0;
+}
