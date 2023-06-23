@@ -24,45 +24,25 @@
     <!-- place navbar here -->
   </header>
   <section class="login-section">
-  <div id="login">
-        <h3 class="text-center text-white pt-5">Login form</h3>
-        <div class="container">
-            <div id="login-row" class="row justify-content-center align-items-center">
-                <div id="login-column" class="col-md-6">
-                    <div id="login-box" class="col-md-12">
-                        <form id="login-form" class="form" action="" method="post">
-                            <div class="card">
-                              <div class="card-header">
-                                Header
-                              </div>
-                              <div class="card-body">
-                                <h3 class="text-center text-info">Login</h3>
-                                <div class="form-group">
-                                    <label for="username" class="text-info">Username:</label><br>
-                                    <input type="text" name="username" id="username" class="form-control">
-                                </div>
-                                <div class="form-group">
-                                    <label for="password" class="text-info">Password:</label><br>
-                                    <input type="text" name="password" id="password" class="form-control">
-                                </div>
-                                <div class="form-group">
-                                    <label for="remember-me" class="text-info"><span>Remember me</span> <span><input id="remember-me" name="remember-me" type="checkbox"></span></label><br>
-                                    <input type="submit" name="submit" class="btn btn-info btn-md" value="submit">
-                                </div>
-                                <div id="register-link" class="text-right">
-                                    <a href="#" class="text-info">Register here</a>
-                                </div>
-                              </div>
-                              <div class="card-footer text-muted">
-                                Footer
-                              </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
+  <div class="container px-4 px-lg-5">
+    <div class="row gx-4 gxlg-5 d-flex  justify-content-center">
+      <div class="col-md-6 col-sm-8 mb-3 md-mb-0">
+        <div class="card py-4 px-4 h-100 text-center">
+          <div class="card-header">
+            <i class="fa fa-user-circle"></i>
+            <h1 class="text-black text-uppercase">Login</h1>
+            <h2 class="text-black-50 text-uppercase">registrate ya</h2>
+          </div>
+          <div class="card-body">
+            div
+          </div>
+          <div class="card-footer text-muted">
+            Footer
+          </div>
         </div>
+      </div>
     </div>
+  </div>
   </section>
   <main>
   </main>
