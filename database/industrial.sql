@@ -1,5 +1,5 @@
-CREATE DATABASE industrialJFK;
-USE industrialJFK
+CREATE DATABASE industrialbd;
+USE industrialbd;
 
  
  /****************************************************
@@ -19,7 +19,7 @@ CREATE TABLE turnos
 CREATE INDEX idx_idturno ON turnos (idturno);
 CREATE INDEX idx_turno ON turnos (turno);
 
-INSERT INTO turnos(turno,usuario) VALUES ('MAÑANA','ADMIN'),('TARDE','ADMIN')
+INSERT INTO turnos(turno,usuario) VALUES ('MAÑANA','ADMIN'),('TARDE','ADMIN');
 
 SELECT * FROM turnos
 
@@ -43,7 +43,7 @@ CREATE INDEX idx_grado ON grados (grado);
 
  INSERT INTO grados(idturno,grado,usuario) VALUES
 (1,'PRIMERO','ADMIN'),(1,'SEGUNDO','ADMIN'),(1,'TERCERO','ADMIN'),(1,'CUARTO','ADMIN'),(1,'QUINTO','ADMIN'),
-(2,'PRIMERO','ADMIN'),(2,'SEGUNDO','ADMIN'),(2,'TERCERO','ADMIN'),(2,'CUARTO','ADMIN'),(2,'QUINTO','ADMIN')
+(2,'PRIMERO','ADMIN'),(2,'SEGUNDO','ADMIN'),(2,'TERCERO','ADMIN'),(2,'CUARTO','ADMIN'),(2,'QUINTO','ADMIN');
 
  SELECT * FROM grados
  
@@ -67,7 +67,7 @@ CREATE INDEX idx_seccion ON secciones (seccion);
 
 INSERT INTO secciones(idgrado,seccion,usuario) VALUES
 (1,'A','ADMIN'),(1,'B','ADMIN'),(1,'C','ADMIN'),(2,'D','ADMIN'),(2,'E','ADMIN'),(2,'F','ADMIN'),(3,'G','ADMIN'),(3,'H','ADMIN'),(3,'I','ADMIN'),(4,'J','ADMIN'),(4,'K','ADMIN'),
-(5,'L','ADMIN'),(5,'M','ADMIN')
+(5,'L','ADMIN'),(5,'M','ADMIN');
 
 SELECT * FROM secciones;
 
@@ -89,9 +89,9 @@ CREATE INDEX idx_idtaller ON talleres(idtaller);
 CREATE INDEX idx_taller ON talleres(taller);
 
 INSERT INTO talleres(taller,usuario)VALUES
-('EBANISTERÍA','ADMIN'),('ALABAÑILERÍA','ADMIN'),('INDSUTRIA TEXTIL','ADMIN')
+('EBANISTERÍA','ADMIN'),('ALABAÑILERÍA','ADMIN'),('INDSUTRIA TEXTIL','ADMIN');
 
-SELECT * FROM talleres
+SELECT * FROM talleres;
 
 /* AGREGAR UN CAMPO DE FECHA DE MODIFICACIÓN, QUE NO MODIFIQUE LA FECHA DE REGISTRO
 	PERO QUE SI LA ACTUALISE LA FECHA DE MODIFICACIÓN/*
@@ -111,10 +111,9 @@ CREATE TABLE departamentos
  CREATE INDEX idx_departamento ON departamentos(departamento);
  
  INSERT INTO departamentos(departamento)VALUES
- ('ICA'),('LIMA'),('LORETO')
+ ('ICA'),('LIMA'),('LORETO');
 
-SELECT * FROM departamentos
-
+SELECT * FROM departamentos;
 
 /*****************************************************
 ******************* PROVINCIAS ***********************
@@ -134,9 +133,9 @@ CREATE INDEX idx_iddepartamento ON provincias(iddepartamento);
 CREATE INDEX idx_provincia ON provincias(provincia);
 
 INSERT provincias(iddepartamento,provincia) VALUES
-(1,'CHINCHA'),(1,'PALPA'),(1,'NAZCA')
+(1,'CHINCHA'),(1,'PALPA'),(1,'NAZCA');
 
-SELECT * FROM provincias
+SELECT * FROM provincias;
 
  /*****************************************************
 ******************* DISTRITOS *************************
@@ -156,9 +155,9 @@ CREATE TABLE distritos
  CREATE INDEX idx_distrito ON distritos(distrito);
  
  INSERT INTO distritos(idprovincia,distrito)VALUES
- (1,'ALTO LARÁN'),(1,'GROCIO PRADO'),(1,'SUNAMPE')
+ (1,'ALTO LARÁN'),(1,'GROCIO PRADO'),(1,'SUNAMPE');
  
- SELECT * FROM distritos
+ SELECT * FROM distritos;
  
   /********************************************************
 ******************* PAR DE PADRES *************************
@@ -210,9 +209,9 @@ INSERT INTO parpadres VALUES
  (1,'ATUNCAR HERNANDEZ','CARLOS ALBERTO','DNI','1112223','1970-07-16','AV.SANTA ROSA#541','carlosalbatun@hotmail.com','956993597','SUPERIOR','TRABAJADOR','SI','CATOLICO',
 'VALERIO ALMEYDA','MARÍA ROSALVA','DNI','11122233','1969-12-21','AV, SANTA ROSA#541','mariavalerio@gmail.com','956993597','SUPERIOR','TRABAJADOR','SI','CATOLICO','2023-05-16','ADMIN',1),
 (2,'ATUNCAR HERNANDEZ','CARLOS ALBERTO','DNI','11122233','1970-07-16','AV.SANTA ROSA#541','carlosalbatun@hotmail.com','956993597','SUPERIOR','TRABAJADOR','SI','ATEO',
-'CUBA GUEVARA','GLORIA ELIZABETH','DNI','789456123','1969-12-21','AV, SANTA ROSA#541','MARIEL@gmail.com','956993597','SUPERIOR','TRABAJADOR','SI','ATEO','2023-05-16','ADMIN',1)
+'CUBA GUEVARA','GLORIA ELIZABETH','DNI','789456123','1969-12-21','AV, SANTA ROSA#541','MARIEL@gmail.com','956993597','SUPERIOR','TRABAJADOR','SI','ATEO','2023-05-16','ADMIN',1);
 
-SELECT * FROM parpadres
+SELECT * FROM parpadres;
 
   /********************************************************
 ******************* APODERADOS ****************************
@@ -244,9 +243,9 @@ CREATE INDEX idx_documento_nro_ap ON apoderados(documento_nro);
 
 INSERT INTO apoderados(apellidos,nombres,documento_tipo,documento_nro,sexo,fechanacimiento,direccion,correo,celular,parentesco,usuario)VALUES
 ('VALERIO ALMEYDA','MARÍA ATANASIA','DNI','12378946','F','1995-12-01','AV. PRIMAVERA','mariatan@gmial.com','999666333','ABUELA','ADMIN'),
-('MELO VALERIO','LORENA MERCEDES','DNI','12378945','F','1995-12-01','AV. PRIMAVERA','lorenamer@gmial.com','999666333','PRIMA','AADMIN')
+('MELO VALERIO','LORENA MERCEDES','DNI','12378945','F','1995-12-01','AV. PRIMAVERA','lorenamer@gmial.com','999666333','PRIMA','AADMIN');
 
-SELECT * FROM apoderados
+SELECT * FROM apoderados;
 
   /********************************************************
 ******************* ALUMNOS *******************************
@@ -299,7 +298,7 @@ INSERT INTO alumnos(apellidos,nombres,documento_tipo,documento_nro,sexo,fechanac
 ('ATUNCAR VALERIO','SAMUEL','DNI','77068572','M','2003-11-22',1,'AV.SANTA ROSA #541','lucasatuncar1gmail.com','922634773',3,2,'ATEO','ESPAÑOL','NO','NIGUNA','2023-05-17','2028-05-17',1,2,'ADMIN'),
 ('SOTO VILLAVICECIO','CARLOS','DNI','77068555','M','2003-11-22',1,'AV.SANTA ROSA #541','carlosso@gmail.com','922634773',1,3,'MUSULMAN','ESPAÑOL','NO','NIGUNA','2023-05-17','2028-05-17',1,1,'ADMIN'),
 ('VALERIO ALMEYDA','MARÍA ROSALVA','DNI','77068566','F','2003-11-22',1,'AV.SANTA ROSA #541','mariros@gmail.com','922634776',11,1,'CATOLICO','ESPAÑOL','NO','NIGUNA','2023-05-17','2028-05-17',1,1,'ADMIN'),
-('VALERIO ALMEYDA','MARÍA ROSALVA','DNI','77068560','F','2003-11-22',1,'AV.SANTA ROSA #541','mariros@gmail.com','922634776',12,2,'ATEO','ESPAÑOL','NO','NIGUNA','2023-05-17','2028-05-17',1,2,'ADMIN')
+('VALERIO ALMEYDA','MARÍA ROSALVA','DNI','77068560','F','2003-11-22',1,'AV.SANTA ROSA #541','mariros@gmail.com','922634776',12,2,'ATEO','ESPAÑOL','NO','NIGUNA','2023-05-17','2028-05-17',1,2,'ADMIN');
 
 
  SELECT * FROM alumnos;
@@ -323,7 +322,7 @@ CREATE INDEX idx_idtipopersopnal ON tipospersonal(idtipopersonal);
 CREATE INDEX idx_tipopersonal ON tipospersonal (tipopersonal);
 
 INSERT INTO tipospersonal(tipopersonal,usuario) VALUES
-('PROFESOR','ADMIN'),('DIRECTOR','ADMIN'),('BIBLITECARIA','ADMIN'),('SECRETARIA','ADMIN')
+('PROFESOR','ADMIN'),('DIRECTOR','ADMIN'),('BIBLITECARIA','ADMIN'),('SECRETARIA','ADMIN');
 
 SELECT * FROM tipospersonal;
 
@@ -359,7 +358,7 @@ CREATE INDEX idx_documento_nro ON personal(documento_nro);
 
 INSERT INTO personal(idtipopersonal,apellidos,nombres,documento_tipo,documento_nro,sexo,fechanacimiento,direccion,correo,celular,usuario)VALUES
 	(1,'MEZA GARCIA','GORVERT ALEJANDRO','CARNET DE EXTRANEJRÍA','12457856000000000000','M','1996-11-13','POR LA PLAZA DE ARMAS DE CHINCHA','grome@gmail.com','111222333','ADMIN'),
-	(1,'MARTINEZ SUNCION','CESAR','CARNET DE EXTRANEJRÍA','12457855000000000000','M','1996-11-13','POR LA PLAZA DE ARMAS DE CHINCHA','SUNCER@gmail.com','111222333','ADMIN')
+	(1,'MARTINEZ SUNCION','CESAR','CARNET DE EXTRANEJRÍA','12457855000000000000','M','1996-11-13','POR LA PLAZA DE ARMAS DE CHINCHA','SUNCER@gmail.com','111222333','ADMIN');
 
 SELECT * FROM personal
 
@@ -380,7 +379,7 @@ CREATE INDEX idx_idcurso ON cursos(idcurso);
 CREATE INDEX idx_curso ON cursos(curso);
 
 INSERT INTO cursos (curso,usuario)VALUES
-	('MATEMÁTICA','ADMIN'),('COMUNICACIÓN','ADMIN'),('ED.FÍSICA','ADMIN')
+	('MATEMÁTICA','ADMIN'),('COMUNICACIÓN','ADMIN'),('ED.FÍSICA','ADMIN');
 	
 SELECT * FROM cursos;	
 
@@ -409,9 +408,9 @@ CREATE INDEX idx_idpersonal ON detallecursos(idpersonal);
 
 INSERT INTO detallecursos(idcurso,fechainicio,fechatermino,contenido,idpersonal,usuario)VALUES
 	(1,'2023-06-12','2023-07-12','matmática para alumnos de 3 grado',1,'ADMIN'),
-	(2,'2023-06-12','2023-07-12','comunicación para alumnos de 3 grado',2,'ADMIN')
+	(2,'2023-06-12','2023-07-12','comunicación para alumnos de 3 grado',2,'ADMIN');
 	
-SELECT * FROM detallecursos
+SELECT * FROM detallecursos;
 
 -- ********** AULAS ***********
 CREATE TABLE aulas
@@ -432,7 +431,7 @@ INSERT INTO aulas(nroaula,usuario)VALUES
 ('301','USU'),
 ('1','USU'),
 ('2','USU'),
-('3','USU')
+('3','USU');
 
 SELECT * FROM aulas;
 
@@ -471,7 +470,7 @@ INSERT INTO horarios(dia,idseccion,iddetallecurso,horainicio,horatermino,idaula,
 ('LUNES',7,2,'13:00','14:00',1,'ADMIN'),('LUNES',8,2,'14:00','15:00',1,'ADMIN'),('LUNES',10,1,'15:00','16:00',1,'ADMIN'),('LUNES',11,2,'16:00','17:00',1,'ADMIN'),
 ('LUNES',12,1,'17:00','18:00',1,'ADMIN'),('LUNES',13,2,'1:00','2:00',1,'ADMIN');
 
-SELECT * FROM horarios -- grados order by grado asc
+SELECT * FROM horarios; -- grados order by grado asc
 
 /*****************************************************************************
 ******************************** ACCESOS *************************************
@@ -497,7 +496,6 @@ SELECT * FROM accesos;
 /*****************************************************************************
 ******************************** USUARIOS ************************************
 *****************************************************************************/
-
 CREATE TABLE usuarios
 (
 	idusuario			INT AUTO_INCREMENT PRIMARY KEY,

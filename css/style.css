@@ -11261,3 +11261,35 @@ body {
   letter-spacing: 0.2rem;
   margin-bottom: 0;
 }
+
+.login-section .registrarse a{
+  color: #0552f8;
+  text-decoration: underline;
+
+}
+.login-section .registrarse a:hover{
+  color: #0043d3;
+}
+
+.login-section .registrarse a:active{
+  color: #023ab4;
+}
+
+.login-section .icon-login a{
+  text-align: center;
+  height: 3rem;
+  width: 3rem;
+  background-color: #0552f8;
+  border-radius: 100%;
+  line-height: 3rem;
+  color: #fff;
+}
+.login-section .icon-login a:hover{
+  background-color: #0043d3;
+}
+
+.login-section .icon-login a:active{
+  background-color: #023ab4;
+}
+
+

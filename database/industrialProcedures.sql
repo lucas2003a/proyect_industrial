@@ -1,4 +1,4 @@
-USE industrialJFK
+USE industrialbd;
 
 /*********************************************************************
 ********************* TURNOS *****************************************
@@ -13,7 +13,7 @@ BEGIN
 	ORDER BY turno ASC;
 END $$
 
-CALL spu_listar_turnos()
+CALL spu_listar_turnos();
 
 /*********************************************************************
 ********************* GRADOS *****************************************
@@ -28,7 +28,7 @@ BEGIN
 	ORDER BY FIELD(grado,'PRIMERO','SEGUNDO','TERCERO','CUARTO','QUINTO');
 END $$
 
-CALL  spu_listar_grados(2)
+CALL  spu_listar_grados(2);
 
 /************************************************************************
 ************************* SECCIONES *************************************
@@ -42,8 +42,9 @@ BEGIN
 	WHERE idgrado = idgrado_
 	ORDER BY seccion ASC;
 END $$
+DELIMITER ;
 
-CALL spu_listar_secciones(2)
+CALL spu_listar_secciones(2);
 
 DELIMITER $$
 CREATE PROCEDURE spu_insertar_secciones
@@ -56,9 +57,10 @@ BEGIN
 	INSERT INTO secciones(idgrado,seccion,usuario)VALUES
 		(idgrado_,seccion_,usuario_);
 END $$
+DELIMITER ;
 
-CALL spu_insertar_secciones(6,'G','ADMIN')
-SELECT * FROM secciones
+CALL spu_insertar_secciones(6,'G','ADMIN');
+SELECT * FROM secciones;
 
 DELIMITER $$
 CREATE PROCEDURE spu_modificar_secciones
@@ -75,8 +77,9 @@ BEGIN
 	usuario = usuario_
 	WHERE idseccion = idseccion_;
 END $$
+DELIMITER ;
 
-CALL spu_modificar_secciones(9,4,'I','ADMIN2')
+CALL spu_modificar_secciones(9,4,'I','ADMIN2');
 
 DELIMITER $$
 CREATE PROCEDURE spu_eliminar_secciones(IN idseccion_ INT)
@@ -85,8 +88,9 @@ BEGIN
 	estado = '0'
 	WHERE idseccion = idseccion_;
 END $$
+DELIMITER ;
 
-CALL spu_eliminar_secciones(4)
+CALL spu_eliminar_secciones(4);
 
 /*********************************************
 **************** TALLERES ********************
@@ -100,8 +104,9 @@ BEGIN
 	WHERE estado = '1'
 	ORDER BY taller ASC;
 END $$
+DELIMITER ;
 
-CALL spu_listar_talleres()
+CALL spu_listar_talleres();
 
 DELIMITER $$
 CREATE PROCEDURE spu_insertar_talleres
@@ -113,8 +118,9 @@ BEGIN
  INSERT INTO talleres(taller,usuario)VALUES
 		(taller_,usuario_);
 END $$
+DELIMITER ;
 
-CALL spu_insertar_talleres('MECANICA AUTOMITRÍZ','ADMIN')
+CALL spu_insertar_talleres('MECANICA AUTOMITRÍZ','ADMIN');
 
 DELIMITER $$
 CREATE PROCEDURE spu_modificar_talleres
@@ -129,8 +135,9 @@ BEGIN
 		usuario = usuario_
 		WHERE idtaller = idtaller_;
 END $$
+DELIMITER ;
 
-CALL spu_modificar_talleres(3,'INDUSTRIA DE VESTIDO','ADMIN')
+CALL spu_modificar_talleres(3,'INDUSTRIA DE VESTIDO','ADMIN');
 
  /* AGREGAR UN CAMPO DE FECHA DE MODIFICACIÓN Y USUARIO DE MODIFCACIÓN, QUE NO MODIFIQUE LA FECHA DE REGISTRO NI AL USUARIO DE REGISTRO
 	PERO QUE SI LA ACTUALISE LA FECHA DE MODIFICACIÓN Y EL USUARIO DE MODIFICACIÓN*/
@@ -142,8 +149,9 @@ BEGIN
 		estado = '0'
 	WHERE idtaller = idtaller_;
 END $$
+DELIMITER ;
 
-CALL spu_eliminar_talleres(3)
+CALL spu_eliminar_talleres(3);
 
   /********************************************************
 ******************* PAR DE PADRES *************************
@@ -181,8 +189,9 @@ BEGIN
 	WHERE estado = '1'
 	ORDER BY 2,13 ASC;
 END$$
+DELIMITER ;
 
-CALL spu_listar_parpadres()
+CALL spu_listar_parpadres();
 
 DELIMITER $$
 CREATE PROCEDURE spu_insertar_parpadres
@@ -219,9 +228,10 @@ BEGIN
 	(apellidospadre_,nombrespadre_,documento_tipo_,documento_nro_,fechanacimiento_,direccion_,correo_,celular_,gradoinstruccion_,ocupacion_,convivencia_,religion_,
 	apellidosmadre_,nombresmadre_,documento_tipoM_,documento_nroM_,fechanacimientoM_,direccionM_,correoM_,celularM_,gradoinstruccionM_,ocupacionM_,convivenciaM_,religion_,usuario_); 
 END $$
+DELIMITER ;
 
 CALL spu_insertar_parpadres('TIPIÁN ROMÁN','MANUEL ALEXANDER','DNI','12345678974852963122','1956-12-12','AV LOS JAZMINES','mau@gmail.com','956874123','SECUNDARIO','ALBAÑIL','SI','MORMÓN',
-'VALENZUEA ROBLES','DIANA ALEXA','CARNET DE EXTRANJERÍA','12345678974852963123','1998-10-15','AV LOS JAZMINES','dialax@gmail.com','852741963','SUPERIOR','TECNICA CONTABLE','SI','MORMÓN','ADMIN')
+'VALENZUEA ROBLES','DIANA ALEXA','CARNET DE EXTRANJERÍA','12345678974852963123','1998-10-15','AV LOS JAZMINES','dialax@gmail.com','852741963','SUPERIOR','TECNICA CONTABLE','SI','MORMÓN','ADMIN');
 
 DELIMITER $$
 CREATE PROCEDURE spu_modificar_parpadres
@@ -282,9 +292,10 @@ BEGIN
 				usuario = usuario_
 				WHERE idparpadre = idparpadre_;
 END $$
+DELIMITER ;
 
-CALL spu_modificar_parpadres(3,'TIPIÁN ROMÁN','MANUEL ALEXANDER','DNI','12345678974852963122','1956-12-12','AV LOS JAZMINES','mau@gmail.com','956874123','SECUNDARIO','ALBAÑIL','SI','MORMÓN',
-'VALENZUEA ROBLES','DIANA ALEXA','CARNET DE EXTRANJERÍA','12345678974852963123','1998-10-15','AV LOS JAZMINES','dialexa@gmail.com','852741963','SUPERIOR','CONTADORA','SI','MORMÓN','ADMIN2')
+CALL spu_modificar_parpadres(3,'TIPIÁN ROMÁN','MANUEL ALEXANDER','DNI','12345678974852963148','1956-12-12','AV LOS JAZMINES','mau@gmail.com','956874123','SECUNDARIO','ALBAÑIL','SI','MORMÓN',
+'VALENZUEA ROBLES','DIANA ALEXA','CARNET DE EXTRANJERÍA','12345678974852963123','1998-10-15','AV LOS JAZMINES','dialexa@gmail.com','852741963','SUPERIOR','CONTADORA','SI','MORMÓN','ADMIN2');
 
 DELIMITER $$
 CREATE PROCEDURE spu_eliminar_parpadres(IN idparpadre_ INT)
@@ -293,8 +304,9 @@ BEGIN
 	estado = '0'
 	WHERE idparpadre = idparpadre_;
 END $$
+DELIMITER;
 
-CALL spu_eliminar_parpadres(3)
+CALL spu_eliminar_parpadres(3);
 
 /*********************************************
 **************** APODERADOS ******************
@@ -318,6 +330,7 @@ BEGIN
 	WHERE estado = '1'
 	ORDER BY apellidos ASC;
 END $$
+DELIMITER ;
 
 CALL spu_listar_apoderados();
 
@@ -340,8 +353,9 @@ BEGIN
 	INSERT INTO apoderados(apellidos,nombres,documento_tipo,documento_nro,sexo,fechanacimiento,direccion,correo,celular,parentesco,usuario)VALUES
 		(apellidos_,nombres_,documento_tipo_,documento_nro_,sexo_,fechanacimiento_,direccion_,correo_,celular_,parentesco_,usuario_);
 END $$
+DELIMITER ;
 
-CALL spu_insertar_apoderados('PACHAS LOYOLA','WILFEDO ALFREDO','DNI','963789123','M','2000-12-01','AV ARENALES #313','paco@gmail.com','111222333','PAPÁ','ADMIN3')
+CALL spu_insertar_apoderados('PACHAS LOYOLA','WILFEDO ALFREDO','DNI','963789123','M','2000-12-01','AV ARENALES #313','paco@gmail.com','111222333','PAPÁ','ADMIN3');
 
 DELIMITER $$
 CREATE PROCEDURE spu_modificar_apoderados
@@ -374,8 +388,9 @@ BEGIN
 		usuario = usuario_
 		WHERE idapoderado = idapoderado_;
 END $$
+DELIMITER ;
 
-CALL spu_modificar_apoderados(2,'MELO VALERIO','LORENA MERCEDES','DNI','12378945','F','1995-12-01','AV. PRIMAVERA','lorenamer@gmial.com','999666333','PRIMA','ADMIN')
+CALL spu_modificar_apoderados(2,'MELO VALERIO','LORENA MERCEDES','DNI','12378945','F','1995-12-01','AV. PRIMAVERA','lorenamer@gmial.com','999666333','PRIMA','ADMIN');
 
 DELIMITER $$
 CREATE PROCEDURE spu_eliminar_apoderados(IN idapoderado_ INT)
@@ -384,8 +399,9 @@ BEGIN
 	estado = '0'
 	WHERE idapoderado = idapoderado_;
 END $$
+DELIMITER ;
 
-CALL spu_eliminar_apoderados(3)
+CALL spu_eliminar_apoderados(3);
 
 
 /**********************************
@@ -409,8 +425,9 @@ BEGIN
 	WHERE al.estado = '1'
 	ORDER BY al.apellidos;
 END $$
+DELIMITER ;
 
-CALL spu_listar_alumnos()
+CALL spu_listar_alumnos();
 
 /*******************************************************************************************************************************/
 DROP PROCEDURE spu_insertar_alumnos;
@@ -450,9 +467,10 @@ BEGIN
 		(apellidos_,nombres_,documento_tipo_,documento_nro_,sexo_,fechanacimiento_,iddistrito_,direccion_,correo_,celular_,idseccion_,idtaller_,religion_,lenguamaterna_,
 		lenguasegunda_,discapacidad_,fechaalta_,fechasese_,idparpadre_,idapoderado_,usuario_);
 END $$
+DELIMITER ;
 
 CALL spu_insertar_alumnos('ROMERO VILLA','GABRIEL ALEJANDRO','DNI','23569846','M','200-03-12',2,'AV. LAS MAGNOLIAS','456@gmail.com','123456789',6,2,'CATÓLICA','CASTELLANO',
-	'NINGUNA','NINGUNA','2023-02-19','',1,2,'ADMIN4')
+	'NINGUNA','NINGUNA','2023-02-19','',1,2,'ADMIN4');
 
 DROP PROCEDURE spu_modificar_alumnos;
 DELIMITER $$
@@ -506,8 +524,9 @@ BEGIN
 		usuario = usuario_
 		WHERE idalumno = idalumno_;
 END $$
+DELIMITER ;
  
-CALL spu_modificar_alumnos (1,'ATUNCAR ','LUCAS ALFREDO','DNI','77068571','M','2003-11-22',1,'AV.SANTA ROSA #541','lucasatuncar1gmail.com','922634773',1,1,'CATOLICO','ESPAÑOL','NO','NIGUNA','2023-05-17','2028-05-17',1,2,'ADMIN')
+CALL spu_modificar_alumnos (1,'ATUNCAR ','LUCAS ALFREDO','DNI','77068571','M','2003-11-22',1,'AV.SANTA ROSA #541','lucasatuncar1gmail.com','922634773',1,1,'CATOLICO','ESPAÑOL','NO','NIGUNA','2023-05-17','2028-05-17',1,2,'ADMIN');
 
 
 DELIMITER $$
@@ -517,7 +536,9 @@ BEGIN
 	estado = '0'
 		WHERE idalumno = idalumno_; 
 END $$
-CALL spu_eliminar_alumnos(6)
+DELIMITER ;
+
+CALL spu_eliminar_alumnos(6);
 
 /*******************************************************
 **************** TIPOS PERSONAL ************************
@@ -531,8 +552,9 @@ BEGIN
 	WHERE estado = '1'
 	ORDER BY tipopersonal ASC;
 END $$
+DELIMITER ;
 
- CALL spu_listar_tpersonal()
+CALL spu_listar_tpersonal();
  
 DELIMITER $$ 
 CREATE PROCEDURE spu_insertar_tpersonal
@@ -544,8 +566,9 @@ BEGIN
 	INSERT INTO tipospersonal(tipopersonal,usuario) VALUES 
 		(tipopersonal_,usuario_);
 END $$
+DELIMITER ;
 
-CALL spu_insertar_tpersonal('AUXILIAR','ADMIN')
+CALL spu_insertar_tpersonal('AUXILIAR','ADMIN');
 
 DELIMITER $$
 CREATE PROCEDURE spu_modificar_tpersonal
@@ -560,8 +583,9 @@ BEGIN
 		usuario = usuario_
 		WHERE idtipopersonal = idtipopersonal_;
 END $$
+DELIMITER ;
 
-CALL spu_modificar_tpersonal(3,'SUBDIRECTOR','ADMIN2')
+CALL spu_modificar_tpersonal(3,'SUBDIRECTOR','ADMIN2');
 
 DELIMITER $$
 CREATE PROCEDURE spu_eliminar_tpersonal(IN idtipopersonal_ INT)
@@ -570,8 +594,9 @@ BEGIN
 		estado = '0'
 	WHERE idtipopersonal = idtipopersonal_;
 END $$
+DELIMITER ;
 
-CALL spu_eliminar_tpersonal(3)
+CALL spu_eliminar_tpersonal(3);
 
 /*********************************************************************
 ********************** PERSONAL **************************************
@@ -586,8 +611,9 @@ BEGIN
 	WHERE per.estado = '1'
 	ORDER BY apellidos ASC;
 END $$
+DELIMITER ;
 
-CALL spu_listar_personal()
+CALL spu_listar_personal();
 
 DELIMITER $$
 CREATE PROCEDURE spu_insertar_personal
@@ -608,8 +634,9 @@ BEGIN
 	INSERT INTO personal(idtipopersonal,apellidos,nombres,documento_tipo,documento_nro,sexo,fechanacimiento,direccion,correo,celular,usuario) VALUES
 		(idtipopersonal_,apellidos_,nombres_,documento_tipo_,documento_nro_,sexo_,fechanacimiento_,direccion_,correo_,celular_,usuario_);
 END $$
+DELIMITER ;
 
-CALL spu_insertar_personal(3,'ROMANI CASTILLA','CARMEN ROSA','DNI','56457880','F','1999-12-01','AV. LOS SAUCES #341','carminroman@gmail.com','789456789','ADMIN')
+CALL spu_insertar_personal(3,'ROMANI CASTILLA','CARMEN ROSA','DNI','56457880','F','1999-12-01','AV. LOS SAUCES #341','carminroman@gmail.com','789456789','ADMIN');
 
 DELIMITER $$
 CREATE PROCEDURE spu_modificar_personal
@@ -642,8 +669,9 @@ BEGIN
 		usuario = usuario_
 		WHERE idpersonal = idpersonal_;
 END $$
+DELIMITER ;
 
-CALL spu_modificar_personal(2,1,'SUNCION MARTINEZ','CESAR NOLBERTO','DNI','12457855','M','1996-11-13','UNA CUADRA DE LA PLAZA DE ARMAS DE PUEBO NUEVO','suncer@gmail.com','111222333','ADMIN')
+CALL spu_modificar_personal(2,1,'SUNCION MARTINEZ','CESAR NOLBERTO','DNI','12457855','M','1996-11-13','UNA CUADRA DE LA PLAZA DE ARMAS DE PUEBO NUEVO','suncer@gmail.com','111222333','ADMIN');
  
 DELIMITER $$
 CREATE PROCEDURE spu_eliminar_personal(IN idpersonal_ INT)
@@ -651,9 +679,10 @@ BEGIN
 	UPDATE personal SET
 	estado = '0'
 	WHERE idpersonal = idpersonal_;
-END $$ 
+END $$
+DELIMITER ; 
 
-CALL spu_eliminar_personal(3)
+CALL spu_eliminar_personal(3);
 
 
 /***********************************************************
@@ -668,8 +697,9 @@ BEGIN
 	WHERE estado = '1'
 	ORDER BY curso ASC; 
 END $$
+DELIMITER ;
 
-CALL spu_listar_cursos()
+CALL spu_listar_cursos();
 
 DELIMITER $$
 CREATE PROCEDURE spu_insertar_cursos
@@ -681,8 +711,9 @@ BEGIN
 	INSERT INTO cursos (curso,usuario)VALUES
 		(curso_,usuario_);
 END $$
+DELIMITER ;
 
-CALL spu_insertar_cursos('CIENCIAS SOCIALES','ADMIN')
+CALL spu_insertar_cursos('CIENCIAS SOCIALES','ADMIN');
 
 DELIMITER $$
 CREATE PROCEDURE spu_modificar_cursos
@@ -697,8 +728,9 @@ BEGIN
 	usuario = usuario_
 	WHERE idcurso = idcurso_;
 END $$
+DELIMITER ;
 
-CALL spu_modificar_cursos(4,'BIOLOGÍA','USU1')
+CALL spu_modificar_cursos(4,'BIOLOGÍA','USU1');
 
 DELIMITER $$
 CREATE PROCEDURE spu_eliminar_cursos(IN idcurso_ INT)
@@ -707,8 +739,9 @@ BEGIN
 	 estado = '0'
 	 WHERE idcurso = idcurso_;
 END $$ 
+DELIMITER ;
 
-CALL spu_eliminar_cursos(2)
+CALL spu_eliminar_cursos(2);
 
 /**********************************************************************************
 ************************** DETALLE DE CURSOS **************************************
@@ -725,8 +758,9 @@ BEGIN
 	WHERE dtc.estado = '1'
 	ORDER BY cur.curso ASC;
 END $$
+DELIMITER ;
 
-CALL spu_listar_dtcursos()
+CALL spu_listar_dtcursos();
 
 DELIMITER $$
 CREATE PROCEDURE spu_insertar_dtcursos
@@ -742,8 +776,9 @@ BEGIN
 	INSERT INTO detallecursos(idcurso,idpersonal,fechainicio,fechatermino,contenido,usuario) VALUES
 	(idcurso_,idpersonal_,fechainicio_,fechatermino_,contenido_,usuario_);
 END $$
+DELIMITER ;
 
-CALL spu_insertar_dtcursos(1,1,'2023-12-28','2024-01-26','cursos novedosos','USU1')
+CALL spu_insertar_dtcursos(1,1,'2023-12-28','2024-01-26','cursos novedosos','USU1');
 
 DELIMITER $$
 CREATE PROCEDURE spu_modificar_dtcursos
@@ -766,8 +801,9 @@ BEGIN
 	usuario = usuario_
 	WHERE iddetallecurso = iddetallecurso_;
 END $$
+DELIMITER ;
 
-CALL spu_modificar_dtcursos(1,1,1,'2023-06-14','2023-07-14','matemática para alumnos de 3°','USU4')
+CALL spu_modificar_dtcursos(1,1,1,'2023-06-14','2023-07-14','matemática para alumnos de 3°','USU4');
 
 DELIMITER $$
 CREATE PROCEDURE spu_eliminar_dtcursos(IN iddetallecurso_ INT)
@@ -776,8 +812,9 @@ BEGIN
 	estado = '0'
 	WHERE iddetallecurso = iddetallecurso_;
 END $$
+DELIMITER ;
 
-CALL spu_eliminar_dtcursos(2)
+CALL spu_eliminar_dtcursos(2);
 
 
 /***********************************************
@@ -792,8 +829,9 @@ BEGIN
 	WHERE estado = '1'
 	ORDER BY nroaula+0 ASC;
 END$$
+DELIMITER ;
 
-CALL spu_listar_aulas
+CALL spu_listar_aulas();
 
 
 DELIMITER $$
@@ -806,8 +844,9 @@ BEGIN
 	INSERT INTO aulas(nroaula,usuario)VALUES
 	(nroaula_,usuario_);
 END $$
+DELIMITER ;
 
-CALL spu_insertar_aulas('15','USU') 
+CALL spu_insertar_aulas('15','USU'); 
 
 DELIMITER $$
 CREATE PROCEDURE spu_modificar_aulas
@@ -822,8 +861,9 @@ BEGIN
 	usuario = usuario_
 	WHERE idaula = idaula_;
 END $$
+DELIMITER ;
  
-CALL spu_modificar_aulas(1,'302','USU')
+CALL spu_modificar_aulas(1,'302','USU');
  
 DELIMITER $$
 CREATE PROCEDURE spu_eliminar_aulas(IN idaula_ INT)
@@ -832,8 +872,9 @@ BEGIN
 	estado = '0'
 		WHERE idaula = idaula_;
 END $$
+DELIMITER ;
 
-CALL spu_eliminar_aulas(2)
+CALL spu_eliminar_aulas(2);
 
 /*********************************************
 **************** HORARIOS ********************
@@ -853,8 +894,9 @@ BEGIN
 	WHERE hor.estado = '1'
 	ORDER BY FIELD(g.grado,'PRIMERO','SEGUNDO','TERCERO','CUARTO','QUINTO'),secc.seccion,FIELD(hor.dia,'LUNES','MARTES','MIERCOLES','JUEVES','VIERNES');
 END $$
+DELIMITER ;
 
-CALL spu_listar_horarios()
+CALL spu_listar_horarios();
 
 
 DELIMITER $$
@@ -873,8 +915,9 @@ BEGIN
 	(idseccion,dia,iddetallecurso,horainicio,horatermino,idaula,usuario) VALUES
 	(idseccion_,dia_,iddetallecurso_,horainicio_,horatermino_,idaula_,usuario_);
 END $$
+DELIMITER ;
 
-CALL spu_insertar_horarios(1,'JUEVES',1,'10:30','11:30',1,'USU')
+CALL spu_insertar_horarios(1,'JUEVES',1,'10:30','11:30',1,'USU');
 
 DELIMITER $$
 CREATE PROCEDURE spu_modificar_horarios
@@ -897,8 +940,9 @@ BEGIN
 		usuario		= usuario_
 		WHERE idhorario = idhorario_;
 END $$
+DELIMITER ;
 
-CALL spu_modificar_horarios(9,'MIERCOLES',2,'07:30','08:30',1,'ADMIN')
+CALL spu_modificar_horarios(9,'MIERCOLES',2,'07:30','08:30',1,'ADMIN');
 
 DELIMITER $$
 CREATE PROCEDURE spu_eliminar_horarios(IN idhorario_ INT)
@@ -907,8 +951,23 @@ BEGIN
 		estado = '0'
 		WHERE idhorario = idhorario_;
 END $$
+DELIMITER ;
 
-CALL spu_eliminar_horarios(6)
+CALL spu_eliminar_horarios(6);
+
+/*****************************************************************************
+******************************** usuarios ************************************
+*****************************************************************************/
+DROP PROCEDURE spu_usuarios_login;
+DELIMITER $$
+CREATE PROCEDURE spu_usuarios_login(IN nomusuario_ VARCHAR(20))
+BEGIN
+	SELECT * FROM usuarios 
+	WHERE nomusuario = nomusuario_ AND estado = '1';
+END$$
+DELIMITER ;
+
+CALL spu_usuarios_login('MARC101');
 
 /*****************************************************************************
 ******************************** ESTADOS SALUD *******************************
@@ -922,6 +981,7 @@ BEGIN
 	WHERE estado = '1'
 	ORDER BY codigoregistro ASC;
 END $$
+DELIMITER ;
 
 CALL spu_listar_estsalud();
 
@@ -942,6 +1002,7 @@ BEGIN
 	INSERT INTO estadossalud(codigoregistro,idalumno,edad,enfermedad,alergias,traumas,vacunas,usuario) VALUES
 		(codigoregistro_,idalumno_,edad_,enfermedad_,alergias_,traumas_,vacunas_,usuario_);
 END$$
+DELIMITER ;
 
 CALL spu_insertar_estsalud('ES003',2,'12','muchas','muchas','muchas','muchas','ADMIN');
 
@@ -971,6 +1032,7 @@ BEGIN
 		usuario = usuario_
 	WHERE idestadosalud = idestadosalud_;
 END $$
+DELIMITER ;
 
 CALL spu_modificar_estsalud(2,'ES005','2','15','muchisimas','muchisimas','muchisimas','muchisimas','ADMIN');
 
@@ -981,6 +1043,7 @@ BEGIN
 		estado = '0'
 	WHERE idestadosalud = idestadosalud_;
 END$$
+DELIMITER ;
 
 CALL spu_eliminar_estsalud(3)
 
@@ -999,6 +1062,7 @@ BEGIN
 	WHERE tri.estado = '1'
 	ORDER BY ests.codigoregistro ASC;
 END$$
+DELIMITER ;
 
 CALL spu_listar_triajes();
 
@@ -1020,8 +1084,9 @@ BEGIN
 	INSERT INTO triajes(idestadosalud,fecha,peso,talla,observaciones,otros,tipocontrol,resultado,usuario)VALUES
 		(idestadosalud_,fecha_,peso_,talla_,observaciones_,otros_,tipocontrol_,resultado_,usuario_);
 END$$
+DELIMITER ;
 
-CALL spu_insertar_triajes(1,'2023-05-25',99.2,1.56,'ninguna','ninguno','ninguno','ninguno','ADMIN')
+CALL spu_insertar_triajes(1,'2023-05-25',99.2,1.56,'ninguna','ninguno','ninguno','ninguno','ADMIN');
 
 DROP PROCEDURE spu_modificar_triajes;
 DELIMITER $$
@@ -1051,8 +1116,9 @@ BEGIN
 		usuario = usuario_
 	WHERE idtriaje = idtriaje_;
 END$$
+DELIMITER ;
  
-CALL spu_modificar_triajes(3,1,'2023-05-25',88.2,1.70,'ninguna','ninguno','ninguno','ninguno','ADMIN')
+CALL spu_modificar_triajes(3,1,'2023-05-25',88.2,1.70,'ninguna','ninguno','ninguno','ninguno','ADMIN');
 
 DROP PROCEDURE spu_eliminar_triajes;
 DELIMITER $$
@@ -1062,8 +1128,9 @@ BEGIN
 		estado =  '0'
 	WHERE idtriaje = idtriaje_;
 END$$
+DELIMITER ;
 
-CALL spu_eliminar_triajes(5)
+CALL spu_eliminar_triajes(4);
 
 /*****************************************************************************
 ******************************** MATRICULAS **********************************
@@ -1080,6 +1147,7 @@ BEGIN
 	WHERE ma.estado = '1'
 	ORDER BY nromatricula ASC;
 END$$
+DELIMITER ;
 
 CALL spu_listar_matriculas();
 
@@ -1099,8 +1167,9 @@ BEGIN
 	INSERT INTO matriculas(nromatricula,idalumno,periodomatricula,cmodularbefore,colegioprocedencia,idtriaje,usuario) VALUES
 		(nromatricula_,idalumno_,periodomatricula_,cmodularbefore_,colegioprocedencia_,idtriaje_,usuario_);
 END$$
+DELIMITER ;
 
-CALL spu_insertar_matriculas('MA006',2,'2003','1234567892','JOSE PARDO Y BARREDA',6,'USU');
+CALL spu_insertar_matriculas('MA006',2,'2003','1234567892','JOSE PARDO Y BARREDA',2,'USU');
 
 DROP PROCEDURE spu_modificar_matriculas;
 DELIMITER $$
@@ -1126,8 +1195,9 @@ BEGIN
 		usuario = usuario_
 	WHERE idmatricula = idmatricula_;
 END$$
+DELIMITER ;
 
-CALL spu_modificar_matriculas(2,'MA006',2,'2003','1234567892','SANTA ANA',6,'USU');
+CALL spu_modificar_matriculas(4,'MA006',2,'2003','1234567892','SANTA ANA',2,'USU');
 
 DROP PROCEDURE spu_eliminar_matriculas;
 DELIMITER $$
@@ -1136,9 +1206,10 @@ BEGIN
 	UPDATE matriculas SET 
 		estado = '0'
 	WHERE idmatricula = idmatricula_;
-END$$ 
+END$$
+DELIMITER ; 
 
-CALL spu_eliminar_matriculas(2)
+CALL spu_eliminar_matriculas(4);
 
 /*****************************************************************************
 ******************************** CLASES **************************************
@@ -1157,6 +1228,7 @@ BEGIN
 	WHERE clas.estado = '1'
 	ORDER BY al.idalumno ASC;
 END$$
+DELIMITER ;
 
 CALL spu_listar_clases();
 
@@ -1179,8 +1251,9 @@ BEGIN
 	INSERT INTO clases(idusuario,idalumno,iddetallecurso,contenidoclase,asistencia,evcuaderno,evoral,notaclase,fechaclase,usuario) VALUES
 		(idusuario_,idalumno_,iddetallecurso_,contenidoclase_,asistencia_,evcuaderno_,evoral_,notaclase_,fechaclase_,usuario_);
 END$$
+DELIMITER ;
 
-CALL spu_insertar_clases(2,2,2,'bastante','05','02','00','10','2023-05-26','ADMIN');
+CALL spu_insertar_clases(2,2,2,'bastante','05','02','00','10','2023-05-27','ADMIN');
 
 DROP PROCEDURE spu_modificar_clases;
 DELIMITER $$
@@ -1212,8 +1285,9 @@ BEGIN
 		usuario = usuario_
 	WHERE idclase = idclase_;
 END$$
+DELIMITER ;
 
-CALL spu_modificar_clases(5,1,2,2,'muchisimas','05','02','00','10','2023-05-26','ADMIN');
+CALL spu_modificar_clases(5,1,2,2,'muchisimas','05','02','00','10','2023-05-28','ADMIN');
 
 DROP PROCEDURE spu_eliminar_clases;
 DELIMITER $$
@@ -1223,5 +1297,7 @@ BEGIN
 		estado = '0'
 	WHERE idclase = idclase_;
 END$$
+DELIMITER ;
 
-CALL spu_eliminar_clases(5)
+CALL spu_eliminar_clases(5);
+
