@@ -36,7 +36,25 @@
                     <div class="card-body m-3">
                         <form action="" id="form-registro">
                             <div class="mb-2">
-                                
+                                <label for="usuario" class="form-label fw-bolder m-2">Usuario:</label>
+                                <input type="text" class="form-control form-control-sm" placeholder ="ingrese el nombre de usuario">
+                            </div>
+                            <div class="mb-2">
+                                <label for="password" class="form-label fw-bolder m-2">Contraseña:</label>
+                                <input type="passqord" class="form-control form-control-sm" placeholder="ingrese la constraseña">
+                            </div>
+                            <div class="mb-2">
+                                <label for="doc_nro" class="form-label fw-bolder m-2">N° de documento:</label>
+                                <input type="text" name="doc_nro" id="doc_nro" class="form-control form-control-sm">
+                            </div>
+                            <div class="mb-2">
+                                <label for="t_persona" class="form-label fw-bolder m-2">Tipo de persona:</label>
+                                <select name="t_persona" id="t_persona" class="form-select form-select-sm">
+                                    <option value="">Seleccione</option>
+                                    <option value="personal">Personal</option>
+                                    <option value="alumno">Alumno</option>
+                                </select>
+                                <!---no creo que deba incluir la opcion personal porque como un personal se va a registrar en la web, no tendría lógica-->
                             </div>
                         </form>
                     </div>

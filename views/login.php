@@ -34,12 +34,12 @@
               <h2 class="text-black-50 text-uppercase">registrate ya</h2>
             </div>
             <div class="card-body m-3">
-              <form action="" class="form-login" id="form-login">
+              <form action="" id="form-login">
                 <div class="mb-2">
                   <label for="correo" class="form-label form-label-sm fw-bolder m-2">Correo:</label>
                   <input type="email" name="correo" id="correo" class="form-control form-control-sm" placeholder="Ingrese su correo: ejemplo@gmail.com">
                 </div>  
-                <div class=""> 
+                <div class="mb-2"> 
                   <label for="password" class="form-label form-label-sm fw-bolder m-2">Contraseña:</label>
                   <input type="password" name="password" id="password" class="form-control form-control-sm">
                 </div>
