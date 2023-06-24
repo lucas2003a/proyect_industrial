@@ -17,6 +17,10 @@
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
   <!-- Core theme CSS (includes Bootstrap)-->
   <link href="../css/style.css" rel="stylesheet"/>
+  <!-- jQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <!-- SweetAlert2 -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>  
 </head>
 
 <body>
@@ -36,18 +40,18 @@
             <div class="card-body m-3">
               <form action="" id="form-login">
                 <div class="mb-2">
-                  <label for="correo" class="form-label form-label-sm fw-bolder m-2">Correo:</label>
-                  <input type="email" name="correo" id="correo" class="form-control form-control-sm" placeholder="Ingrese su correo: ejemplo@gmail.com">
+                  <label for="nomusuario" class="form-label form-label-sm fw-bolder m-2">Correo:</label>
+                  <input type="text" name="nomusuario" id="nomusuario" class="form-control form-control-sm" placeholder="Ingrese su nombre de usuario">
                 </div>  
                 <div class="mb-2"> 
-                  <label for="password" class="form-label form-label-sm fw-bolder m-2">Contraseña:</label>
-                  <input type="password" name="password" id="password" class="form-control form-control-sm">
+                  <label for="claveacceso" class="form-label form-label-sm fw-bolder m-2">Contraseña:</label>
+                  <input type="password" name="claveacceso" id="claveacceso" class="form-control form-control-sm">
                 </div>
               </form> 
             </div>
             <div class="card-footer">
               <div class="d-flex justify-content-center py-4">
-                <button type="button" id="inciar-sesion" class="btn btn-primary text-uppercase fw-bolder">inicar sesion</button>
+                <button type="button" id="iniciar-sesion" class="btn btn-primary text-uppercase fw-bolder">inicar sesion</button>
               </div>
               <div class="registrarse py-4 text-center">
                 <p class="text-black-50 fw-bolder">¿No tienes una cuenta?<a class="text-uppercase" href="registro.php">registrate</a></p>
@@ -74,7 +78,7 @@
   <!-- Bootstrap core JS-->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
   <!-- Core theme JS-->
-  <script src="../js/scripts.js"></script>
+  <script src="../js/usuario.js"></script>
   <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
   <!-- * *                               SB Forms JS                               * *-->
   <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->

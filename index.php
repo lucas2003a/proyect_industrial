@@ -33,11 +33,11 @@
           <!--puedes usar  este otro icono<span class="navbar-toggler-icon"></span>-->
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ms-auto">
+          <ul class="navbar-nav ms-auto aling-items-center">
             <li class="nav-item"><a class="nav-link" href="#conocenos">Conocenos</a></li>
             <li class="nav-item"><a class="nav-link" href="#trabajos">Trabajos</a></li>
-            <li class ="nav-item"><a class="nav-link" href="#signup">Contacto</a></li>
-            <li><a type="button" class="btn btn-outline-primary mt-2" href="views/login.php">login</a></li>
+            <li class="nav-item"><a class="nav-link" href="#signup">Contacto</a></li>
+            <li class="nav-item"><a class="nav-link nav-link-outline-primary" href="views/login.php">Login</a></li>
           </ul>
         </div>
       </div>
