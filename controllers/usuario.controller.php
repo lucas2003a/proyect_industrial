@@ -23,6 +23,7 @@ if(isset($_POST['operacion'])){
             if(password_verify($_POST['claveingresada'],$claveEncriptada)){
                 $resultado["status"] = true;
                 $resultado["mensaje"] = "Bienvenido al sistema";
+                $_SESSION["login"] = true;
             }else{
                 $resultado["mensaje"] = "La contraseña no existe";
             }

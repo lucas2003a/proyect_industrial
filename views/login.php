@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Title</title>
+  <title>Login académico</title>
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -31,7 +31,7 @@
     <div class="container px-4 px-lg-5">
       <div class="row gx-4 gx-lg-5 d-flex  justify-content-center">
         <div class="col-md-6 mb-3 md-mb-0">
-          <div class="card py-4 px-4 h-100" style="opacity: 0.8;" >
+          <div class="card px-4 py-4 h-100" style="opacity: 0.8;" >
             <div class="card-header text-center ">
               <i class="fa fa-user-circle"></i>
               <h1 class="text-black text-uppercase">Login</h1>
@@ -40,11 +40,11 @@
             <div class="card-body m-3">
               <form action="" id="form-login">
                 <div class="mb-2">
-                  <label for="nomusuario" class="form-label form-label-sm fw-bolder m-2">Correo:</label>
+                  <label for="nomusuario" class="form-label fw-bolder m-2">Correo:</label>
                   <input type="text" name="nomusuario" id="nomusuario" class="form-control form-control-sm" placeholder="Ingrese su nombre de usuario">
                 </div>  
                 <div class="mb-2"> 
-                  <label for="claveacceso" class="form-label form-label-sm fw-bolder m-2">Contraseña:</label>
+                  <label for="claveacceso" class="form-label fw-bolder m-2">Contraseña:</label>
                   <input type="password" name="claveacceso" id="claveacceso" class="form-control form-control-sm">
                 </div>
               </form> 
