@@ -34,6 +34,31 @@
   <header>
     <!-- place navbar here -->
   </header>
+    <div class="navbar-responsive py-4">
+        <nav class="navbar-iconos">
+            <ul class="main_nav">
+                <li><a class="active" href="#"><i class="fas fa-tachometer-alt"></i></a></li>
+                <li>
+                    <a href="#" id="pages"><i class="fa-solid fa-layer-group"></i><span class="fas fa-caret-down"></span></a>
+                    <ul class="item-show-pages">
+                        <li><a href="#"><i class="fa-solid fa-phone"></i></a></li>
+                        <li><a href="#"><i class="fa-solid fa-user-plus"></i></a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" id="services"><i class="fas fa-puzzle-piece"></i><span class="fas fa-caret-down"></span></a>
+                    <ul class="item-show-services">
+                        <li><a href="#"><i class="fa-brands fa-app-store-ios"></i></a></li>
+                        <li><a href="#"><i class="fa-brands fa-app-store"></i></a></li>
+                    </ul>
+                </li>
+                <li><a href="#"><i class="fa-solid fa-users"></i></a></li>
+                <li><a href="#"><i class="fa-solid fa-message"></i></a></li>
+                <li><a href="#"><i class="fa-solid fa-book"></i></a></li>
+                <li><a href="#"><i class="fa-solid fa-file"></i></a></li>
+            </ul>
+        </nav>
+    </div>
 
     <div class="btn-sidebar">
         <span class="fas fa-bars"></span>
@@ -42,9 +67,9 @@
             <div class="sidebar-content">
                 <div class="text">
                     <h1 class="text-uppercase fw-bolder mt-2">Jhon f. kennedy</h1>
-                <div class="sidebar-image">
-                    <img src="../views/img/zyro-image.png" alt="">
-                </div>
+                    <div class="sidebar-image">
+                        <img src="../views/img/zyro-image.png" alt="">
+                    </div>
                 </div>
                 <ul class="main_side">
                     <li class="active"><a href="#"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
@@ -62,10 +87,10 @@
                             <li><a href="#"><i class="fa-brands fa-app-store"></i> Web design</a></li>
                         </ul>
                     </li>
-                    <li><a href=""><i class="fa-solid fa-users"></i> Users</a></li>
-                    <li><a href=""><i class="fa-solid fa-message"></i> Message</a></li>
-                    <li><a href=""><i class="fa-solid fa-book"></i> Bookmark</a></li>
-                    <li><a href=""><i class="fa-solid fa-file"></i> Files</a></li>
+                    <li><a href="#"><i class="fa-solid fa-users"></i> Users</a></li>
+                    <li><a href="#"><i class="fa-solid fa-message"></i> Message</a></li>
+                    <li><a href="#"><i class="fa-solid fa-book"></i> Bookmark</a></li>
+                    <li><a href="#"><i class="fa-solid fa-file"></i> Files</a></li>
                 </ul>
             </nav>
         </div>
@@ -86,7 +111,7 @@
   <!-- Bootstrap core JS-->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
   <!-- Core theme JS-->
-  <script src="../js/sidebar.js"></script>
+  <script src="../js/profile.js"></script>
   <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
   <!-- * *                               SB Forms JS                               * *-->
   <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
