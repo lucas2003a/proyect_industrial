@@ -15,9 +15,7 @@
   <title>Gray scale - Start bootstrap Theme</title>
   <link rel="icon" type="image/x-icon" href="img/descarga-removebg-preview.png">
   <!-- Font Awesome icons (free version)-->
-  
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <!-- Google fonts-->
   <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
@@ -41,34 +39,36 @@
         <span class="fas fa-bars"></span>
     </div>
         <nav class="sidebar">
-            <div class="text">
-                <h1 class="text-uppercase fw-bolder mt-2">Jhon f. kennedy</h1>
-            <div class="sidebar-image">
-                <img src="../views/img/zyro-image.png" alt="">
-            </div>
-            </div>
-            <ul class="main_side">
-                <li class="active"><a href="#">dasboard</a></li>
-                <li>
-                    <a href="#" id="pages">Pages<span class="fas fa-caret-down"></span></a>
-                    <ul class="item-show-pages">
-                        <li><a href="#">Contac us</a></li>
-                        <li><a href="#">our team</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#" id="services">Services<span class="fas fa-caret-down"></span></a>
-                    <ul class="item-show-services">
-                        <li><a href="#">App design</a></li>
-                        <li><a href="#">Web design</a></li>
-                    </ul>
-                </li>
-                <li><a href="">Users</a></li>
-                <li><a href="">Message</a></li>
-                <li><a href="">Bookmark</a></li>
-                <li><a href="">Files</a></li>
-            </ul>
-        </nav>
+            <div class="sidebar-content">
+                <div class="text">
+                    <h1 class="text-uppercase fw-bolder mt-2">Jhon f. kennedy</h1>
+                <div class="sidebar-image">
+                    <img src="../views/img/zyro-image.png" alt="">
+                </div>
+                </div>
+                <ul class="main_side">
+                    <li class="active"><a href="#"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                    <li>
+                        <a href="#" id="pages"><i class="fa-solid fa-layer-group"></i> Pages<span class="fas fa-caret-down"></span></a>
+                        <ul class="item-show-pages">
+                            <li><a href="#"><i class="fa-solid fa-phone"></i> Contac us</a></li>
+                            <li><a href="#"><i class="fa-solid fa-user-plus"></i> our team</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#" id="services"><i class="fas fa-puzzle-piece"></i> Services<span class="fas fa-caret-down"></span></a>
+                        <ul class="item-show-services">
+                            <li><a href="#"><i class="fa-brands fa-app-store-ios"></i> App design</a></li>
+                            <li><a href="#"><i class="fa-brands fa-app-store"></i> Web design</a></li>
+                        </ul>
+                    </li>
+                    <li><a href=""><i class="fa-solid fa-users"></i> Users</a></li>
+                    <li><a href=""><i class="fa-solid fa-message"></i> Message</a></li>
+                    <li><a href=""><i class="fa-solid fa-book"></i> Bookmark</a></li>
+                    <li><a href=""><i class="fa-solid fa-file"></i> Files</a></li>
+                </ul>
+            </nav>
+        </div>
     <div class="content">
         <div class="header">
             main content goes here

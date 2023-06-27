@@ -11008,7 +11008,16 @@ body {
     left: -250px;
     background: #1b1b1b;
     transition: left 0.4s ease;
+    overflow-y: auto;
   }
+  @media (max-width: 768px){
+    .sidebar{
+      width: 100%;
+      left: 0;
+      transition: none; 
+    }
+  }
+  
   .sidebar.show{
     left: 0px;
   }
@@ -11021,6 +11030,7 @@ body {
     background: #1e1e1e;
     letter-spacing: 1px;
   }
+
   nav ul{
     background: #1b1b1b;
     height: 100%;
@@ -11047,9 +11057,9 @@ body {
     border-left: 3px solid transparent;
   }
   nav ul li.active a{
-    color: #FC5404;
+    color: #fff;
       background: #1e1e1e;
-      border-left-color: #FC5404;
+      border-left-color: #023ab4;
   }
   nav ul li a:hover{
     background: #1e1e1e;
@@ -11088,11 +11098,11 @@ body {
   }
   
   a:hover{
-    color: #FC5404 !important;
+    color: #d4d2d2 !important;
   }
   nav ul ul li a:hover{
-    color: #FC5404 !important;
-    background: #1e1e1e!important;
+    color: #d4d2d2 !important;
+    background: #1e1e1e !important;
   }
   nav ul li a span{
     position: absolute;
