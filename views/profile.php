@@ -97,7 +97,39 @@
     <div class="container-cn" id="mainContent">
         <div class="main-content">
             <div class="header">
-                <input type="text" name="" id="">
+                <div class="container">
+                    <div class="card">
+                        <div class="card-header">
+                            Header
+                        </div>
+                        <div class="card-body">
+                            <form action="" id="form-profile">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="profile-img">
+                                            <img src="../views/img/Escudo_de_Chincha_alta.png" alt="">
+                                            <div class="file btn btn-lg btn-primary">
+                                                Cambiar foto
+                                                <input type="file" name="file" id="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="profile-head">
+                                            <h5>lucas atuncar valerio</h5>
+                                            <h6>creador de la página</h6>
+                                            <p class="proile-rating">RANKINGS : <span>8/10</span></p>
+                                        </div>
+                                        <ul class="nav nav-tabs" id="myTab" role="tablist"></ul>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="card-footer text-muted">
+                            Footer
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
