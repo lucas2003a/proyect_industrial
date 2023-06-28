@@ -21,7 +21,7 @@
   <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
   <!-- Core theme CSS (includes Bootstrap)-->
-  <link href="../css/styleSidebar.css" rel="stylesheet"/>
+  <link href="../css/profile.css" rel="stylesheet"/>
   <!-- jQuery -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
   <!-- SweetAlert2 -->
@@ -96,10 +96,165 @@
             </ul>
         </div>
     </nav>
-    <div class="content">
-        <section class="profile-section">
-            preg_filter
-        </section>
+    <div class="container-cn" id="mainContent">
+        <div class="main-content">
+            <div class="header">
+                <div class="container">
+                    <div class="card p-3">
+                        <div class="card-header">
+                            Header
+                        </div>
+                        <div class="card-body">
+                            <form action="" id="form-profile">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="profile-img">
+                                            <img src="../views/img/Escudo_de_Chincha_alta.png" alt="">
+                                            <div class="file btn btn-lg btn-primary">
+                                                Cambiar foto
+                                                <input type="file" name="file" id="">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="profile-head">
+                                            <h5>lucas atuncar valerio</h5>
+                                            <h6>creador de la página</h6>
+                                            <p class="proile-rating">RANKINGS : <span>8/10</span></p>
+                                        
+                                            <ul class="nav nav-tabs navbar-2" id="myTab" role="tablist">
+                                                <li class="nav-item">
+                                                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">perfil</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">timeline</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <button type="submit" class="profile-edit-btn" name="btnAddMore">Editar perfil</button>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="profile-work">
+                                            <p>WORK LINK</p>
+                                            <a href="">Website Link</a><br/>
+                                            <a href="">Bootsnipp Profile</a><br/>
+                                            <a href="">Bootply Profile</a>
+                                            <p>SKILLS</p>
+                                            <a href="">Web Designer</a><br/>
+                                            <a href="">Web Developer</a><br/>
+                                            <a href="">WordPress</a><br/>
+                                            <a href="">WooCommerce</a><br/>
+                                            <a href="">PHP, .Net</a><br/>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="tab-content profile-tab" id="myTabContent">
+                                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label for="userID" class="fw-bolder">User ID :</label>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <p>lucas2003</p>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label for="name" class="fw-bolder">Nombres :</label>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <p>lucas atuncar</p>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label for="email" class="fw-bolder">Email :</label>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <p>123@gmail.com</p>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label for="phone" class="fw-bolder">Phone :</label>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <p>123456789</p>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label for="profession" class="fw-bolder">Profession :</label>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <p>Alumno</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label for="experience" class="fw-bolder">Experience:</label>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <p>Expert</p>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label for="houlrate" class="fw-bolder">Houl Rate :</label>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <p>10$/hr</p>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label for="totalprojects" class="fw-bolder">Total projects:</label>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <p>230</p>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label for="Englishlevel" class="fw-bolder">English level</label>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <p>Expert</p>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label for="availability" class="fw-bolder">Availability :</label>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <p>6 month</p>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <label for="">Your bio</label>
+                                                        <p>Your detail descripction</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="card-footer text-muted">
+                            Footer
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
 
