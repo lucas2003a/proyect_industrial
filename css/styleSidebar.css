@@ -10980,6 +10980,7 @@ body {
 }
 .btn-sidebar{
     position: absolute;
+    z-index: 2;
       top: 10px;
       left: 45px;
       height: 37px;
@@ -11118,15 +11119,25 @@ body {
     max-width: 100%;
     height: auto;
   }
-  .content{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    color: #202020;
-    z-index: -1;
-    text-align: center;
+  .main-content{
+    position: relative;
+    z-index: 1;
+    transition-duration: 0.4s;
+    margin-left: 0;
+    height: auto;
+    min-height: 35rem;
+    padding: 15rem 0;
+    background: linear-gradient(to bottom, rgba(210, 209, 209, 1) 0%, rgba(0, 0, 0, 0.7) 75%, #000 100%), url("../views/img/zyro-image.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-size: cover;
   }
+
+  .container-cn.sidebar-open .main-content{
+    margin-left: 250px;
+  }
+
   @media (min-width: 768px){
     .navbar-responsive{
       display: none;
@@ -11241,13 +11252,17 @@ body {
     nav ul li a span.rotate{
       transform: translateY(-50%) rotate(-180deg);
     }
-    .content{
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%,-50%);
-      color: #202020;
-      z-index: -1;
-      text-align: center;
+    .main-content{
+      position: relative;
+      width: 100%;
+      height: auto;
+      margin-left: 100px;
+      min-height: 35rem;
+      padding: 15rem 0;
+      background: linear-gradient(to bottom, rgba(210, 209, 209, 1) 0%, rgba(0, 0, 0, 0.7) 75%, #000 100%), url("../views/img/zyro-image.png");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: scroll;
+      background-size: cover;
     }
   }

@@ -94,9 +94,11 @@
                 </ul>
             </nav>
         </div>
-    <div class="content">
-        <div class="header">
-            main content goes here
+    <div class="container-cn" id="mainContent">
+        <div class="main-content">
+            <div class="header">
+                <input type="text" name="" id="">
+            </div>
         </div>
     </div>
 
