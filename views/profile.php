@@ -34,6 +34,7 @@
   <header>
     <!-- place navbar here -->
   </header>
+
     <div class="navbar-responsive py-4">
         <nav class="navbar-iconos">
             <ul class="main_nav">
@@ -60,45 +61,47 @@
         </nav>
     </div>
 
-    <div class="btn-sidebar">
+
+    <div class="btn-sidebar toggled" id="menu-toggle">
         <span class="fas fa-bars"></span>
     </div>
-        <nav class="sidebar">
-            <div class="sidebar-content">
-                <div class="text">
-                    <h1 class="text-uppercase fw-bolder mt-2">Jhon f. kennedy</h1>
-                    <div class="sidebar-image">
-                        <img src="../views/img/zyro-image.png" alt="">
-                    </div>
+    <nav class="sidebar" id="sidebar">
+        <div class="sidebar-content">
+            <div class="text">
+                <h1 class="text-uppercase fw-bolder mt-2">Jhon f. kennedy</h1>
+                <div class="sidebar-image">
+                    <img src="../views/img/zyro-image.png" alt="">
                 </div>
-                <ul class="main_side">
-                    <li class="active"><a href="#"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
-                    <li>
-                        <a href="#" id="pages"><i class="fa-solid fa-layer-group"></i> Pages<span class="fas fa-caret-down"></span></a>
-                        <ul class="item-show-pages">
-                            <li><a href="#"><i class="fa-solid fa-phone"></i> Contac us</a></li>
-                            <li><a href="#"><i class="fa-solid fa-user-plus"></i> our team</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#" id="services"><i class="fas fa-puzzle-piece"></i> Services<span class="fas fa-caret-down"></span></a>
-                        <ul class="item-show-services">
-                            <li><a href="#"><i class="fa-brands fa-app-store-ios"></i> App design</a></li>
-                            <li><a href="#"><i class="fa-brands fa-app-store"></i> Web design</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#"><i class="fa-solid fa-users"></i> Users</a></li>
-                    <li><a href="#"><i class="fa-solid fa-message"></i> Message</a></li>
-                    <li><a href="#"><i class="fa-solid fa-book"></i> Bookmark</a></li>
-                    <li><a href="#"><i class="fa-solid fa-file"></i> Files</a></li>
-                </ul>
-            </nav>
+            </div>
+            <ul class="main_side">
+                <li class="active"><a href="#"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                <li>
+                    <a href="#" id="pages"><i class="fa-solid fa-layer-group"></i> Pages<span class="fas fa-caret-down"></span></a>
+                    <ul class="item-show-pages">
+                        <li><a href="#"><i class="fa-solid fa-phone"></i> Contac us</a></li>
+                        <li><a href="#"><i class="fa-solid fa-user-plus"></i> our team</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" id="services"><i class="fas fa-puzzle-piece"></i> Services<span class="fas fa-caret-down"></span></a>
+                    <ul class="item-show-services">
+                        <li><a href="#"><i class="fa-brands fa-app-store-ios"></i> App design</a></li>
+                        <li><a href="#"><i class="fa-brands fa-app-store"></i> Web design</a></li>
+                    </ul>
+                </li>
+                <li><a href="#"><i class="fa-solid fa-users"></i> Users</a></li>
+                <li><a href="#"><i class="fa-solid fa-message"></i> Message</a></li>
+                <li><a href="#"><i class="fa-solid fa-book"></i> Bookmark</a></li>
+                <li><a href="#"><i class="fa-solid fa-file"></i> Files</a></li>
+            </ul>
         </div>
+    </nav>
     <div class="content">
-        <div class="header">
-            main content goes here
-        </div>
+        <section class="profile-section">
+            preg_filter
+        </section>
     </div>
+
 
   <main>
 

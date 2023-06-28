@@ -48,3 +48,19 @@ $('.navbar-responsive ul li a').click(function(){
 $('nav ul li').click(function(){
     $(this).addClass("active").siblings().removeClass("active");
 });
+
+
+$(function(){
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#sidebar").toggleClass("toggled");
+    });
+
+    $(window).resize(function(e) {
+      if($(window).width()<=768){
+        $("#sidebar").removeClass("toggled");
+      }else{
+        $("#sidebar").addClass("toggled");
+      }
+    });
+  });
