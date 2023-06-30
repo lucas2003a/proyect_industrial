@@ -11145,6 +11145,9 @@ body {
   }
   
   @media (max-width: 767px){
+    .container-cn.sidebar-open .main-content{
+      margin-left: 100px;
+    }
     .sidebar{
       display: none; 
     }
