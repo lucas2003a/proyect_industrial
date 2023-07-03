@@ -304,7 +304,7 @@ BEGIN
 	estado = '0'
 	WHERE idparpadre = idparpadre_;
 END $$
-DELIMITER;
+DELIMITER ;
 
 CALL spu_eliminar_parpadres(3);
 
@@ -403,142 +403,6 @@ DELIMITER ;
 
 CALL spu_eliminar_apoderados(3);
 
-
-/**********************************
-******** ALUMNOS ******************
-**********************************/
-
-DELIMITER $$
-CREATE PROCEDURE spu_listar_alumnos()
-BEGIN
-	SELECT al.apellidos,al.nombres,al.documento_tipo,al.documento_nro,al.sexo,dist.distrito,al.direccion,al.correo,al.celular,tur.turno,g.grado,secc.seccion,tall.taller,
-			par.apellidospadre,par.nombrespadre,par.documento_tipo,par.documento_nro,par.celular,par.apellidosmadre,par.nombresmadre,par.documento_tipoM,par.documento_nroM,par.celularM,
-			apo.apellidos,apo.nombres,apo.documento_tipo,apo.documento_nro,apo.celular
-	FROM alumnos AS al
-	INNER JOIN secciones AS secc ON secc.idseccion = al.idseccion
-	INNER JOIN grados AS g ON g.idgrado = secc.idgrado
-	INNER JOIN turnos AS tur ON tur.idturno = g.idturno
-	INNER JOIN talleres AS tall ON tall.idtaller = al.idtaller
-	INNER JOIN distritos AS dist ON dist.iddistrito = al.iddistrito
-	INNER JOIN parpadres AS par ON par.idparpadre = al.idparpadre
-	INNER JOIN apoderados AS apo ON apo.idapoderado = al.idapoderado
-	WHERE al.estado = '1'
-	ORDER BY al.apellidos;
-END $$
-DELIMITER ;
-
-CALL spu_listar_alumnos();
-
-/*******************************************************************************************************************************/
-DROP PROCEDURE spu_insertar_alumnos;
-DELIMITER $$
-CREATE PROCEDURE spu_insertar_alumnos
-(
-	IN apellidos_		VARCHAR(40),
-	IN nombres_			VARCHAR(40),
-	IN documento_tipo_ VARCHAR(30),
-	IN documento_nro_	 VARCHAR(20),	
-	IN sexo_			CHAR(1),
-	IN fechanacimiento_	DATE,
-	IN iddistrito_		INT,
-	IN direccion_	VARCHAR(60),	
-	IN correo_		VARCHAR(60),
-	IN celular_		CHAR(9),
-	IN idseccion_		INT,
-	IN idtaller_		INT,	
-	IN religion_		VARCHAR(20),
-	IN lenguamaterna_	VARCHAR(20),
-	IN lenguasegunda_	VARCHAR(20),
-	IN discapacidad_	TEXT,
-	IN fechaalta_		DATE,
-	IN fechasese_		DATE,
-	IN idparpadre_		INT,
-	IN idapoderado_  	INT,
-	IN usuario_			VARCHAR(20)
-)
-BEGIN
-	/*
-	if fechasese_ = '' then convert(varchar(20)) and
-		set fechasese_ = 'ACTIVO';
-	END IF;*/
-	
-	INSERT INTO alumnos(apellidos,nombres,documento_tipo,documento_nro,sexo,fechanacimiento,iddistrito,direccion,correo,celular,idseccion,idtaller,religion,lenguamaterna,
-	lenguasegunda,discapacidad,fechaalta,fechasese,idparpadre,idapoderado,usuario)VALUES
-		(apellidos_,nombres_,documento_tipo_,documento_nro_,sexo_,fechanacimiento_,iddistrito_,direccion_,correo_,celular_,idseccion_,idtaller_,religion_,lenguamaterna_,
-		lenguasegunda_,discapacidad_,fechaalta_,fechasese_,idparpadre_,idapoderado_,usuario_);
-END $$
-DELIMITER ;
-
-CALL spu_insertar_alumnos('ROMERO VILLA','GABRIEL ALEJANDRO','DNI','23569846','M','200-03-12',2,'AV. LAS MAGNOLIAS','456@gmail.com','123456789',6,2,'CATÓLICA','CASTELLANO',
-	'NINGUNA','NINGUNA','2023-02-19','',1,2,'ADMIN4');
-
-DROP PROCEDURE spu_modificar_alumnos;
-DELIMITER $$
-CREATE PROCEDURE spu_modificar_alumnos
-(
-	IN idalumno_		INT,
-	IN apellidos_		VARCHAR(40),
-	IN nombres_			VARCHAR(40),
-	IN documento_tipo_ VARCHAR(30),
-	IN documento_nro_	 VARCHAR(20),	
-	IN sexo_			CHAR(1),
-	IN fechanacimiento_	DATE,
-	IN iddistrito_		INT,
-	IN direccion_	VARCHAR(60),	
-	IN correo_		VARCHAR(60),
-	IN celular_		CHAR(9),
-	IN idseccion_		INT,
-	IN idtaller_		INT,	
-	IN religion_		VARCHAR(20),
-	IN lenguamaterna_	VARCHAR(20),
-	IN lenguasegunda_	VARCHAR(20),
-	IN discapacidad_	TEXT,
-	IN fechaalta_		DATE,
-	IN fechasese_		DATE,
-	IN idparpadre_		INT,
-	IN idapoderado_  	INT,
-	IN usuario_			VARCHAR(20)
-)
-BEGIN 
-	UPDATE alumnos SET
-		apellidos = apellidos_,
-		nombres = nombres_,
-		documento_tipo = documento_tipo_,
-		documento_nro = documento_nro_,
-		sexo = sexo_,
-		fechanacimiento = fechanacimiento_,
-		iddistrito = iddistrito_,
-		direccion = direccion_,
-		correo = correo_,
-		celular = celular_,
-		idseccion = idseccion_,
-		idtaller = idtaller_,
-		religion = religion_,
-		lenguamaterna = lenguamaterna_,
-		lenguasegunda = lenguasegunda_,
-		discapacidad = discapacidad_,
-		fechaalta = fechaalta_,
-		fechasese = fechasese_,
-		idparpadre = idparpadre_,
-		idapoderado = idapoderado_,
-		usuario = usuario_
-		WHERE idalumno = idalumno_;
-END $$
-DELIMITER ;
- 
-CALL spu_modificar_alumnos (1,'ATUNCAR ','LUCAS ALFREDO','DNI','77068571','M','2003-11-22',1,'AV.SANTA ROSA #541','lucasatuncar1gmail.com','922634773',1,1,'CATOLICO','ESPAÑOL','NO','NIGUNA','2023-05-17','2028-05-17',1,2,'ADMIN');
-
-
-DELIMITER $$
-CREATE PROCEDURE spu_eliminar_alumnos(IN idalumno_ INT)
-BEGIN
-	UPDATE alumnos SET
-	estado = '0'
-		WHERE idalumno = idalumno_; 
-END $$
-DELIMITER ;
-
-CALL spu_eliminar_alumnos(6);
 
 /*******************************************************
 **************** TIPOS PERSONAL ************************
@@ -967,7 +831,264 @@ BEGIN
 END$$
 DELIMITER ;
 
+SELECT * FROM usuarios;
+
 CALL spu_usuarios_login('MARC101');
+UPDATE usuarios SET claveacceso = '$2y$10$2v.ZyNmCJZtKa3b2KofynOAC7ff9AuzYYk5ktUDzsc7LGLJaB2iA.'
+WHERE idusuario = 1;
+
+/*****************************************************************************
+******************************** MATRICULAS **********************************
+*****************************************************************************/
+
+DROP PROCEDURE spu_listar_matriculas;
+DELIMITER $$
+CREATE PROCEDURE spu_listar_matriculas()
+BEGIN
+	SELECT ma.nromatricula,ma.periodomatricula,ma.cmodularbefore,ma.colegioprocedencia,ma.apellidos,ma.nombres,ma.documento_tipo,ma.documento_nro,ma.sexo,dist.distrito,ma.direccion,ma.correo,ma.celular,par.apellidospadre,par.nombrespadre,par.documento_tipo,par.documento_nro,par.celular,par.apellidosmadre,par.nombresmadre,par.documento_tipoM,par.documento_nroM,par.celularM,
+			apo.apellidos,apo.nombres,apo.documento_tipo,apo.documento_nro,apo.celular
+	FROM matriculas AS ma
+	INNER JOIN distritos AS dist ON dist.iddistrito = ma.iddistrito
+	INNER JOIN parpadres AS par ON par.idparpadre = ma.idparpadre
+	INNER JOIN apoderados AS apo ON apo.idapoderado = ma.idapoderado
+	WHERE ma.estado = '1'
+	ORDER BY ma.apellidos;
+END$$
+DELIMITER ;
+
+CALL spu_listar_matriculas();
+
+DROP PROCEDURE spu_insertar_matriculas;
+DELIMITER $$
+CREATE PROCEDURE spu_insertar_matriculas
+(
+    IN nromatricula_	VARCHAR(10),
+    IN periodomatricula_ YEAR(4),
+    IN cmodularbefore_	VARCHAR(10),
+    IN colegioprocedencia_ VARCHAR(50),
+	IN apellidos_		VARCHAR(40),
+	IN nombres_			VARCHAR(40),
+	IN documento_tipo_ VARCHAR(30),
+	IN documento_nro_	 VARCHAR(20),	
+	IN sexo_			CHAR(1),
+	IN fechanacimiento_	DATE,
+	IN iddistrito_		INT,
+	IN direccion_	VARCHAR(60),	
+	IN correo_		VARCHAR(60),
+	IN celular_		CHAR(9),	
+	IN religion_		VARCHAR(20),
+	IN lenguamaterna_	VARCHAR(20),
+	IN lenguasegunda_	VARCHAR(20),
+	IN discapacidad_	TEXT,
+	IN fechaalta_		DATE,
+	IN fechasese_		DATE,
+	IN idparpadre_		INT,
+	IN idapoderado_  	INT,
+	IN usuario_			VARCHAR(20)
+)
+BEGIN
+	/*
+	if fechasese_ = '' then convert(varchar(20)) and
+		set fechasese_ = 'ACTIVO';
+	END IF;*/
+	
+	INSERT INTO matriculas(nromatricula,periodomatricula,cmodularbefore,colegioprocedencia,apellidos,nombres,documento_tipo,documento_nro,sexo,fechanacimiento,iddistrito,direccion,correo,celular,religion,lenguamaterna,
+	lenguasegunda,discapacidad,fechaalta,fechasese,idparpadre,idapoderado,usuario)VALUES
+		(nromatricula_,periodomatricula_,cmodularbefore_,colegioprocedencia_,apellidos_,nombres_,documento_tipo_,documento_nro_,sexo_,fechanacimiento_,iddistrito_,direccion_,correo_,celular_,religion_,lenguamaterna_,
+		lenguasegunda_,discapacidad_,fechaalta_,fechasese_,idparpadre_,idapoderado_,usuario_);
+END $$
+DELIMITER ;
+
+CALL spu_insertar_matriculas('MA006','2023','123567891','Jose Pardo y Barreda','ROMERO VILLA','GABRIEL ALEJANDRO','DNI','23569846','M','200-03-12',2,'AV. LAS MAGNOLIAS','456@gmail.com','123456789','CATÓLICA','CASTELLANO',
+	'NINGUNA','NINGUNA','2023-02-19','',1,2,'ADMIN4');
+
+DROP PROCEDURE spu_modificar_matriculas;
+DELIMITER $$
+CREATE PROCEDURE spu_modificar_matriculas
+(
+IN idalumno_		INT,
+	IN apellidos_		VARCHAR(40),
+	IN nombres_			VARCHAR(40),
+	IN documento_tipo_ VARCHAR(30),
+	IN documento_nro_	 VARCHAR(20),	
+	IN sexo_			CHAR(1),
+	IN fechanacimiento_	DATE,
+	IN iddistrito_		INT,
+	IN direccion_	VARCHAR(60),	
+	IN correo_		VARCHAR(60),
+	IN celular_		CHAR(9),
+	IN idseccion_		INT,
+	IN idtaller_		INT,	
+	IN religion_		VARCHAR(20),
+	IN lenguamaterna_	VARCHAR(20),
+	IN lenguasegunda_	VARCHAR(20),
+	IN discapacidad_	TEXT,
+	IN fechaalta_		DATE,
+	IN fechasese_		DATE,
+	IN idparpadre_		INT,
+	IN idapoderado_  	INT,
+	IN usuario_			VARCHAR(20)
+)
+BEGIN 
+	UPDATE matriculas SET
+		apellidos = apellidos_,
+		nombres = nombres_,
+		documento_tipo = documento_tipo_,
+		documento_nro = documento_nro_,
+		sexo = sexo_,
+		fechanacimiento = fechanacimiento_,
+		iddistrito = iddistrito_,
+		direccion = direccion_,
+		correo = correo_,
+		celular = celular_,
+		idseccion = idseccion_,
+		idtaller = idtaller_,
+		religion = religion_,
+		lenguamaterna = lenguamaterna_,
+		lenguasegunda = lenguasegunda_,
+		discapacidad = discapacidad_,
+		fechaalta = fechaalta_,
+		fechasese = fechasese_,
+		idparpadre = idparpadre_,
+		idapoderado = idapoderado_,
+		usuario = usuario_
+		WHERE idalumno = idalumno_;
+END $$
+DELIMITER ;
+ 
+CALL spu_modificar_matriculas (1,'ATUNCAR ','LUCAS ALFREDO','DNI','77068571','M','2003-11-22',1,'AV.SANTA ROSA #541','lucasatuncar1gmail.com','922634773',1,1,'CATOLICO','ESPAÑOL','NO','NIGUNA','2023-05-17','2028-05-17',1,2,'ADMIN');
+
+
+DROP PROCEDURE spu_eliminar_matriculas;
+DELIMITER $$
+CREATE PROCEDURE spu_eliminar_matriculas(IN idmatricula_ INT)
+BEGIN
+	UPDATE matriculas SET 
+		estado = '0'
+	WHERE idmatricula = idmatricula_;
+END$$
+DELIMITER ; 
+
+CALL spu_eliminar_matriculas(4);
+
+/**********************************
+******** ALUMNOS ******************
+**********************************/
+DROP PROCEDURE spu_listar_alumnos;
+DELIMITER $$
+CREATE PROCEDURE spu_listar_alumnos()
+BEGIN
+	SELECT ma.apellidos,ma.nombres,ma.documento_tipo,ma.documento_nro,ma.sexo,dist.distrito,ma.direccion,ma.correo,ma.celular,tur.turno,g.grado,secc.seccion,tall.taller,
+			par.apellidospadre,par.nombrespadre,par.documento_tipo,par.documento_nro,par.celular,par.apellidosmadre,par.nombresmadre,par.documento_tipoM,par.documento_nroM,par.celularM,
+			apo.apellidos,apo.nombres,apo.documento_tipo,apo.documento_nro,apo.celular
+	FROM alumnos AS al
+	INNER JOIN	matriculas AS ma ON ma.idmatricula = al.idmatricula
+	INNER JOIN secciones AS secc ON secc.idseccion = al.idseccion
+	INNER JOIN grados AS g ON g.idgrado = secc.idgrado
+	INNER JOIN turnos AS tur ON tur.idturno = g.idturno
+	INNER JOIN talleres AS tall ON tall.idtaller = al.idtaller
+	INNER JOIN distritos AS dist ON dist.iddistrito = ma.iddistrito
+	INNER JOIN parpadres AS par ON par.idparpadre = ma.idparpadre
+	INNER JOIN apoderados AS apo ON apo.idapoderado = ma.idapoderado
+	WHERE al.estado = '1'
+	ORDER BY ma.apellidos;
+END $$
+DELIMITER ;
+
+CALL spu_listar_alumnos();
+
+/*******************************************************************************************************************************/
+DROP PROCEDURE spu_insertar_alumnos;
+DELIMITER $$
+CREATE PROCEDURE spu_insertar_alumnos
+(
+	IN idmatricula_ 	INT,
+    IN idusuario_		INT,
+	IN idseccion_		INT,
+	IN idtaller_		INT,	
+	IN usuario_			VARCHAR(20)
+)
+BEGIN
+	/*
+	if fechasese_ = '' then convert(varchar(20)) and
+		set fechasese_ = 'ACTIVO';
+	END IF;*/
+	
+	INSERT INTO alumnos(idmatricula,idusuario,idseccion,idtaller,usuario)VALUES
+		(idmatricula_,idusuario_,idseccion_,idtaller_,usuario_);
+END $$
+DELIMITER ;
+
+CALL spu_insertar_alumnos('ROMERO VILLA','GABRIEL ALEJANDRO','DNI','23569846','M','200-03-12',2,'AV. LAS MAGNOLIAS','456@gmail.com','123456789',6,2,'CATÓLICA','CASTELLANO',
+	'NINGUNA','NINGUNA','2023-02-19','',1,2,'ADMIN4');
+
+DROP PROCEDURE spu_modificar_alumnos;
+DELIMITER $$
+CREATE PROCEDURE spu_modificar_alumnos
+(
+	IN idalumno_		INT,
+	IN apellidos_		VARCHAR(40),
+	IN nombres_			VARCHAR(40),
+	IN documento_tipo_ VARCHAR(30),
+	IN documento_nro_	 VARCHAR(20),	
+	IN sexo_			CHAR(1),
+	IN fechanacimiento_	DATE,
+	IN iddistrito_		INT,
+	IN direccion_	VARCHAR(60),	
+	IN correo_		VARCHAR(60),
+	IN celular_		CHAR(9),
+	IN idseccion_		INT,
+	IN idtaller_		INT,	
+	IN religion_		VARCHAR(20),
+	IN lenguamaterna_	VARCHAR(20),
+	IN lenguasegunda_	VARCHAR(20),
+	IN discapacidad_	TEXT,
+	IN fechaalta_		DATE,
+	IN fechasese_		DATE,
+	IN idparpadre_		INT,
+	IN idapoderado_  	INT,
+	IN usuario_			VARCHAR(20)
+)
+BEGIN 
+	UPDATE alumnos SET
+		apellidos = apellidos_,
+		nombres = nombres_,
+		documento_tipo = documento_tipo_,
+		documento_nro = documento_nro_,
+		sexo = sexo_,
+		fechanacimiento = fechanacimiento_,
+		iddistrito = iddistrito_,
+		direccion = direccion_,
+		correo = correo_,
+		celular = celular_,
+		idseccion = idseccion_,
+		idtaller = idtaller_,
+		religion = religion_,
+		lenguamaterna = lenguamaterna_,
+		lenguasegunda = lenguasegunda_,
+		discapacidad = discapacidad_,
+		fechaalta = fechaalta_,
+		fechasese = fechasese_,
+		idparpadre = idparpadre_,
+		idapoderado = idapoderado_,
+		usuario = usuario_
+		WHERE idalumno = idalumno_;
+END $$
+DELIMITER ;
+ 
+CALL spu_modificar_alumnos (1,'ATUNCAR ','LUCAS ALFREDO','DNI','77068571','M','2003-11-22',1,'AV.SANTA ROSA #541','lucasatuncar1gmail.com','922634773',1,1,'CATOLICO','ESPAÑOL','NO','NIGUNA','2023-05-17','2028-05-17',1,2,'ADMIN');
+
+
+DELIMITER $$
+CREATE PROCEDURE spu_eliminar_alumnos(IN idalumno_ INT)
+BEGIN
+	UPDATE alumnos SET
+	estado = '0'
+		WHERE idalumno = idalumno_; 
+END $$
+DELIMITER ;
+
+CALL spu_eliminar_alumnos(6);
 
 /*****************************************************************************
 ******************************** ESTADOS SALUD *******************************
@@ -1045,7 +1166,7 @@ BEGIN
 END$$
 DELIMITER ;
 
-CALL spu_eliminar_estsalud(3)
+CALL spu_eliminar_estsalud(3);
 
 /*****************************************************************************
 ******************************** TRIAJES *************************************
@@ -1131,85 +1252,6 @@ END$$
 DELIMITER ;
 
 CALL spu_eliminar_triajes(4);
-
-/*****************************************************************************
-******************************** MATRICULAS **********************************
-*****************************************************************************/
-
-DROP PROCEDURE spu_listar_matriculas;
-DELIMITER $$
-CREATE PROCEDURE spu_listar_matriculas()
-BEGIN
-	SELECT ma.nromatricula,al.apellidos,al.nombres,ma.periodomatricula,ma.cmodularbefore,ma.colegioprocedencia,tri.observaciones
-	FROM matriculas AS ma
-	INNER JOIN alumnos AS al ON al.idalumno = ma.idalumno
-	INNER JOIN triajes AS tri ON tri.idtriaje = ma.idtriaje
-	WHERE ma.estado = '1'
-	ORDER BY nromatricula ASC;
-END$$
-DELIMITER ;
-
-CALL spu_listar_matriculas();
-
-DROP PROCEDURE spu_insertar_matriculas;
-DELIMITER $$
-CREATE PROCEDURE spu_insertar_matriculas
-(
-	IN nromatricula_		VARCHAR(10),
-	IN idalumno_			INT,
-	IN periodomatricula_ YEAR(4),
-	IN cmodularbefore_	VARCHAR(10),
-	IN colegioprocedencia_ VARCHAR(50),
-	IN idtriaje_			INT,
-	IN usuario_				VARCHAR(20)
-)
-BEGIN
-	INSERT INTO matriculas(nromatricula,idalumno,periodomatricula,cmodularbefore,colegioprocedencia,idtriaje,usuario) VALUES
-		(nromatricula_,idalumno_,periodomatricula_,cmodularbefore_,colegioprocedencia_,idtriaje_,usuario_);
-END$$
-DELIMITER ;
-
-CALL spu_insertar_matriculas('MA006',2,'2003','1234567892','JOSE PARDO Y BARREDA',2,'USU');
-
-DROP PROCEDURE spu_modificar_matriculas;
-DELIMITER $$
-CREATE PROCEDURE spu_modificar_matriculas
-(
-	IN idmatricula_		INT,
-	IN nromatricula_		VARCHAR(10),
-	IN idalumno_			INT,
-	IN periodomatricula_	YEAR(4),
-	IN cmodularbefore_	VARCHAR(10),
-	IN colegioprocedencia_ VARCHAR(50),
-	IN idtriaje_			INT,
-	IN usuario_				VARCHAR(20)
-)
-BEGIN
-	UPDATE matriculas SET
-		nromatricula = nromatricula_,
-		idalumno = idalumno_,
-		periodomatricula = periodomatricula_,
-		cmodularbefore = cmodularbefore_,
-		colegioprocedencia = colegioprocedencia_,
-		idtriaje = idtriaje_,
-		usuario = usuario_
-	WHERE idmatricula = idmatricula_;
-END$$
-DELIMITER ;
-
-CALL spu_modificar_matriculas(4,'MA006',2,'2003','1234567892','SANTA ANA',2,'USU');
-
-DROP PROCEDURE spu_eliminar_matriculas;
-DELIMITER $$
-CREATE PROCEDURE spu_eliminar_matriculas(IN idmatricula_ INT)
-BEGIN
-	UPDATE matriculas SET 
-		estado = '0'
-	WHERE idmatricula = idmatricula_;
-END$$
-DELIMITER ; 
-
-CALL spu_eliminar_matriculas(4);
 
 /*****************************************************************************
 ******************************** CLASES **************************************

@@ -21,7 +21,7 @@ CREATE INDEX idx_turno ON turnos (turno);
 
 INSERT INTO turnos(turno,usuario) VALUES ('MAÑANA','ADMIN'),('TARDE','ADMIN');
 
-SELECT * FROM turnos
+SELECT * FROM turnos;
 
 -- ********* GRADOS **********
 
@@ -45,7 +45,7 @@ CREATE INDEX idx_grado ON grados (grado);
 (1,'PRIMERO','ADMIN'),(1,'SEGUNDO','ADMIN'),(1,'TERCERO','ADMIN'),(1,'CUARTO','ADMIN'),(1,'QUINTO','ADMIN'),
 (2,'PRIMERO','ADMIN'),(2,'SEGUNDO','ADMIN'),(2,'TERCERO','ADMIN'),(2,'CUARTO','ADMIN'),(2,'QUINTO','ADMIN');
 
- SELECT * FROM grados
+ SELECT * FROM grados;
  
  -- ********* SECCIONES ********
 CREATE TABLE secciones
@@ -247,62 +247,6 @@ INSERT INTO apoderados(apellidos,nombres,documento_tipo,documento_nro,sexo,fecha
 
 SELECT * FROM apoderados;
 
-  /********************************************************
-******************* ALUMNOS *******************************
-***********************************************************/
-
-CREATE TABLE alumnos
-(
-	idalumno				INT AUTO_INCREMENT,
-	apellidos			VARCHAR(40)		NOT NULL,
-	nombres				VARCHAR(40)		NOT NULL,	
-	documento_tipo		VARCHAR(30)	NOT NULL,
-	documento_nro		VARCHAR(20)	NOT NULL,
-	sexo 					CHAR(1)		NOT NULL,	
-	fechanacimiento 	DATE 			NOT NULL, -- check para la fecha de nacimiento sea distinta a la de hoy
-	iddistrito			INT		NOT NULL,
-	direccion			VARCHAR(60)	NOT NULL,
-	correo				VARCHAR(60)	NOT NULL,
-	celular 				CHAR(9)	NOT NULL,
-	idseccion			INT NOT NULL,
-	idtaller				INT NOT NULL,
-	religion				VARCHAR(20)	NOT NULL,
-	lenguamaterna		VARCHAR(20)	NOT NULL,
-	lenguasegunda		VARCHAR(20) NOT NULL DEFAULT 'NINGUNA',
-	discapacidad		TEXT			NOT NULL DEFAULT 'NINGUNA',
-	fechaalta			DATE			NOT NULL,
-	fechasese			DATE			NOT NULL,
-	idparpadre			INT			NOT NULL,
-	idapoderado			INT 			NOT NULL,
-	fecharegistro		DATE			NOT NULL DEFAULT 	NOW(),
-	usuario				VARCHAR(20) NOT NULL,		
-	estado				CHAR(1)	NOT NULL DEFAULT '1',
-	CONSTRAINT pk_idalumno_al PRIMARY KEY alumnos(idalumno),
-	CONSTRAINT fk_idseccion_al	FOREIGN KEY (idseccion) REFERENCES secciones(idseccion),
-	CONSTRAINT uk_documento_nro_al	UNIQUE (documento_nro),
-	CONSTRAINT fk_iddistrito_al FOREIGN KEY (iddistrito) REFERENCES distritos(iddistrito),
-	CONSTRAINT fk_idparpadre_al FOREIGN KEY (idparpadre) REFERENCES parpadres(idparpadre),
-	CONSTRAINT fk_idapoderado_al FOREIGN KEY (idapoderado) REFERENCES apoderados(idapoderado),
-	CONSTRAINT chk_sexo_al	CHECK (sexo IN('F','M'))
-)ENGINE = INNODB;
-
-CREATE INDEX idx_idalumno ON alumnos (idalumno);
-CREATE INDEX idx_idseccion ON alumnos (idseccion);
-CREATE INDEX idx_documento_nro ON alumnos (documento_nro);
-CREATE INDEX idx_iddistrito ON alumnos (iddistrito);
-CREATE INDEX idx_idparpadre ON alumnos (idparpadre);
-CREATE INDEX idx_idapoderado ON alumnos (idapoderado);
-
-INSERT INTO alumnos(apellidos,nombres,documento_tipo,documento_nro,sexo,fechanacimiento,iddistrito,direccion,correo,celular,idseccion,idtaller,religion,lenguamaterna,lenguasegunda,discapacidad,fechaalta,fechasese,idparpadre,idapoderado,usuario)VALUES
-('ATUNCAR VALERIO','LUCAS ALFREDO','DNI','77068571','M','2003-11-22',1,'AV.SANTA ROSA #541','lucasatuncar1gmail.com','922634773',1,1,'CATOLICO','ESPAÑOL','NO','NIGUNA','2023-05-17','2028-05-17',1,2,'ADMIN'),
-('ATUNCAR VALERIO','SAMUEL','DNI','77068572','M','2003-11-22',1,'AV.SANTA ROSA #541','lucasatuncar1gmail.com','922634773',3,2,'ATEO','ESPAÑOL','NO','NIGUNA','2023-05-17','2028-05-17',1,2,'ADMIN'),
-('SOTO VILLAVICECIO','CARLOS','DNI','77068555','M','2003-11-22',1,'AV.SANTA ROSA #541','carlosso@gmail.com','922634773',1,3,'MUSULMAN','ESPAÑOL','NO','NIGUNA','2023-05-17','2028-05-17',1,1,'ADMIN'),
-('VALERIO ALMEYDA','MARÍA ROSALVA','DNI','77068566','F','2003-11-22',1,'AV.SANTA ROSA #541','mariros@gmail.com','922634776',11,1,'CATOLICO','ESPAÑOL','NO','NIGUNA','2023-05-17','2028-05-17',1,1,'ADMIN'),
-('VALERIO ALMEYDA','MARÍA ROSALVA','DNI','77068560','F','2003-11-22',1,'AV.SANTA ROSA #541','mariros@gmail.com','922634776',12,2,'ATEO','ESPAÑOL','NO','NIGUNA','2023-05-17','2028-05-17',1,2,'ADMIN');
-
-
- SELECT * FROM alumnos;
- 
 /********************************************************
 ******************* TIPOS DE PERSONAL *******************
 *********************************************************/
@@ -360,7 +304,7 @@ INSERT INTO personal(idtipopersonal,apellidos,nombres,documento_tipo,documento_n
 	(1,'MEZA GARCIA','GORVERT ALEJANDRO','CARNET DE EXTRANEJRÍA','12457856000000000000','M','1996-11-13','POR LA PLAZA DE ARMAS DE CHINCHA','grome@gmail.com','111222333','ADMIN'),
 	(1,'MARTINEZ SUNCION','CESAR','CARNET DE EXTRANEJRÍA','12457855000000000000','M','1996-11-13','POR LA PLAZA DE ARMAS DE CHINCHA','SUNCER@gmail.com','111222333','ADMIN');
 
-SELECT * FROM personal
+SELECT * FROM personal;
 
 /********************************************************
 ************************** CURSOS ***********************
@@ -501,26 +445,30 @@ CREATE TABLE usuarios
 	idusuario			INT AUTO_INCREMENT PRIMARY KEY,
 	nomusuario 			VARCHAR(20)	NOT NULL,
 	claveacceso			VARCHAR(60)	NOT NULL,
-	origentabla			VARCHAR(30) NOT NULL,
-	origenid				INT 		NOT NULL,
+	doc_nro				VARCHAR(20)		NOT NULL,
+	t_persona				VARCHAR(20) NOT NULL,
 	fecharegistro		DATE 		NOT NULL DEFAULT NOW(),
 	usuario				VARCHAR(20)	NOT NULL,
 	estado				CHAR(1)	NOT NULL DEFAULT '1',
-	CONSTRAINT uk_nomusuarios_usu UNIQUE (nomusuario)
+	CONSTRAINT uk_nomusuarios_usu UNIQUE (nomusuario),
+	CONSTRAINT uk_doc_nro UNIQUE(doc_nro)
 )ENGINE = INNODB;
 CREATE INDEX idx_idusuario ON usuarios(idusuario);
-CREATE INDEX idx_nomusuario ON usuarios(nomusuario);
-CREATE INDEX idx_origentabla ON usuarios (origentabla);
-CREATE INDEX idx_origenid ON usuarios(origenid);
-INSERT INTO usuarios(nomusuario,claveacceso,origentabla,origenid,usuario) VALUES
-	('MARC101','MARQUITOS','ALUMNOS',1,'ADMIN'),
-	('MARCIA101','CIAMAR','ALUMNOS',2,'ADMIN');
+CREATE INDEX idx_doc_nro ON usuarios(doc_nro);
+CREATE INDEX idx_tpersona ON usuarios(t_persona);
+INSERT INTO usuarios(nomusuario,claveacceso,doc_nro,t_persona,usuario) VALUES
+	('MARC101','MARQUITOS','12345678','ALUMNOS','ADMIN'),
+	('MARCIA101','CIAMAR','12345679','ALUMNOS','ADMIN');
+INSERT INTO usuarios(nomusuario,claveacceso,doc_nro,t_persona,usuario) VALUES
+		('AL00101','AL00101','12345668','ALUMNOS','ADMIN'),
+		('AL00102','AL00102','12345669','ALUMNOS','ADMIN');
+INSERT INTO usuarios(nomusuario,claveacceso,doc_nro,t_persona,usuario) VALUES
+		('AL00103','AL00103','12345667','ALUMNOS','ADMIN');
 SELECT * FROM	usuarios;
 
 /*****************************************************************************
 ******************************** FUNCIONES ***********************************
 *****************************************************************************/
-
 CREATE TABLE funciones
 (
 	idfuncion		INT AUTO_INCREMENT PRIMARY KEY,
@@ -576,32 +524,95 @@ INSERT INTO libros(codigolibro,libronombre,libroautor,librogrado,fechaingreso,ca
 SELECT * FROM	libros;
 
 /*****************************************************************************
-******************************** MOVIMIENTOS *****************************
+******************************** MATRICULAS **************************************
 *****************************************************************************/
 
-CREATE TABLE movimientos
+CREATE TABLE matriculas
 (
-	idusuario		INT AUTO_INCREMENT PRIMARY KEY,
-	idalumno			INT NOT NULL,
-	idlibro			INT NOT NULL,
-	fecha 			DATE NOT NULL,
-	ingresocantidad	INT NOT NULL DEFAULT '0',
-	salidacantidad		INT NOT NULL DEFAULT '0',
-	devolucionfecha	DATE NULL,
+	idmatricula 		INT AUTO_INCREMENT PRIMARY KEY,
+	nromatricula		VARCHAR(10) NOT NULL,
+	periodomatricula	YEAR NOT NULL,
+	cmodularbefore	VARCHAR(10) NOT NULL,
+	colegioprocedencia	VARCHAR(50) NOT NULL,
+	apellidos			VARCHAR(40)		NOT NULL,
+	nombres				VARCHAR(40)		NOT NULL,	
+	documento_tipo		VARCHAR(30)	NOT NULL,
+	documento_nro		VARCHAR(20)	NOT NULL,
+	sexo 					CHAR(1)		NOT NULL,	
+	fechanacimiento 	DATE 			NOT NULL, -- check para la fecha de nacimiento sea distinta a la de hoy
+	iddistrito			INT		NOT NULL,
+	direccion			VARCHAR(60)	NOT NULL,
+	correo				VARCHAR(60)	NOT NULL,
+	celular 				CHAR(9)	NOT NULL,
+	religion				VARCHAR(20)	NOT NULL,
+	lenguamaterna		VARCHAR(20)	NOT NULL,
+	lenguasegunda		VARCHAR(20) NOT NULL DEFAULT 'NINGUNA',
+	discapacidad		TEXT			NOT NULL DEFAULT 'NINGUNA',
+	fechaalta			DATE			NOT NULL,
+	fechasese			DATE			NOT NULL,
+	idparpadre			INT			NOT NULL,
+	idapoderado			INT 			NOT NULL,
 	fecharegistro		DATE NOT NULL DEFAULT NOW(),
 	usuario				VARCHAR(20) NOT NULL,
 	estado				CHAR(1) NOT NULL DEFAULT '1',
-	CONSTRAINT fk_idalumno_mov FOREIGN KEY(idalumno) REFERENCES alumnos(idalumno),
-	CONSTRAINT fk_idlibro_mov  FOREIGN KEY(idlibro) REFERENCES libros(idlibro)
+	CONSTRAINT uk_nromatricula_ma UNIQUE(nromatricula),
+	CONSTRAINT uk_documento_nro_al	UNIQUE (documento_nro),
+	CONSTRAINT fk_iddistrito_al FOREIGN KEY (iddistrito) REFERENCES distritos(iddistrito),
+	CONSTRAINT fk_idparpadre_al FOREIGN KEY (idparpadre) REFERENCES parpadres(idparpadre),
+	CONSTRAINT fk_idapoderado_al FOREIGN KEY (idapoderado) REFERENCES apoderados(idapoderado),
+	CONSTRAINT chk_sexo_al	CHECK (sexo IN('F','M'))
+)ENGINE = INNODB;
+CREATE INDEX idx_idmatricula ON matriculas(idmatricula);
+CREATE INDEX idx_nromatricula ON matriculas(nromatricula);
+CREATE INDEX idx_documento_nro ON matriculas (documento_nro);
+CREATE INDEX idx_iddistrito ON matriculas (iddistrito);
+CREATE INDEX idx_idparpadre ON matriculas (idparpadre);
+CREATE INDEX idx_idapoderado ON matriculas (idapoderado);
+
+INSERT INTO matriculas(nromatricula,periodomatricula,cmodularbefore,colegioprocedencia,apellidos,nombres,documento_tipo,documento_nro,sexo,fechanacimiento,iddistrito,direccion,correo,celular,religion,lenguamaterna,lenguasegunda,discapacidad,fechaalta,fechasese,idparpadre,idapoderado,usuario) VALUES
+	('MA001','2003','12231214','AURELI MOISES FLORES GONZALES','ATUNCAR VALERIO','LUCAS ALFREDO','DNI','77068571','M','2003-11-22',1,'AV.SANTA ROSA #541','lucasatuncar1@gmail.com','922634773','CATOLICO','ESPAÑOL','NO','NIGUNA','2023-05-17','2028-05-17',1,2,'USU'),
+	('MA002','2003','12231214','AURELI MOISES FLORES GONZALES','ATUNCAR VALERIO','SAMUEL','DNI','77068572','M','2003-11-22',1,'AV.SANTA ROSA #541','lucasatuncar@1gmail.com','922634773','ATEO','ESPAÑOL','NO','NIGUNA','2023-05-17','2028-05-17',1,2,'ADMIN'),
+	('MA003','2003','12231214','AURELI MOISES FLORES GONZALES','SOTO VILLAVICECIO','CARLOS','DNI','77068555','M','2003-11-22',1,'AV.SANTA ROSA #541','carlosso@gmail.com','922634773','MUSULMAN','ESPAÑOL','NO','NIGUNA','2023-05-17','2028-05-17',1,1,'ADMIN'),
+	('MA004','2003','12231214','AURELI MOISES FLORES GONZALES','VALERIO ALMEYDA','MARÍA ROSALVA','DNI','77068566','F','2003-11-22',1,'AV.SANTA ROSA #541','mariros@gmail.com','922634776','CATOLICO','ESPAÑOL','NO','NIGUNA','2023-05-17','2028-05-17',1,2,'ADMIN'),
+	('MA005','2003','12231214','AURELI MOISES FLORES GONZALES','VALERIO ALMEYDA','MARÍA ROSALVA','DNI','77068560','F','2003-11-22',1,'AV.SANTA ROSA #541','mariros@gmail.com','922634776','ATEO','ESPAÑOL','NO','NIGUNA','2023-05-17','2028-05-17',1,2,'ADMIN');
+SELECT * FROM matriculas;
+
+  /********************************************************
+******************* ALUMNOS *******************************
+***********************************************************/
+
+CREATE TABLE alumnos
+(
+	idalumno				INT AUTO_INCREMENT PRIMARY KEY,
+	idmatricula			INT 		NOT NULL,
+	idusuario			INT 		NOT NULL,
+	idseccion			INT NOT NULL,
+	idtaller				INT NOT NULL,
+	fecharegistro		DATE			NOT NULL DEFAULT 	NOW(),
+	usuario				VARCHAR(20) NOT NULL,		
+	estado				CHAR(1)	NOT NULL DEFAULT '1',
+	CONSTRAINT fk_idmatricula FOREIGN KEY (idmatricula) REFERENCES matriculas(idmatricula),
+	CONSTRAINT uk_idmatricula UNIQUE (idmatricula),
+	CONSTRAINT fk_idusuario FOREIGN KEY(idusuario) REFERENCES usuarios(idusuario),
+	CONSTRAINT uk_idusuario UNIQUE (idusuario),
+	CONSTRAINT fk_idseccion_al	FOREIGN KEY (idseccion) REFERENCES secciones(idseccion),
+	CONSTRAINT fk_idtaller_al FOREIGN KEY (idtaller) REFERENCES talleres(idtaller)
 )ENGINE = INNODB;
 
-CREATE INDEX idx_usuario ON movimientos(idusuario);
-CREATE INDEX idx_idalumno ON movimientos(idlibro);
-CREATE INDEX idx_fecha ON movimientos(fecha);
-INSERT INTO movimientos(idalumno,idlibro,fecha,ingresocantidad,salidacantidad,usuario)VALUES
-	(1,1,'2023-05-24',1,1,'ADMIN'),(1,2,'2023-05-24',1,1,'ADMIN');
-SELECT * FROM movimientos;
+CREATE INDEX idx_idalumno ON alumnos (idalumno);
+CREATE INDEX idx_idmatricula ON alumnos(idmatricula);
+CREATE INDEX idx_idusuario ON alumnos(idusuario);
+CREATE INDEX idx_idseccion ON alumnos (idseccion);
+CREATE INDEX idx_idtaller ON alumnos(idtaller);
 
+INSERT INTO alumnos(idmatricula,idusuario,idseccion,idtaller,usuario)VALUES
+(1,1,1,1,'ADMIN'),
+(2,2,3,2,'ADMIN'),
+(3,3,1,3,'ADMIN'),
+(4,4,11,1,'ADMIN'),
+(5,5,12,2,'ADMIN');
+
+ SELECT * FROM alumnos;
 /*****************************************************************************
 ******************************** ESTADO DE SALUD *****************************
 *****************************************************************************/
@@ -610,8 +621,8 @@ DROP TABLE estadossalud;
 CREATE TABLE estadossalud
 (
 	idestadosalud		INT AUTO_INCREMENT PRIMARY KEY,
-	codigoregistro		VARCHAR(10) NOT NULL,
-	idalumno				INT NOT NULL,
+	codigo				VARCHAR(10) NOT NULL,
+	idmatricula				INT NOT NULL,
 	edad					CHAR(2)	NOT NULL,
 	enfermedad 			TEXT NULL,
 	alergias				TEXT NULL,
@@ -620,16 +631,19 @@ CREATE TABLE estadossalud
 	fecharegistro		DATE NOT NULL DEFAULT NOW(),
 	usuario				VARCHAR(20) NOT NULL,
 	estado				CHAR(1) NOT NULL DEFAULT '1',
-	CONSTRAINT uk_cdregistro_ests UNIQUE(codigoregistro)
+	CONSTRAINT uk_codigo_ests UNIQUE(codigo),
+    constraint fk_idmatricula_essts FOREIGN KEY (idmatricula) REFERENCES matriculas(idmatricula)
 )ENGINE = INNODB;
-
+CREATE INDEX idx_idestadosalud ON estadossalud(idestadosalud);
+CREATE INDEX idx_codigo ON estadossalud(codigo);
+CREATE INDEX idx_idmatricula ON estadossalud(idmatricula);
 CREATE INDEX idx_edad ON estadossalud(edad);
-INSERT INTO estadossalud(idalumno,codigoregistro,edad,enfermedad,alergias,traumas,vacunas,usuario)VALUES
-		(1,'ES001','12','niguna','ninguna','ninguna','pfiser','ADMIN');
+INSERT INTO estadossalud(codigo,idmatricula,edad,enfermedad,alergias,traumas,vacunas,usuario)VALUES
+		('ES001',1,'12','niguna','ninguna','ninguna','pfiser','ADMIN');
 SELECT * FROM estadossalud;
 
 /*****************************************************************************
-******************************** TRAJES **************************************
+******************************** TRIAJES **************************************
 *****************************************************************************/
 DROP TABLE triajes;
 CREATE TABLE triajes
@@ -654,37 +668,7 @@ CREATE INDEX idx_idestadosalud ON triajes(idestadosalud);
 INSERT INTO triajes (idestadosalud,fecha,peso,talla,observaciones,otros,tipocontrol,resultado,usuario)VALUES
 (1,'2003-125-05',80.200,1.70,'NIGUNA','NIGUNO','NINGUNO','NINGUNO','USU');
 SELECT * FROM triajes;
-
-/*****************************************************************************
-******************************** MATRICULAS **************************************
-*****************************************************************************/
-
-CREATE TABLE matriculas
-(
-	idmatricula 		INT AUTO_INCREMENT PRIMARY KEY,
-	nromatricula		VARCHAR(10) NOT NULL,
-	idalumno				INT NOT NULL,
-	periodomatricula	YEAR NOT NULL,
-	cmodularbefore	VARCHAR(10) NOT NULL,
-	colegioprocedencia	VARCHAR(50) NOT NULL,
-	idtriaje				INT NOT NULL,
-	fecharegistro		DATE NOT NULL DEFAULT NOW(),
-	usuario				VARCHAR(20) NOT NULL,
-	estado				CHAR(1) NOT NULL DEFAULT '1',
-	CONSTRAINT uk_nromatricula_ma UNIQUE(nromatricula),
-	CONSTRAINT fk_idalumno_ma FOREIGN KEY(idalumno) REFERENCES alumnos(idalumno),
-	CONSTRAINT fk_idtriaje_ma FOREIGN KEY(idtriaje) REFERENCES triajes(idtriaje)
-)ENGINE = INNODB;
-CREATE INDEX idx_idmatricula ON matriculas(idmatricula);
-CREATE INDEX idx_nromatricula ON matriculas(nromatricula);
-CREATE INDEX idx_idalumno ON matriculas(idalumno);
-CREATE INDEX idx_idtriaje ON matriculas(idtriaje);
-
-INSERT INTO matriculas(nromatricula,idalumno,periodomatricula,cmodularbefore,colegioprocedencia,idtriaje,usuario) VALUES
-	('MA001',1,'2003','12231214','AURELI MOISES FLORES GONZALES',1,'USU');
-	
-SELECT * FROM matriculas;
-
+ 
 /*****************************************************************************
 ******************************** CLASES **************************************
 *****************************************************************************/
