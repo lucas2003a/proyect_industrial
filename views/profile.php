@@ -1,3 +1,10 @@
+<?php
+    session_start();
+    if(!isset($_SESSION['login']) || $_SESSION['login'] == false){
+        header('Location:login.php');
+    }
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -52,11 +59,12 @@
                         <li><a href="#"><i class="fa-brands fa-app-store-ios"></i></a></li>
                         <li><a href="#"><i class="fa-brands fa-app-store"></i></a></li>
                     </ul>
-                </li>
+                </li>              
                 <li><a href="#"><i class="fa-solid fa-users"></i></a></li>
                 <li><a href="#"><i class="fa-solid fa-message"></i></a></li>
                 <li><a href="#"><i class="fa-solid fa-book"></i></a></li>
                 <li><a href="#"><i class="fa-solid fa-file"></i></a></li>
+                <li><a href="../controllers/usuario.controller.php?operacion=finalizar" id="cerrar-sesion"><i class="fas fa-power-off"></i></a></li>
             </ul>
         </nav>
     </div>
@@ -86,13 +94,14 @@
                     <a href="#" id="services"><i class="fas fa-puzzle-piece"></i> Services<span class="fas fa-caret-down"></span></a>
                     <ul class="item-show-services">
                         <li><a href="#"><i class="fa-brands fa-app-store-ios"></i> App design</a></li>
-                        <li><a href="#"><i class="fa-brands fa-app-store"></i> Web design</a></li>
+                        <li><a href="#"><i class="fa-brands fa-app-store"></i> web design</a></li>
                     </ul>
-                </li>
-                <li><a href="#"><i class="fa-solid fa-users"></i> Users</a></li>
-                <li><a href="#"><i class="fa-solid fa-message"></i> Message</a></li>
-                <li><a href="#"><i class="fa-solid fa-book"></i> Bookmark</a></li>
-                <li><a href="#"><i class="fa-solid fa-file"></i> Files</a></li>
+                </li>               
+                <li><a href="#"><i class="fa-solid fa-users"></i> Grupos</a></li>
+                <li><a href="#"><i class="fa-solid fa-message"></i> Mensajes</a></li>
+                <li><a href="#"><i class="fa-solid fa-book"></i> Libros</a></li>
+                <li><a href="#"><i class="fa-solid fa-file"></i> Archivos</a></li>
+                <li><a href="../controllers/usuario.controller.php?operacion=finalizar" id="cerrar-sesion"><i class="fas fa-power-off"></i> Cerrar sesión</a></li>
             </ul>
         </div>
     </nav>
@@ -156,10 +165,10 @@
                                             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                                                 <div class="row">
                                                     <div class="col-md-6">
-                                                        <label for="userID" class="fw-bolder">User ID :</label>
+                                                        <label for="usuario" class="fw-bolder">User ID :</label>
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <p>lucas2003</p>
+                                                        <p id="usuario">lucas2003</p>
                                                     </div>
                                                 </div>
                                                 <div class="row">
@@ -269,7 +278,8 @@
   <!-- Bootstrap core JS-->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
   <!-- Core theme JS-->
-  <script src="../js/profile2.js"></script>
+  <script src="../js/profile.js"></script>
+  <script src="../js/profile_data.js"></script>
   <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
   <!-- * *                               SB Forms JS                               * *-->
   <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->

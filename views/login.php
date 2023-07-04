@@ -1,3 +1,10 @@
+<?php
+  session_start();
+  if(isset($_SESSION['login']) && $_SESSION['login']){
+    header('Location:profile.php');
+  }
+?>
+
 <!doctype html>
 <html lang="en">
 

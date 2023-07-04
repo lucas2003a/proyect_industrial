@@ -17,7 +17,7 @@
         $('.sidebar ul li ul').removeClass('show');
         $('.sidebar ul li a span').removeClass('rotate');
 
-        if (!isActive) {
+        if (!isActive && $(this).attr('id') !== 'cerrar-sesion') {
             // Mostrar el menú desplegable correspondiente al elemento seleccionado
             $(this).parent().addClass('active');
             $('nav ul li ul.item-show-'+id).addClass('show');
@@ -41,7 +41,7 @@
         $('.navbar-responsive ul li ul').removeClass('show');
         $('.navbar-responsive ul li a span').removeClass('rotate');
 
-        if(!isActive){
+        if(!isActive && $(this).attr('id') !== 'cerrar-sesion'){
             $(this).parent().addClass('active');
             $('nav ul li ul.item-show-'+id).addClass('show');
             $(this).find('span').addClass('rotate');

@@ -41,6 +41,6 @@ if(isset($_GET['operacion'])){
     {
         session_destroy();
         session_destroy();
-        header('location:../views/login');
+        header('location:../views/login.php');
     }
 }
