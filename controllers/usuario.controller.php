@@ -24,6 +24,7 @@ if(isset($_POST['operacion'])){
                 $resultado["status"] = true;
                 $resultado["mensaje"] = "Bienvenido al sistema";
                 $_SESSION["login"] = true;
+                $_SESSION["idusuario"] = $registro["idusuario"];
             }else{
                 $resultado["mensaje"] = "La contraseña no existe";
             }
@@ -42,5 +43,6 @@ if(isset($_GET['operacion'])){
         session_destroy();
         session_destroy();
         header('location:../views/login.php');
+        //exit;
     }
 }

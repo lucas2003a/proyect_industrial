@@ -3,26 +3,26 @@ $(document).ready(function(){
     let datosNuevos = true;
     let idAlumnoact = -1;
 
-    function Mostrardatos(){
-
-        const idUsuarioEdit = $(this).data("idusuario");
-
+    function obtenerDatosAlumno() {
         $.ajax({
-            url: '../controller/alumno.controller.php',
-            type: 'POST',
-            data: {
-                operacion: 'obtener',
-                idusuario: idUsuarioEdit,
-            },
-            dataType: 'JSON',
-            succes: function(result){
-                console.log(result);
-
-                datosNuevos = false;
-
-                idUsuarioEdit = result['idusuario'];
-                $("#usuario").val(result['#usuario'])
+          url: '../controllers/alumno.controller.php',
+          type: 'POST',
+          data: { operacion: 'obtener' },
+          dataType: 'JSON',
+          success: function(response) {
+            console.log(response);
+            if (response.status) {
+              $('#nomusuario').text(response.datos.usuario);
+              $('#doc_nro').text(response.datos.idalumno);
+              // Actualizar otros elementos HTML con los datos del alumno si es necesario
+            } else {
+              alert(response.mensaje);
             }
+          },
+          error: function(xhr, status, error) {
+            console.log(xhr.responseText);
+          }
         });
     }
+    obtenerDatosAlumno();
 });

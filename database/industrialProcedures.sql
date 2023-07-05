@@ -832,7 +832,6 @@ END$$
 DELIMITER ;
 
 SELECT * FROM usuarios;
-
 CALL spu_usuarios_login('MARC101');
 UPDATE usuarios SET claveacceso = '$2y$10$2v.ZyNmCJZtKa3b2KofynOAC7ff9AuzYYk5ktUDzsc7LGLJaB2iA.'
 WHERE idusuario = 1;
@@ -1089,6 +1088,15 @@ END $$
 DELIMITER ;
 
 CALL spu_eliminar_alumnos(6);
+
+DELIMITER $$
+CREATE PROCEDURE spu_obtener_alumno(IN idusuario_ INT)
+BEGIN
+SELECT * FROM alumnos WHERE idusuario = idusuario_;
+END$$
+DELIMITER ;
+
+CALL spu_obtener_alumno(1);
 
 /*****************************************************************************
 ******************************** ESTADOS SALUD *******************************

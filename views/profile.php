@@ -9,10 +9,6 @@
 <html lang="en">
 
 <head>
-<!doctype html>
-<html lang="en">
-
-<head>
   <title>Bienvenido</title>
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -33,8 +29,6 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
   <!-- SweetAlert2 -->
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>  
-</head>
-
 </head>
 
 <body>
@@ -168,7 +162,7 @@
                                                         <label for="usuario" class="fw-bolder">User ID :</label>
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <p id="usuario">lucas2003</p>
+                                                        <p id="nomusuario"></p>
                                                     </div>
                                                 </div>
                                                 <div class="row">
@@ -176,7 +170,7 @@
                                                         <label for="name" class="fw-bolder">Nombres :</label>
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <p>lucas atuncar</p>
+                                                        <p id="doc_nro"></p>
                                                     </div>
                                                 </div>
                                                 <div class="row">
