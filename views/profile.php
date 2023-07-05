@@ -170,7 +170,7 @@
                                                         <label for="name" class="fw-bolder">Nombres :</label>
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <p id="doc_nro"></p>
+                                                        <p id="nombres"></p>
                                                     </div>
                                                 </div>
                                                 <div class="row">
@@ -178,65 +178,65 @@
                                                         <label for="email" class="fw-bolder">Email :</label>
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <p>123@gmail.com</p>
+                                                        <p id="correo"></p>
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-6">
-                                                        <label for="phone" class="fw-bolder">Phone :</label>
+                                                        <label for="phone" class="fw-bolder">Celular :</label>
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <p>123456789</p>
+                                                        <p id="celular"></p>
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-6">
-                                                        <label for="profession" class="fw-bolder">Profession :</label>
+                                                        <label for="profession" class="fw-bolder">Profesión :</label>
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <p>Alumno</p>
+                                                        <p id="profesion"></p>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="tab-pane fade show" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                                                 <div class="row">
                                                     <div class="col-md-6">
-                                                        <label for="experience" class="fw-bolder">Experience:</label>
+                                                        <label for="experience" class="fw-bolder">Grado:</label>
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <p>Expert</p>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <label for="houlrate" class="fw-bolder">Houl Rate :</label>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <p>10$/hr</p>
+                                                        <p id="grado"></p>
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-6">
-                                                        <label for="totalprojects" class="fw-bolder">Total projects:</label>
+                                                        <label for="houlrate" class="fw-bolder">Sección :</label>
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <p>230</p>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <label for="Englishlevel" class="fw-bolder">English level</label>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <p>Expert</p>
+                                                        <p id="seccion"></p>
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-6">
-                                                        <label for="availability" class="fw-bolder">Availability :</label>
+                                                        <label for="totalprojects" class="fw-bolder">Turno:</label>
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <p>6 month</p>
+                                                        <p id="turno"></p>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label for="Englishlevel" class="fw-bolder">Apoderado :</label>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <p id="nombres_apo"></p>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label for="availability" class="fw-bolder">Celular del apoderado :</label>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <p id="celular_apo"></p>
                                                     </div>
                                                 </div>
                                                 <div class="row">

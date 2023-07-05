@@ -598,6 +598,8 @@ CREATE TABLE alumnos
 	CONSTRAINT fk_idseccion_al	FOREIGN KEY (idseccion) REFERENCES secciones(idseccion),
 	CONSTRAINT fk_idtaller_al FOREIGN KEY (idtaller) REFERENCES talleres(idtaller)
 )ENGINE = INNODB;
+ALTER TABLE alumnos
+	add profesion varchar(20) not null;
 
 CREATE INDEX idx_idalumno ON alumnos (idalumno);
 CREATE INDEX idx_idmatricula ON alumnos(idmatricula);

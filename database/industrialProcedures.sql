@@ -1089,10 +1089,19 @@ DELIMITER ;
 
 CALL spu_eliminar_alumnos(6);
 
+DROP PROCEDURE spu_obtener_alumno;
 DELIMITER $$
 CREATE PROCEDURE spu_obtener_alumno(IN idusuario_ INT)
 BEGIN
-SELECT * FROM alumnos WHERE idusuario = idusuario_;
+SELECT usu.nomusuario,ma.nombres,ma.correo,ma.celular,al.profesion,gr.grado,secc.seccion,tur.turno,apo.nombres_apo,apo.celular_apo
+FROM alumnos AS al
+INNER JOIN usuarios AS usu ON usu.idusuario = al.idusuario
+INNER JOIN matriculas AS ma ON ma.idmatricula = al.idmatricula
+INNER JOIN secciones AS secc ON secc.idseccion = al.idseccion
+INNER JOIN grados AS gr ON gr.idgrado = secc.idgrado
+INNER JOIN turnos AS tur ON tur.idturno = gr.idturno
+INNER JOIN apoderados AS apo ON apo.idapoderado = ma.idapoderado
+WHERE al.idusuario = idusuario_;
 END$$
 DELIMITER ;
 
