@@ -26,9 +26,11 @@
   <!-- Core theme CSS (includes Bootstrap)-->
   <link href="../css/profile.css" rel="stylesheet"/>
   <!-- jQuery -->
+  
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
   <!-- SweetAlert2 -->
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>  
+  
 </head>
 
 <body>
@@ -104,9 +106,6 @@
             <div class="header">
                 <div class="container">
                     <div class="card p-3">
-                        <div class="card-header">
-                            Header
-                        </div>
                         <div class="card-body">
                             <form action="" id="form-profile">
                                 <div class="row">
@@ -121,16 +120,16 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="profile-head">
-                                            <h5>lucas atuncar valerio</h5>
+                                            <h5 id="nomalumno"></h5>
                                             <h6>creador de la página</h6>
-                                            <p class="proile-rating">RANKINGS : <span>8/10</span></p>
+                                            <p class="documento_nro" id="documento_nro"></p>
                                         
                                             <ul class="nav nav-tabs navbar-2" id="myTab" role="tablist">
                                                 <li class="nav-item">
-                                                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">perfil</a>
+                                                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Perfil</a>
                                                 </li>
                                                 <li class="nav-item">
-                                                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">timeline</a>
+                                                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Datos académicos</a>
                                                 </li>
                                             </ul>
                                         </div>
@@ -142,8 +141,8 @@
                                 <div class="row">
                                     <div class="col-md-4">
                                         <div class="profile-work">
-                                            <p>WORK LINK</p>
-                                            <a href="">Website Link</a><br/>
+                                            <p>Salud</p>
+                                            <a type="button" data-bs-toggle="modal" data-bs-target="#modal-salud" >Estado de salud</a><br/>
                                             <a href="">Bootsnipp Profile</a><br/>
                                             <a href="">Bootply Profile</a>
                                             <p>SKILLS</p>
@@ -167,10 +166,18 @@
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-6">
-                                                        <label for="name" class="fw-bolder">Nombres :</label>
+                                                        <label for="nombres" class="fw-bolder">Nombres :</label>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <p id="nombres"></p>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label for="apellidos" class="fw-bolder">Apellidos</label>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <p id="apellidos"></p>
                                                     </div>
                                                 </div>
                                                 <div class="row">
@@ -241,8 +248,8 @@
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-12">
-                                                        <label for="">Your bio</label>
-                                                        <p>Your detail descripction</p>
+                                                        <label for="">Biografía</label>
+                                                        <p>Descirpción personal</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -251,15 +258,71 @@
                                 </div>
                             </form>
                         </div>
-                        <div class="card-footer text-muted">
-                            Footer
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
+    <!-- Button trigger modal -->
+    <button >
+      Launch
+    </button>
+    
+    <!-- Modal -->
+    <div class="modal fade" id="modal-salud" tabindex="-1" role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+            <div class="modal-content">
+                    <div class="modal-header">
+                            <h5 class="modal-title" id="modalTitleId">Modal title</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="col-md-offset-1 col-md-10">
+                            <div class="panel">
+                                <div class="panel-heading">
+                                    <div class="row">
+                                        <div class="col-sm-3 col-xs-12">
+                                            <h4 class="title">data <span>List</span></h4>
+                                        </div>
+                                        <div class="col-sm-9 col-xs-12 text-end">
+                                            <div class="btn_group">
+                                                <input type="text" class="form-control" placeholder="Search">
+                                                <button class="btn btn-default" title="Reload"><i class="fa fa-sync-alt"></i></button>
+                                                <button class="btn btn-default" title="Pdf"><i class="fa fa-file-pdf"></i></button>
+                                                <button class="btn btn-default" title="Excel"><i class="fas fa-file-excel"></i></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel-body table-lg">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>Código</th>
+                                                <th>Matrícula</th>
+                                                <th>Edad</th>
+                                                <th>Enfermedad</th>
+                                                <th>Alergías</th>
+                                                <th>Taumas</th>
+                                                <th>Vacunas</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        </tbody>                                       
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn" style="background: none; border-color: white; color: white;" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn"  style="background: none; border-color: white; color: white;" >Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
   <main>
 

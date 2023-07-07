@@ -12,11 +12,18 @@ $(document).ready(function(){
           success: function(response) {
             console.log(response);
             if (response.status) {
+              let nombres = response.datos.nombres;
+              let apellidos = response.datos.apellidos;
+              let nombreCompleto = nombres + ' ' + apellidos;
+
+              $('#nomalumno').text(nombreCompleto);
               $('#nomusuario').text(response.datos.nomusuario);
               $('#nombres').text(response.datos.nombres);
+              $('#apellidos').text(response.datos.apellidos);
+              $('#documento_nro').text(response.datos.documento_nro)
               $('#correo').text(response.datos.correo);
               $('#celular').text(response.datos.celular);
-              $("#profesion").text(response.datos.profesio);
+              $("#profesion").text(response.datos.profesion);
               $('#grado').text(response.datos.grado);
               $('#seccion').text(response.datos.seccion);
               $('#turno').text(response.datos.turno)
