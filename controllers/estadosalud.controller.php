@@ -1,5 +1,5 @@
 <?php
-require_once "Estadosalud.php";
+require_once "../models/Estadosalud.php";
 
 if(isset($_POST['operacion'])){
 
@@ -7,7 +7,7 @@ if(isset($_POST['operacion'])){
 
     if($_POST['operacion'] == 'listar'){
 
-        $data = $estadoSalud->Listarestado();
+        $data = $estadoSalud->Listarestado($_POST['idmatricula']);
 
         if($data){
             $numeroFila = 1;
@@ -35,6 +35,16 @@ if(isset($_POST['operacion'])){
                 ";
                 $numeroFila++;
             }
+
+            echo json_encode($registro);
         }
     }
+/*
+    if($_POST['operacion'] == 'obtener'){
+
+        $registro = $estadoSalud->Listarestado($_POST['idmatricula']);
+
+        return json_encode($registro);
+    }
+*/
 }

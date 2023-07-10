@@ -142,7 +142,7 @@
                                     <div class="col-md-4">
                                         <div class="profile-work">
                                             <p>Salud</p>
-                                            <a type="button" data-bs-toggle="modal" data-bs-target="#modal-salud" >Estado de salud</a><br/>
+                                            <a href="" id="estado-salud" type="button" data-bs-toggle="modal" data-bs-target="#modal-salud" >Estado de salud</a><br/>
                                             <a href="">Bootsnipp Profile</a><br/>
                                             <a href="">Bootply Profile</a>
                                             <p>SKILLS</p>
@@ -263,10 +263,6 @@
             </div>
         </div>
     </div>
-    <!-- Button trigger modal -->
-    <button >
-      Launch
-    </button>
     
     <!-- Modal -->
     <div class="modal fade" id="modal-salud" tabindex="-1" role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
@@ -296,7 +292,7 @@
                                     </div>
                                 </div>
                                 <div class="panel-body table-lg">
-                                    <table class="table">
+                                    <table class="table" id="table_salud">
                                         <thead>
                                             <tr>
                                                 <th>Código</th>

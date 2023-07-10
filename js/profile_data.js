@@ -30,6 +30,8 @@ $(document).ready(function(){
               $('#nombres_apo').text(response.datos.nombres_apo);
               $('#celular_apo').text(response.datos.celular_apo);
               // Actualizar otros elementos HTML con los datos del alumno si es necesario
+
+              ObtenerEstadosalud(response.datos.idmatricula);
             } else {
               alert(response.mensaje);
             }
@@ -39,5 +41,23 @@ $(document).ready(function(){
           }
         });
     }
+
+    function ObtenerEstadosalud(idmatricula){
+
+      $.ajax({
+        url: '../controllers/estadosalud.controller.php',
+        type: 'POST',
+        data: { operacion : 'listar',
+                idmatricula : idmatricula
+              },
+        dataType :'JSON',
+        success: function(result){
+          $("#table-salud tbody").html(result);
+        }
+      });
+    }
+    $("#estado-salud").click(function(){
+      ObtnerEstadosalud()
+    });
     obtenerDatosAlumno();
 });
