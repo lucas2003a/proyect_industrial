@@ -29,7 +29,7 @@ if(isset($_POST['operacion'])){
                         <td>{$registro['vacunas']}</td>
                         <td>
                             <a href='#' data-idestadosalud='{$registro['idmatricula']}' class='btn btn-sm btn-danger eliminar'><i class='bi bi-trash3'></i></a>
-                            <a href='#' data-idestadosalud='{$registro['idmatricual']}' class='btn btn-sm btn-danger editar'><i class='bi bi-pencil'></i></a>
+                            <a href='#' data-idestadosalud='{$registro['idmatricula']}' class='btn btn-sm btn-danger editar'><i class='bi bi-pencil'></i></a>
                         </td>
                     </tr>
                 ";

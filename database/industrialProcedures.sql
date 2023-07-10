@@ -1089,11 +1089,14 @@ DELIMITER ;
 
 CALL spu_eliminar_alumnos(6);
 
+select * from usuarios;
+update usuarios set claveacceso = '$2y$10$vBHifZ6C34yCHcFTRtHkzuyx/PqVmZchScJKqh3HTd7KsKUkUh/KW' where idusuario = 2;
+
 DROP PROCEDURE spu_obtener_alumno;
 DELIMITER $$
 CREATE PROCEDURE spu_obtener_alumno(IN idusuario_ INT)
 BEGIN
-SELECT usu.nomusuario,ma.nombres,ma.correo,ma.celular,al.profesion,gr.grado,secc.seccion,tur.turno,apo.nombres_apo,apo.celular_apo
+SELECT al.idalumno,usu.nomusuario,ma.nombres,ma.apellidos,ma.documento_nro,ma.correo,ma.celular,al.profesion,gr.grado,secc.seccion,tur.turno,apo.nombres_apo,apo.celular_apo
 FROM alumnos AS al
 INNER JOIN usuarios AS usu ON usu.idusuario = al.idusuario
 INNER JOIN matriculas AS ma ON ma.idmatricula = al.idmatricula
@@ -1101,7 +1104,7 @@ INNER JOIN secciones AS secc ON secc.idseccion = al.idseccion
 INNER JOIN grados AS gr ON gr.idgrado = secc.idgrado
 INNER JOIN turnos AS tur ON tur.idturno = gr.idturno
 INNER JOIN apoderados AS apo ON apo.idapoderado = ma.idapoderado
-WHERE al.idusuario = idusuario_;
+WHERE al.idusuario = idusuario_ AND al.estado = 1;
 END$$
 DELIMITER ;
 
@@ -1184,6 +1187,15 @@ END$$
 DELIMITER ;
 
 CALL spu_eliminar_estsalud(3);
+
+DELIMITER $$
+CREATE PROCEDURE spu_obtenerestadosalud(IN idmatricula_ INT)
+BEGIN
+	SELECT * FROM estadossalud WHERE idmatricula = idmatricula_ AND estado = 1;
+END$$
+DELIMITER ;
+
+CALL spu_obtenerestadosalud(1);
 
 /*****************************************************************************
 ******************************** TRIAJES *************************************

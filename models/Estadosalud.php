@@ -12,8 +12,10 @@ class Estadosalud extends Conexion{
 
     public function Listarestado($idmatricula = 0){
         try{
-            $consulta = $this->accesoBD->prepare("spu_obtenerestadosalud(?)");
+            $consulta = $this->accesoBD->prepare("CALL spu_obtenerestadosalud(?)");
             $consulta->execute(array($idmatricula));
+
+            return $consulta->fetchAll(PDO::FETCH_ASSOC);
         }
 
         catch(Exception $e){
