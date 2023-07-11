@@ -16,6 +16,7 @@ $(document).ready(function(){
               let apellidos = response.datos.apellidos;
               let nombreCompleto = nombres + ' ' + apellidos;
 
+              
               $('#nomalumno').text(nombreCompleto);
               $('#nomusuario').text(response.datos.nomusuario);
               $('#nombres').text(response.datos.nombres);
@@ -31,7 +32,8 @@ $(document).ready(function(){
               $('#celular_apo').text(response.datos.celular_apo);
               // Actualizar otros elementos HTML con los datos del alumno si es necesario
 
-              ObtenerEstadosalud(response.datos.idmatricula);
+              window.idmatricula = response.datos.idmatricula; //var define una varibe glogal fuera de una funcion, pero window define una variable global aun dentro de un codigo
+
             } else {
               alert(response.mensaje);
             }
@@ -42,22 +44,21 @@ $(document).ready(function(){
         });
     }
 
-    function ObtenerEstadosalud(idmatricula){
-
+    $('#estado-salud').click(function(e) {
+      e.preventDefault();
+      
+      
       $.ajax({
-        url: '../controllers/estadosalud.controller.php',
-        type: 'POST',
-        data: { operacion : 'listar',
-                idmatricula : idmatricula
-              },
-        dataType :'JSON',
-        success: function(result){
-          $("#table-salud tbody").html(result);
-        }
+          url: '../controllers/estadosalud.controller.php',
+          type: 'POST',
+          data: {
+              operacion: 'listar',
+              idmatricula: idmatricula
+          },
+          success: function(response) {
+              $('#tabla-salud tbody').html(response);
+          }
       });
-    }
-    $("#estado-salud").click(function(){
-      ObtnerEstadosalud()
-    });
+  });
     obtenerDatosAlumno();
 });

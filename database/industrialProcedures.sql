@@ -1096,7 +1096,7 @@ DROP PROCEDURE spu_obtener_alumno;
 DELIMITER $$
 CREATE PROCEDURE spu_obtener_alumno(IN idusuario_ INT)
 BEGIN
-SELECT al.idalumno,usu.nomusuario,ma.nombres,ma.apellidos,ma.documento_nro,ma.correo,ma.celular,al.profesion,gr.grado,secc.seccion,tur.turno,apo.nombres_apo,apo.celular_apo
+SELECT al.idalumno,usu.nomusuario,ma.idmatricula,ma.nombres,ma.apellidos,ma.documento_nro,ma.correo,ma.celular,al.profesion,gr.grado,secc.seccion,tur.turno,apo.nombres_apo,apo.celular_apo
 FROM alumnos AS al
 INNER JOIN usuarios AS usu ON usu.idusuario = al.idusuario
 INNER JOIN matriculas AS ma ON ma.idmatricula = al.idmatricula

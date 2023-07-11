@@ -266,14 +266,14 @@
     
     <!-- Modal -->
     <div class="modal fade" id="modal-salud" tabindex="-1" role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+        <div class="modal-dialog modal-dialog-scrollable modal-xl" role="document">
             <div class="modal-content">
                     <div class="modal-header">
                             <h5 class="modal-title" id="modalTitleId">Modal title</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                 <div class="modal-body">
-                    <div class="container-fluid">
+                    <div class="container d-flex justify-content-center align-items-center">
                         <div class="col-md-offset-1 col-md-10">
                             <div class="panel">
                                 <div class="panel-heading">
@@ -291,10 +291,11 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="panel-body table-lg">
-                                    <table class="table" id="table_salud">
+                                <div class="panel-body table-lg table-responsive-lg">
+                                    <table class="table text-center" id="tabla-salud">
                                         <thead>
                                             <tr>
+                                                <th>#</th>
                                                 <th>Código</th>
                                                 <th>Matrícula</th>
                                                 <th>Edad</th>
@@ -302,6 +303,7 @@
                                                 <th>Alergías</th>
                                                 <th>Taumas</th>
                                                 <th>Vacunas</th>
+                                                <th>Operaciones</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -313,6 +315,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
+                    <div></div>
                     <button type="button" class="btn" style="background: none; border-color: white; color: white;" data-bs-dismiss="modal">Close</button>
                     <button type="button" class="btn"  style="background: none; border-color: white; color: white;" >Save</button>
                 </div>
