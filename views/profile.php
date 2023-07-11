@@ -283,10 +283,12 @@
                                         </div>
                                         <div class="col-sm-9 col-xs-12 text-end">
                                             <div class="btn_group">
+                                                <div class="row"></div>
                                                 <input type="text" class="form-control" placeholder="Search">
                                                 <button class="btn btn-default" title="Reload"><i class="fa fa-sync-alt"></i></button>
                                                 <button class="btn btn-default" title="Pdf"><i class="fa fa-file-pdf"></i></button>
                                                 <button class="btn btn-default" title="Excel"><i class="fas fa-file-excel"></i></button>
+                                                <button class="btn btn-default" title="add"><i class="fa-solid fa-plus"></i></button>
                                             </div>
                                         </div>
                                     </div>

@@ -26,8 +26,8 @@ if(isset($_POST['operacion'])){
                         <td>{$registro['traumas']}</td>
                         <td>{$registro['vacunas']}</td>
                         <td>
-                            <a href='#' data-idestadosalud='{$registro['idmatricula']}' class='btn btn-sm btn-danger eliminar'><i class='fa-solid fa-trash'></i></a>
-                            <a href='#' data-idestadosalud='{$registro['idmatricula']}' class='btn btn-sm btn-info editar'><i class='fa-solid fa-pencil'></i></i></a>
+                            <a href='#' data-idestadosalud='{$registro['idmatricula']}' class='btn eliminar'><i class='fa-solid fa-trash'></i></a>
+                            <a href='#' data-idestadosalud='{$registro['idmatricula']}' class='btn editar'><i class='fa-solid fa-pencil'></i></i></a>
                         </td>
                     </tr>
                 ";

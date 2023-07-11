@@ -1188,6 +1188,7 @@ DELIMITER ;
 
 CALL spu_eliminar_estsalud(3);
 
+DROP PROCEDURE spu_obtenerestadosalud;
 DELIMITER $$
 CREATE PROCEDURE spu_obtenerestadosalud(IN idmatricula_ INT)
 BEGIN
