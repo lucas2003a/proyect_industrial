@@ -93,7 +93,7 @@
                         <li><a href="#"><i class="fa-brands fa-app-store"></i> web design</a></li>
                     </ul>
                 </li>               
-                <li><a href="#"><i class="fa-solid fa-users"></i> Grupos</a></li>
+                <li><a href="#" type="button" id="horarios"><i class="fa-solid fa-users"></i> Horarios</a></li>
                 <li><a href="#"><i class="fa-solid fa-message"></i> Mensajes</a></li>
                 <li><a href="#"><i class="fa-solid fa-book"></i> Libros</a></li>
                 <li><a href="#"><i class="fa-solid fa-file"></i> Archivos</a></li>
@@ -103,7 +103,7 @@
     </nav>
     <div class="container-cn" id="mainContent">
         <div class="main-content">
-            <div class="header">
+            <div class="header"   id="contenido">
                 <div class="container">
                     <div class="card p-3">
                         <div class="card-body">

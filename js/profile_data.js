@@ -32,7 +32,7 @@ $(document).ready(function(){
               $('#celular_apo').text(response.datos.celular_apo);
               // Actualizar otros elementos HTML con los datos del alumno si es necesario
 
-              window.idmatricula = response.datos.idmatricula; //var define una varibe glogal fuera de una funcion, pero window define una variable global aun dentro de un codigo
+              window.idmatriculaDatos = response.datos.idmatricula; //var define una varibe glogal fuera de una funcion, pero window define una variable global aun dentro de un codigo
 
             } else {
               alert(response.mensaje);
@@ -53,7 +53,7 @@ $(document).ready(function(){
           type: 'POST',
           data: {
               operacion: 'listar',
-              idmatricula: idmatricula
+              idmatricula: idmatriculaDatos
           },
           success: function(response) {
               $('#tabla-salud tbody').html(response);

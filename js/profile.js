@@ -1,6 +1,6 @@
 
 /*NAVBAR DEL USUARIO*/
-   $(document).ready(function(){
+$(document).ready(function(){
     /*SIDEBAR*/
 
     $('.btn-sidebar').click(function(){
@@ -83,5 +83,14 @@
         // Use above variables to manipulate the DOM
       });
    });
+// intentando hacer un contenido dinámico
+   $('#horarios').click(function(){
+    $.ajax({
+        url: 'horarios.php',
+        success: function(data){
+            $('#contenido').html(data);
+        }
+    });
+});
 
 

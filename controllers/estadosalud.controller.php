@@ -13,21 +13,21 @@ if(isset($_POST['operacion'])){
             $tablaHTML = ""; // Variable para almacenar la estructura HTML de la tabla
 
             foreach($data as $registro){
-                $datosEstado = $registro['codigo'] .' '.$registro['idmatricula'];
+                $datosEstado = $registro['codigo'] .' '.$registro['nromatricula'];
 
                 $tablaHTML .= "
                     <tr>
                         <td>{$numeroFila}</td>
                         <td>{$registro['codigo']}</td>
-                        <td>{$registro['idmatricula']}</td>
+                        <td>{$registro['nromatricula']}</td>
                         <td>{$registro['edad']}</td>
                         <td>{$registro['enfermedad']}</td>
                         <td>{$registro['alergias']}</td>
                         <td>{$registro['traumas']}</td>
                         <td>{$registro['vacunas']}</td>
                         <td>
-                            <a href='#' data-idestadosalud='{$registro['idmatricula']}' class='btn eliminar'><i class='fa-solid fa-trash'></i></a>
-                            <a href='#' data-idestadosalud='{$registro['idmatricula']}' class='btn editar'><i class='fa-solid fa-pencil'></i></i></a>
+                            <a href='#' data-idestadosalud='{$registro['idestadosalud']}' class='btn eliminar'><i class='fa-solid fa-trash'></i></a>
+                            <a href='#' data-idestadosalud='{$registro['idestadosalud']}' class='btn editar'><i class='fa-solid fa-pencil'></i></i></a>
                         </td>
                     </tr>
                 ";

@@ -44,7 +44,7 @@
               <h1 class="text-black text-uppercase">Login</h1>
               <h2 class="text-black-50 text-uppercase">registrate ya</h2>
             </div>
-            <div class="card-body m-3">
+            <div class="card-body">
               <form action="" id="form-login">
                 <div class="mb-2">
                   <label for="nomusuario" class="form-label fw-bolder m-2">Correo:</label>
@@ -60,9 +60,11 @@
               <div class="d-flex justify-content-center py-4">
                 <button type="button" id="iniciar-sesion" class="btn btn-primary text-uppercase fw-bolder">inicar sesion</button>
               </div>
-              <div class="registrarse py-4 text-center">
+              <!--
+              <div class="registrarse py-1 text-center">
                 <p class="text-black-50 fw-bolder">¿No tienes una cuenta?<a class="text-uppercase" href="registro.php">registrate</a></p>
               </div>
+              -->
               <div class="icon-login d-flex justify-content-center">
                 <a class="mx-2" href="#!"><i class="fab fa-twitter"></i></a>
                 <a class="mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>

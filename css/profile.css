@@ -11521,3 +11521,20 @@ body {
   }
   .panel .panel-heading .btn_group{ text-align: center; }
 }
+@media (max-width: 992px) { /* Dispositivos pequeños */
+  .table{
+    display: flex;
+    flex-direction: row;
+  }
+  .table thead {
+    display: block;
+  }
+  .table tbody{
+    display: block;
+  }
+  .table td, .table th{
+    height: 50px;
+    display: block;
+    width: 100%;
+  }
+}

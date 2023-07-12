@@ -1192,11 +1192,15 @@ DROP PROCEDURE spu_obtenerestadosalud;
 DELIMITER $$
 CREATE PROCEDURE spu_obtenerestadosalud(IN idmatricula_ INT)
 BEGIN
-	SELECT * FROM estadossalud WHERE idmatricula = idmatricula_ AND estado = 1;
+	SELECT es.idestadosalud,es.codigo,ma.nromatricula,es.edad,es.enfermedad,es.alergias,es.traumas,es.vacunas
+    FROM estadossalud AS es 
+    INNER JOIN matriculas As ma ON ma.idmatricula = es.idmatricula
+    WHERE es.idmatricula = idmatricula_ AND es.estado = 1;
 END$$
 DELIMITER ;
 
 CALL spu_obtenerestadosalud(1);
+select * from usuarios;
 
 /*****************************************************************************
 ******************************** TRIAJES *************************************
