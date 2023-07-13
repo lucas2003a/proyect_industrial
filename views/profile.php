@@ -93,7 +93,7 @@
                         <li><a href="#"><i class="fa-brands fa-app-store"></i> web design</a></li>
                     </ul>
                 </li>               
-                <li><a href="#" type="button" id="horarios"><i class="fa-solid fa-users"></i> Horarios</a></li>
+                <li><a href="horarios.php"><i class="fa-solid fa-users"></i> Horarios</a></li>
                 <li><a href="#"><i class="fa-solid fa-message"></i> Mensajes</a></li>
                 <li><a href="#"><i class="fa-solid fa-book"></i> Libros</a></li>
                 <li><a href="#"><i class="fa-solid fa-file"></i> Archivos</a></li>
@@ -101,168 +101,171 @@
             </ul>
         </div>
     </nav>
-    <div class="container-cn" id="mainContent">
-        <div class="main-content">
-            <div class="header"   id="contenido">
-                <div class="container">
-                    <div class="card p-3">
-                        <div class="card-body">
-                            <form action="" id="form-profile">
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <div class="profile-img">
-                                            <img src="../views/img/Escudo_de_Chincha_alta.png" alt="">
-                                            <div class="file btn btn-lg btn-primary">
-                                                Cambiar foto
-                                                <input type="file" name="file" id="">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="profile-head">
-                                            <h5 id="nomalumno"></h5>
-                                            <h6>creador de la página</h6>
-                                            <p class="documento_nro" id="documento_nro"></p>
-                                        
-                                            <ul class="nav nav-tabs navbar-2" id="myTab" role="tablist">
-                                                <li class="nav-item">
-                                                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Perfil</a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Datos académicos</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <button type="submit" class="profile-edit-btn" name="btnAddMore">Editar perfil</button>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <div class="profile-work">
-                                            <p>Salud</p>
-                                            <a href="" id="estado-salud" type="button" data-bs-toggle="modal" data-bs-target="#modal-salud" >Estado de salud</a><br/>
-                                            <a href="">Bootsnipp Profile</a><br/>
-                                            <a href="">Bootply Profile</a>
-                                            <p>SKILLS</p>
-                                            <a href="">Web Designer</a><br/>
-                                            <a href="">Web Developer</a><br/>
-                                            <a href="">WordPress</a><br/>
-                                            <a href="">WooCommerce</a><br/>
-                                            <a href="">PHP, .Net</a><br/>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-8">
-                                        <div class="tab-content profile-tab" id="myTabContent">
-                                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <label for="usuario" class="fw-bolder">User ID :</label>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <p id="nomusuario"></p>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <label for="nombres" class="fw-bolder">Nombres :</label>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <p id="nombres"></p>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <label for="apellidos" class="fw-bolder">Apellidos</label>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <p id="apellidos"></p>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <label for="email" class="fw-bolder">Email :</label>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <p id="correo"></p>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <label for="phone" class="fw-bolder">Celular :</label>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <p id="celular"></p>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <label for="profession" class="fw-bolder">Profesión :</label>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <p id="profesion"></p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="tab-pane fade show" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <label for="experience" class="fw-bolder">Grado:</label>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <p id="grado"></p>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <label for="houlrate" class="fw-bolder">Sección :</label>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <p id="seccion"></p>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <label for="totalprojects" class="fw-bolder">Turno:</label>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <p id="turno"></p>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <label for="Englishlevel" class="fw-bolder">Apoderado :</label>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <p id="nombres_apo"></p>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <label for="availability" class="fw-bolder">Celular del apoderado :</label>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <p id="celular_apo"></p>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-12">
-                                                        <label for="">Biografía</label>
-                                                        <p>Descirpción personal</p>
-                                                    </div>
+    <section class="profile-section">
+        <div class="container-cn" id="mainContent">
+            <div class="main-content" id="contenido">
+                <div class="header">
+                    <div class="container">
+                        <div class="card p-3">
+                            <div class="card-body">
+                                <form action="" id="form-profile">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="profile-img">
+                                                <img src="../views/img/Escudo_de_Chincha_alta.png" alt="">
+                                                <div class="file btn btn-lg btn-primary">
+                                                    Cambiar foto
+                                                    <input type="file" name="file" id="">
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="col-md-6">
+                                            <div class="profile-head">
+                                                <h5 id="nomalumno"></h5>
+                                                <h6>creador de la página</h6>
+                                                <p class="documento_nro" id="documento_nro"></p>
+                                            
+                                                <ul class="nav nav-tabs navbar-2" id="myTab" role="tablist">
+                                                    <li class="nav-item">
+                                                        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Perfil</a>
+                                                    </li>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Datos académicos</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <button type="submit" class="profile-edit-btn" name="btnAddMore">Editar perfil</button>
+                                        </div>
                                     </div>
-                                </div>
-                            </form>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="profile-work">
+                                                <p>Salud</p>
+                                                <a href="" id="estado-salud" type="button" data-bs-toggle="modal" data-bs-target="#modal-salud" >Estado de salud</a><br/>
+                                                <a href="">Bootsnipp Profile</a><br/>
+                                                <a href="">Bootply Profile</a>
+                                                <p>SKILLS</p>
+                                                <a href="">Web Designer</a><br/>
+                                                <a href="">Web Developer</a><br/>
+                                                <a href="">WordPress</a><br/>
+                                                <a href="">WooCommerce</a><br/>
+                                                <a href="">PHP, .Net</a><br/>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="tab-content profile-tab" id="myTabContent">
+                                                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <label for="usuario" class="fw-bolder">User ID :</label>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <p id="nomusuario"></p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <label for="nombres" class="fw-bolder">Nombres :</label>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <p id="nombres"></p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <label for="apellidos" class="fw-bolder">Apellidos</label>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <p id="apellidos"></p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <label for="email" class="fw-bolder">Email :</label>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <p id="correo"></p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <label for="phone" class="fw-bolder">Celular :</label>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <p id="celular"></p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <label for="profession" class="fw-bolder">Profesión :</label>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <p id="profesion"></p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="tab-pane fade show" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <label for="experience" class="fw-bolder">Grado:</label>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <p id="grado"></p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <label for="houlrate" class="fw-bolder">Sección :</label>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <p id="seccion"></p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <label for="totalprojects" class="fw-bolder">Turno:</label>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <p id="turno"></p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <label for="Englishlevel" class="fw-bolder">Apoderado :</label>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <p id="nombres_apo"></p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <label for="availability" class="fw-bolder">Celular del apoderado :</label>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <p id="celular_apo"></p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <label for="">Biografía</label>
+                                                            <p>Descirpción personal</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
+
     
     <!-- Modal -->
     <div class="modal fade" id="modal-salud" tabindex="-1" role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">

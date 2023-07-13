@@ -1,7 +1,8 @@
 <?php
-
-    $contenido = include 'profile.php';
-    echo $contenido;
+    session_start();
+    if(!isset($_SESSION['login']) || $_SESSION['login'] == false){
+        header('Location:login.php');
+    }
 ?>
 
 <!doctype html>
@@ -28,7 +29,7 @@
   
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
   <!-- SweetAlert2 -->
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>  
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> 
   
 </head>
 
@@ -36,16 +37,108 @@
   <header>
     <!-- place navbar here -->
   </header>
-  
-  <div class="container-cn" id="mainContent">
-    <div class="main-content">
-      <div class="header">
-        <div class="container" id="contenido">
-          hola
+  <div class="navbar-responsive py-4">
+    <nav class="navbar-iconos">
+      <ul class="main_nav">
+        <li><a class="active" href="#"><i class="fas fa-tachometer-alt"></i></a></li>
+        <li>
+          <a href="#" id="pages"><i class="fa-solid fa-layer-group"></i><span class="fas fa-caret-down"></span></a>
+          <ul class="item-show-pages">
+            <li><a href="#"><i class="fa-solid fa-phone"></i></a></li>
+            <li><a href="#"><i class="fa-solid fa-user-plus"></i></a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#" id="services"><i class="fas fa-puzzle-piece"></i><span class="fas fa-caret-down"></span></a>
+          <ul class="item-show-services">
+            <li><a href="#"><i class="fa-brands fa-app-store-ios"></i></a></li>
+            <li><a href="#"><i class="fa-brands fa-app-store"></i></a></li>
+          </ul>
+        </li>
+        <li><a href="#"><i class="fa-solid fa-users"></i></a></li>
+        <li><a href="#"><i class="fa-solid fa-message"></i></a></li>
+        <li><a href="#"><i class="fa-solid fa-book"></i></a></li>
+        <li><a href="#"><i class="fa-solid fa-file"></i></a></li>
+        <li><a href="../controllers/usuario.controller.php?operacion=finalizar" id="cerrar-sesion"><i class="fas fa-power-off"></i></a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="btn-sidebar toggled" id="menu-toggle">
+    <span class="fas fa-bars"></span>
+  </div>
+  <nav class="sidebar" id="sidebar">
+    <div class="sidebar-content">
+      <div class="text">
+        <h1 class="text-uppercase fw-bolder mt-2">Jhon f.kennedy</h1>
+        <div class="sidebar-image">
+          <img src="../views/img/zyro-image.png" alt="">
         </div>
       </div>
+      <ul class="main_side">
+        <li class="active"><a href="#"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+        <li>
+          <a href="#" id="pages"><i class="fa-solid fa-layer-group"></i> Pages<span class="fas fa-caret-down"></span></a>
+          <ul class="item-show-pages">
+            <li><a href="#"><i class="fa-solid fa-phone"></i> Contac us</a></a></li>
+            <li><a href="#"><i class="fa-solid fa-user-plus"></i> our team</a></a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#" id="services"><i class="fas fa-puzzle-piece"></i> Services<span class="fas fa-caret-down"></span></a>
+          <ul class="item-show-services">
+            <li><a href="#"><i class="fa-brands fa-app-store-ios"></i> App design</a></a></li>
+            <li><a href="#"><i class="fa-brands fa-app-store"></i> web design</a></a></li>
+          </ul>
+        </li>
+        <li><a href="horarios.php"><i class="fa-solid fa-users"></i> Horarios</a></li>
+        <li><a href="#"><i class="fa-solid fa-message"></i> Mensajes</a></li>
+        <li><a href="#"><i class="fa-solid fa-book"></i> Libros</a></li>
+        <li><a href="#"><i class="fa-solid fa-file"></i> Archivos</a></li>
+      </ul>
     </div>
-  </div>
+  </nav>
+    <section class="section-cursos">
+      <div class="container-cn" id="mainContent">
+        <div class="main-content" id="contenido">
+          <div class="header">
+            <div class="container">
+              <div class="card">
+                <div class="card-body">
+                  <h1 class="fw-bolder text-uppercase text-center">horario</h1>
+
+                  <div class="horario">
+                    <!---horarios top navigation-->
+                    <nav class="nav nav-tabs">
+                      <a href="#" class="nav-link active">Lun</a>
+                      <a href="#" class="nav-link">Mar</a>
+                      <a href="#" class="nav-link">Mier</a>
+                      <a href="#" class="nav-link">Jue</a>
+                      <a href="#" class="nav-link">Vie</a>
+                    </nav>
+
+                    <div class="tab-content">
+                      <div class="tab-pane show active">
+                        <div clas="row">
+                          <!---item 1-->
+                          <div class="col-md-6">
+                            <div class="horario-item">
+                              <div class="horario-item-img">
+                                
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 <main>
 
 </main>
@@ -54,8 +147,8 @@
   </footer>
 <!-- place footer here -->
 </footer>
-<!-- Bootstrap core JS-->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Bootstrap core JS-->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 <!-- Core theme JS-->
 <script src="../js/profile.js"></script>
 <script src="../js/profile_data.js"></script>

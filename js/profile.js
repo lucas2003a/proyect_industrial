@@ -83,14 +83,9 @@ $(document).ready(function(){
         // Use above variables to manipulate the DOM
       });
    });
-// intentando hacer un contenido dinámico
-   $('#horarios').click(function(){
-    $.ajax({
-        url: 'horarios.php',
-        success: function(data){
-            $('#contenido').html(data);
-        }
-    });
+/* intentando hacer un contenido dinámico
+$(document).on('click','#horarios',function(){
+    $('#contenido').load('horarios.php');
 });
-
+*/
 
