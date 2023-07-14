@@ -24,7 +24,7 @@
   <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
   <!-- Core theme CSS (includes Bootstrap)-->
-  <link href="../css/profile.css" rel="stylesheet"/>
+  <link href="../css/horarios.css" rel="stylesheet"/>
   <!-- jQuery -->
   
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
@@ -98,33 +98,46 @@
       </ul>
     </div>
   </nav>
-    <section class="section-cursos">
+    <section class="section-horario">
       <div class="container-cn" id="mainContent">
         <div class="main-content" id="contenido">
-          <div class="header">
+           <div class="horarios">
             <div class="container">
-              <div class="card">
-                <div class="card-body">
-                  <h1 class="fw-bolder text-uppercase text-center">horario</h1>
+                <div class="card">
+                  <div class="card-body">
+                    <h1 class="fw-bolder text-uppercase text-center">horario</h1>
 
-                  <div class="horario">
-                    <!---horarios top navigation-->
-                    <nav class="nav nav-tabs">
-                      <a href="#" class="nav-link active">Lun</a>
-                      <a href="#" class="nav-link">Mar</a>
-                      <a href="#" class="nav-link">Mier</a>
-                      <a href="#" class="nav-link">Jue</a>
-                      <a href="#" class="nav-link">Vie</a>
-                    </nav>
+                    <div class="horario">
+                      <!---horarios top navigation-->
+                      <nav class="nav nav-tabs">
+                        <a href="#" class="nav-link active" name="dia" value="LUNES">Lun</a>
+                        <a href="#" class="nav-link" name="dia" value="MARTES">Mar</a>
+                        <a href="#" class="nav-link" name="dia" value="MIERCOLES">Mier</a>
+                        <a href="#" class="nav-link" name="dia" value="JUEVES">Jue</a>
+                        <a href="#" class="nav-link" name="dia" value="VIERNES">Vie</a>
+                      </nav>
 
-                    <div class="tab-content">
-                      <div class="tab-pane show active">
-                        <div clas="row">
-                          <!---item 1-->
-                          <div class="col-md-6">
-                            <div class="horario-item">
-                              <div class="horario-item-img">
-                                
+                      <div class="tab-content">
+                        <div class="tab-pane show active">
+                          <div clas="row">
+                            <!---item 1-->
+                            <div class="col-md-12">
+                              <div class="horario-item">
+                                <div class="horario-item-img">
+                                <img src="../views/img/zyro-image.png" style="height: 100%; width:70%" alt="imagen">
+                                </div>
+
+                                <div class="horario-item-main">
+                                  <h1 class="horario-item-nombre fw-bolder" name="curso" id="curso">Matemáticas</h1>
+                                  <h2 class="horario-item-horainicio" id="horainicio" name="horaincio">08:00 am</h2>
+                                  <h2 class="horario-item-horatermino" id="horatermino" name="horatermino">10:00 am</h2>
+                                  <a href="#" type="button" class="btn btn-primary btn-leer">Leer mas..</a>
+                                  <div class="horario-item-like">
+                                    <i class="fa-regular fa-heart" id="vacio" arian-hidden="true"></i>
+                                    <i class="fa fa-heart" id="lleno" aria-hidden="true"></i>
+                                    <p class="horario-item-like-count">11</p>
+                                  </div>
+                                </div>
                               </div>
                             </div>
                           </div>
@@ -134,8 +147,7 @@
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
+           </div>
         </div>
       </div>
     </section>

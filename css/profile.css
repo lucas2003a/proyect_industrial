@@ -11533,7 +11533,8 @@ body {
     display: block;
   }
   .table td, .table th{
-    height: 50px;
+    min-height: 50px;
+    height: auto;
     display: block;
     width: 100%;
   }
