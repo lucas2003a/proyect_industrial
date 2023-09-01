@@ -11244,7 +11244,7 @@ body {
 .login-section{
   position: relative;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   min-height: 35rem;
   padding: 1rem 0;
   background:linear-gradient(to bottom,rgba(210, 209, 209, 1) 0%, rgba(0, 0, 0, 0.7) 75%, #000 100%), url("../views/img/zyro-image.png");

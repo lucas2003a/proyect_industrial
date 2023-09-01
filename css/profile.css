@@ -11144,10 +11144,28 @@ body {
     }
   }
   
-  @media (max-width: 767px){
+  @media (max-width: 768px){
+    .navbar-responsive{
+      display: none;
+    }
+    .sidebar{
+      z-index: 2;
+    }
+    .main-content{
+
+      z-index: 1;
+      transition-duration: 0.4s;
+    }
+  
+    .container-cn.sidebar-open .main-content{
+      margin-left: 0px;
+    }
+  }
+  /*@media (max-width: 767px){
     .container-cn.sidebar-open .main-content{
       margin-left: 100px;
     }
+    
     .sidebar{
       display: none; 
     }
@@ -11268,7 +11286,7 @@ body {
       background-attachment: scroll;
       background-size: cover;
     }
-  }
+  }*/
 
 .profile-img{
   text-align: center;
@@ -11537,5 +11555,13 @@ body {
     height: auto;
     display: block;
     width: 100%;
+  }
+}
+
+@media(max-width: 767px){
+
+  .profile-img img{
+    width: 50%;
+    height: 50%;
   }
 }

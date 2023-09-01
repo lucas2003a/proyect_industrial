@@ -76,7 +76,7 @@
         </div>
       </div>
       <ul class="main_side">
-        <li class="active"><a href="#"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+        <li class="active"><a href="profile.php"><i class="fas fa-tachometer-alt"></i> Perfil</a></li>
         <li>
           <a href="#" id="pages"><i class="fa-solid fa-layer-group"></i> Pages<span class="fas fa-caret-down"></span></a>
           <ul class="item-show-pages">

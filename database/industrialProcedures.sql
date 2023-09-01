@@ -762,6 +762,30 @@ DELIMITER ;
 select*from secciones;
 CALL spu_listar_horarios();
 
+DROP PROCEDURE IF EXISTS spu_obtener_horarios;
+DELIMITER $$
+CREATE PROCEDURE spu_obtener_horarios
+(
+	_idseccion	INT,
+    _dia		VARCHAR(10)
+)
+BEGIN
+	SELECT tur.turno,g.grado,secc.seccion,hor.dia,cur.curso,hor.horainicio,hor.horatermino,aul.nroaula
+	FROM horarios AS hor
+	INNER JOIN secciones AS secc ON secc.idseccion = hor.idseccion
+	INNER JOIN grados AS g ON g.idgrado = secc.idgrado
+	INNER JOIN turnos AS tur ON tur.idturno = g.idturno
+	INNER JOIN detallecursos AS detc ON detc.iddetallecurso = hor.iddetallecurso
+	INNER JOIN cursos AS cur ON cur.idcurso = detc.idcurso
+	INNER JOIN aulas AS aul ON aul.idaula = hor.idaula
+	WHERE hor.estado = '1'
+    AND secc.idseccion = _idseccion
+    AND hor.dia = _dia
+	ORDER BY FIELD(g.grado,'PRIMERO','SEGUNDO','TERCERO','CUARTO','QUINTO'),secc.seccion,FIELD(hor.dia,'LUNES','MARTES','MIERCOLES','JUEVES','VIERNES');
+END$$
+DELIMITER ;
+
+CALL spu_obtener_horarios(1,'lunes');
 
 DELIMITER $$
 CREATE PROCEDURE spu_insertar_horarios

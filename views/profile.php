@@ -78,7 +78,7 @@
                 </div>
             </div>
             <ul class="main_side">
-                <li class="active"><a href="#"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                <li class="active"><a href="profile.php"><i class="fas fa-tachometer-alt"></i> Perfil</a></li>
                 <li>
                     <a href="#" id="pages"><i class="fa-solid fa-layer-group"></i> Pages<span class="fas fa-caret-down"></span></a>
                     <ul class="item-show-pages">
@@ -272,7 +272,7 @@
         <div class="modal-dialog modal-dialog-scrollable modal-xl" role="document">
             <div class="modal-content">
                     <div class="modal-header">
-                            <h5 class="modal-title" id="modalTitleId">Modal title</h5>
+                            <h5 class="modal-title" id="modalTitleId">Estado salud</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                 <div class="modal-body">
