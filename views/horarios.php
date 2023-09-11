@@ -9,7 +9,7 @@
 <html lang="en">
 
 <head>
-  <title>Bienvenido</title>
+  <title>Horarios</title>
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -76,7 +76,7 @@
         </div>
       </div>
       <ul class="main_side">
-        <li class="active"><a href="profile.php"><i class="fas fa-tachometer-alt"></i> Perfil</a></li>
+        <li><a href="profile.php"><i class="fas fa-tachometer-alt"></i> Perfil</a></li>
         <li>
           <a href="#" id="pages"><i class="fa-solid fa-layer-group"></i> Pages<span class="fas fa-caret-down"></span></a>
           <ul class="item-show-pages">
@@ -91,7 +91,7 @@
             <li><a href="#"><i class="fa-brands fa-app-store"></i> web design</a></a></li>
           </ul>
         </li>
-        <li><a href="horarios.php"><i class="fa-solid fa-users"></i> Horarios</a></li>
+        <li class="active"><a href="horarios.php"><i class="fa-solid fa-users"></i> Horarios</a></li>
         <li><a href="#"><i class="fa-solid fa-message"></i> Mensajes</a></li>
         <li><a href="#"><i class="fa-solid fa-book"></i> Libros</a></li>
         <li><a href="#"><i class="fa-solid fa-file"></i> Archivos</a></li>

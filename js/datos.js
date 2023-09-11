@@ -33,6 +33,7 @@ $(document).ready(function(){
               // Actualizar otros elementos HTML con los datos del alumno si es necesario
 
               window.idmatriculaDatos = response.datos.idmatricula; //var define una varibe glogal fuera de una funcion, pero window define una variable global aun dentro de un codigo
+              window.idseccionDatos = response.datos.seccion;
 
             } else {
               alert(response.mensaje);
@@ -59,6 +60,21 @@ $(document).ready(function(){
               $('#tabla-salud tbody').html(response);
           }
       });
-  });
+
+    function obtenerHorario(){
+      $(document).ready(function(){
+
+        $.ajax({
+            url: '../controllers/horario.controller.php',
+            data: 'POST',
+            data: {
+                operacion: 'listarH',
+                idseccion: idseccionDatos,
+                dia: $('')},
+            dataType:'JSON'
+        });
+    });
+    }
+
     obtenerDatosAlumno();
 });
