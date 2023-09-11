@@ -60,7 +60,8 @@ $(document).ready(function(){
               $('#tabla-salud tbody').html(response);
           }
       });
-
+    }); 
+    
     function obtenerHorario(){
       $(document).ready(function(){
 
@@ -71,9 +72,9 @@ $(document).ready(function(){
                 operacion: 'listarH',
                 idseccion: idseccionDatos,
                 dia: $('')},
-            dataType:'JSON'
+            dataType:'JSON',
         });
-    });
+      });
     }
 
     obtenerDatosAlumno();
