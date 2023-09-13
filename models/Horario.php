@@ -11,7 +11,7 @@ class Horario extends Conexion{
         $this->accesoBD = parent::getConexion();
     }
 
-    public function ObtenerHorarios($idseccion,$dia){
+    public function ObtenerHorarios($idseccion = 0 ,$dia = ""){
 
         try{
 

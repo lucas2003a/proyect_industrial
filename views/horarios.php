@@ -110,16 +110,16 @@
                     <div class="horario">
                       <!---horarios top navigation-->
                       <nav class="nav nav-tabs">
-                        <a href="#" class="nav-link active" name="dia" value="LUNES">Lun</a>
-                        <a href="#" class="nav-link" name="dia" value="MARTES">Mar</a>
-                        <a href="#" class="nav-link" name="dia" value="MIERCOLES">Mier</a>
-                        <a href="#" class="nav-link" name="dia" value="JUEVES">Jue</a>
-                        <a href="#" class="nav-link" name="dia" value="VIERNES">Vie</a>
+                        <a href="#" class="nav-link horario-link active" name="dia" value="LUNES">Lun</a>
+                        <a href="#" class="nav-link horario-link" name="dia" value="MARTES">Mar</a>
+                        <a href="#" class="nav-link horario-link" name="dia" value="MIERCOLES">Mier</a>
+                        <a href="#" class="nav-link horario-link" name="dia" value="JUEVES">Jue</a>
+                        <a href="#" class="nav-link horario-link" name="dia" value="VIERNES">Vie</a>
                       </nav>
 
                       <div class="tab-content">
                         <div class="tab-pane show active">
-                          <div clas="row">
+                          <div class="row">
                             <!---item 1-->
                             <div class="col-md-12">
                               <div class="horario-item">
@@ -127,16 +127,8 @@
                                 <img src="../views/img/zyro-image.png" style="height: 100%; width:70%" alt="imagen">
                                 </div>
 
-                                <div class="horario-item-main">
-                                  <h1 class="horario-item-nombre fw-bolder" name="curso" id="curso">Matemáticas</h1>
-                                  <h2 class="horario-item-horainicio" id="horainicio" name="horaincio">08:00 am</h2>
-                                  <h2 class="horario-item-horatermino" id="horatermino" name="horatermino">10:00 am</h2>
-                                  <a href="#" type="button" class="btn btn-primary btn-leer">Leer mas..</a>
-                                  <div class="horario-item-like">
-                                    <i class="fa-regular fa-heart" id="vacio" arian-hidden="true"></i>
-                                    <i class="fa fa-heart" id="lleno" aria-hidden="true"></i>
-                                    <p class="horario-item-like-count">11</p>
-                                  </div>
+                                <div class="horario-item-main" id="horario-contenido">
+                                <!--Aquí se mostrar los datos del horario -->
                                 </div>
                               </div>
                             </div>
@@ -163,7 +155,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 <!-- Core theme JS-->
 <script src="../js/profile.js"></script>
-<script src="../js/profile_data.js"></script>
+<script src="../js/datos.js"></script>
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
 <!-- * *                               SB Forms JS                               * *-->
 <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->

@@ -770,7 +770,7 @@ CREATE PROCEDURE spu_obtener_horarios
     _dia		VARCHAR(10)
 )
 BEGIN
-	SELECT tur.turno,g.grado,secc.seccion,hor.dia,cur.curso,hor.horainicio,hor.horatermino,aul.nroaula
+	SELECT cur.curso,hor.horainicio,hor.horatermino,aul.nroaula
 	FROM horarios AS hor
 	INNER JOIN secciones AS secc ON secc.idseccion = hor.idseccion
 	INNER JOIN grados AS g ON g.idgrado = secc.idgrado
@@ -784,7 +784,7 @@ BEGIN
 	ORDER BY FIELD(g.grado,'PRIMERO','SEGUNDO','TERCERO','CUARTO','QUINTO'),secc.seccion,FIELD(hor.dia,'LUNES','MARTES','MIERCOLES','JUEVES','VIERNES');
 END$$
 DELIMITER ;
-
+use industrialbd;
 CALL spu_obtener_horarios(1,'lunes');
 
 DELIMITER $$

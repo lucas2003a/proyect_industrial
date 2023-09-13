@@ -33,7 +33,7 @@ $(document).ready(function(){
               // Actualizar otros elementos HTML con los datos del alumno si es necesario
 
               window.idmatriculaDatos = response.datos.idmatricula; //var define una varibe glogal fuera de una funcion, pero window define una variable global aun dentro de un codigo
-              window.idseccionDatos = response.datos.seccion;
+              window.idseccionDatos = response.datos.idseccion;
 
             } else {
               alert(response.mensaje);
@@ -56,26 +56,63 @@ $(document).ready(function(){
               operacion: 'listar',
               idmatricula: idmatriculaDatos
           },
+          dataType: 'JSON',
           success: function(response) {
               $('#tabla-salud tbody').html(response);
           }
       });
     }); 
     
-    function obtenerHorario(){
-      $(document).ready(function(){
+    var diaActual = obtenerDiaActual();
 
-        $.ajax({
-            url: '../controllers/horario.controller.php',
-            data: 'POST',
-            data: {
-                operacion: 'listarH',
-                idseccion: idseccionDatos,
-                dia: $('')},
-            dataType:'JSON',
-        });
-      });
+    obtenerHorarios(diaActual);
+
+    $('.nav-link').click(function(){
+
+      var diaSeleccionado = $(this).attr('value');
+
+      obtenerHorarios(diaSeleccionado);
+
+    });
+
+    function obtenerDiaActual(){
+
+      var fechaActual = new Date();
+
+      var numeroDia = fechaActual.getDay();
+
+      var diaSemana = ["DOMINGO","LUNES","MARTES","MIERCOLES","JUEVES","VIERNES","SÁBADO"];
+
+      var diaActual = diaSemana[numeroDia];
+
+      return diaActual
     }
+
+    function obtenerHorarios(dia){
+
+       var Horariodia = $(this).attr('value');
+
+       $.ajax({
+        url: '../controllers/horario.controller.php',
+        type: 'POST',
+        data: {
+          operacion: 'listarH',
+          idseccion: idseccionDatos,
+          dia: Horariodia
+        },
+        dataType: 'html',
+        success: function(result){
+          
+          $('#horario-contenido').html(result);
+        
+        },
+        error: function(){
+
+          alert("Error al cargar horarios.");
+        } 
+       });
+    };
+    obtnerHorarios();
 
     obtenerDatosAlumno();
 });
