@@ -34,7 +34,7 @@ if(isset($_POST['operacion'])){
                 $numeroFila++;
             }
 
-            echo $tablaHTML; // Imprimir la estructura HTML de la tabla en lugar de codificarla en JSON
+            echo json_encode($tablaHTML); // Imprimir la estructura HTML de la tabla en lugar de codificarla en JSON
         }
     }
 }

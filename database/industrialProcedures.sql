@@ -785,7 +785,7 @@ BEGIN
 END$$
 DELIMITER ;
 use industrialbd;
-CALL spu_obtener_horarios(1,'lunes');
+CALL spu_obtener_horarios(1,'martes');
 
 DELIMITER $$
 CREATE PROCEDURE spu_insertar_horarios

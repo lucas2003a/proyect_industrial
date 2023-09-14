@@ -36,7 +36,7 @@ if(isset($_POST['operacion'])){
 
             }
         
-            echo $cardHTML;
+            echo json_encode($cardHTML);
             
         }
 
