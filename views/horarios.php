@@ -116,16 +116,8 @@
                         <div class="tab-pane show active">
                           <div class="row">
                             <!---item 1-->
-                            <div class="col-md-12">
-                              <div class="horario-item">
-                                <div class="horario-item-img">
-                                <img src="../views/img/zyro-image.png" style="height: 100%; width:70%" alt="imagen">
-                                </div>
-
-                                <div class="horario-item-main" id="horario-contenido">
-                                <!--Aquí se mostrar los datos del horario -->
-                                </div>
-                              </div>
+                            <div class="col-md-12" id="horario-contenido">
+                              <!--<img src='../views/img/zyro-image.png' style='height: 100%; width:70%' alt='imagen'>-->
                             </div>
                           </div>
                         </div>

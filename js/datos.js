@@ -65,33 +65,35 @@ $(document).ready(function(){
       });
     }); 
     
-    function obtenerHorarios(idseccionDatos,dia){
-      
+   
+    $('.horario-link').click(function(){
+
+      var diaSeleccionado = $(this).attr('value');
+
       $.ajax({
         url: '../controllers/horario.controller.php',
         type: 'POST',
         data: {
           operacion: 'listarH',
           idseccion: idseccionDatos,
-          dia: dia
+          dia:  diaSeleccionado
         },
         dataType: 'JSON',
         success: function(result){
+            
+            $('#horario-contenido').html(result);   
 
-          console.log("se cargo correctamente.");
-          
-          $('#horario-contenido').html(result);
-        
-        },
-        error: function(){
+        },    
+        error:function(result){
 
-          console.log("Error al cargar horarios.");
-          console.log(diaActual);
-        } 
+          console.log(result['mensajeH']);
+        }
       });
-    };
+    });
 
-    function obtenerDiaActual(){
+
+
+    /*function obtenerDiaActual(){
        
       var fechaActual = new Date();
       var numeroDia = fechaActual.getDay();
@@ -99,21 +101,21 @@ $(document).ready(function(){
       var diaActual = diaSemana[numeroDia];
       return (diaActual === "SÁBADO" || diaActual === "DOMINGO") ? null : diaActual;
   
-    }
+    }*/
 
-    $('.horario-link').click(function(){
+    /*$('.horario-link').click(function(){
 
-      var diaSeleccionado = $(this).attr('value');
+      window.diaSeleccionado = $(this).attr('value');
 
       obtenerHorarios(diaSeleccionado);
 
-    });
+    });*/
 
-    var diaActual = obtenerDiaActual();
+    /*var diaActual = obtenerDiaActual();
 
     if(diaActual !== "SÁBADO" && diaActual !== "DOMINGO"){
 
           obtenerHorarios(diaActual);
 
-    }
+    }*/
 });
