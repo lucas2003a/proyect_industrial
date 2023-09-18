@@ -805,7 +805,7 @@ BEGIN
 END $$
 DELIMITER ;
 
-CALL spu_insertar_horarios(1,'JUEVES',1,'10:30','11:30',1,'USU');
+CALL spu_insertar_horarios(1,'VIERNES',1,'10:30','11:30',1,'USU');
 
 DELIMITER $$
 CREATE PROCEDURE spu_modificar_horarios
@@ -829,9 +829,9 @@ BEGIN
 		WHERE idhorario = idhorario_;
 END $$
 DELIMITER ;
-
-CALL spu_modificar_horarios(9,'MIERCOLES',2,'07:30','08:30',1,'ADMIN');
-
+select * from horarios;
+CALL spu_modificar_horarios(13,'VIERNES',2,'01:30','08:30',1,'ADMIN');
+update horarios set idseccion = 1 where idhorario = 3;
 DELIMITER $$
 CREATE PROCEDURE spu_eliminar_horarios(IN idhorario_ INT)
 BEGIN
