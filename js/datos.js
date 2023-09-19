@@ -1,121 +1,52 @@
-/* DATOS DEL PERFIL */
-$(document).ready(function(){
+document.addEventListener('DOMContentLoaded',function(){
+
     let datosNuevos = true;
-    let idAlumnoact = -1;
+    let idAlumnoActualizar = -1;
+    let idmatricualaDatos;
+    let idseccionDatos;
 
     obtenerDatosAlumno();
-    
-    function obtenerDatosAlumno() {
-      
-      $.ajax({
-        url: '../controllers/alumno.controller.php',
-        type: 'POST',
-        data: { operacion: 'obtener' },
-        dataType: 'JSON',
-        success: function(response) {
-          console.log(response);
-          if (response.status) {
-            let nombres = response.datos.nombres;
-            let apellidos = response.datos.apellidos;
-            let nombreCompleto = nombres + ' ' + apellidos;
 
-              
-            $('#nomalumno').text(nombreCompleto);
-            $('#nomusuario').text(response.datos.nomusuario);
-            $('#nombres').text(response.datos.nombres);
-            $('#apellidos').text(response.datos.apellidos);
-            $('#documento_nro').text(response.datos.documento_nro)
-            $('#correo').text(response.datos.correo);
-            $('#celular').text(response.datos.celular);
-            $("#profesion").text(response.datos.profesion);
-            $('#grado').text(response.datos.grado);
-            $('#seccion').text(response.datos.seccion);
-            $('#turno').text(response.datos.turno)
-            $('#nombres_apo').text(response.datos.nombres_apo);
-            $('#celular_apo').text(response.datos.celular_apo);
-            // Actualizar otros elementos HTML con los datos del alumno si es necesario
+    function obtenerDatosAlumno(){
+        fetch('../controllers/alumno.controller.php',
+        {
+            method: 'POST',
+            body: JSON.stringify({
+                operacion: 'obtener'
+            }),
+            headers: {
+                'Content-type':'application/json'
+            }
+        })
 
-            window.idmatriculaDatos = response.datos.idmatricula; //var define una varibe glogal fuera de una funcion, pero window define una variable global aun dentro de un codigo
-            window.idseccionDatos = response.datos.idseccion;
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            if(data.status){
+                
+                const {nombres, apellidos} = data.datos;
+                const nombreCompleto = '${nombres} ${apellidos}';
 
-          } else {
-            alert(response.mensaje);
-          }
-        },
-        error: function(xhr, status, error) {
-          console.log(xhr.responseText);
-        }
-      });
+                document.getElementById('nomalumno').textContent = nombreCompleto;
+                document.getElementById('nomusuario').textContent = data.datos.nomusuario;
+                document.getElementById('nombres').textContent = data.datos.nombres;
+                document.getElementById('apellidos').textContent = data.datos.apellidos;
+                document.getElementById('documento_nro').textContent = data.datos.documento_nro;
+                document.getElementById('correo').textContent = data.datos.correo;
+                document.getElementById('celular').textContent = data.datos.celular;
+                document.getElementById('profesion').textContent = data.datos.profesion;
+                document.getElementById('grado').textContent = data.datos.grado; 
+                document.getElementById('seccion').textContent = data.datos.seccion; 
+                document.getElementById('turno').textContent = data.datos.turno; 
+                document.getElementById('nombres_apo').textContent = data.datos.nombres_apo; 
+                document.getElementById('celular_apo').textContent = data.datos.celular.apo;
+                
+                idmatricualaDatos = data.datos.idmatricula;
+                idseccionDatos = data.datos.idseccion;
+
+            }else{
+                alert(data.mensaje);
+            }
+        })
     }
-
-    $('#estado-salud').click(function(e) {
-      e.preventDefault();
-      
-      $.ajax({
-        url: '../controllers/estadosalud.controller.php',
-        type: 'POST',
-        data: {
-          operacion: 'listar',
-          idmatricula: idmatriculaDatos
-        },
-        dataType: 'JSON',
-        success: function(response) {
-          $('#tabla-salud tbody').html(response);
-        }
-      });
-    }); 
-    
-   
-    $('.horario-link').click(function(){
-
-      var diaSeleccionado = $(this).attr('value');
-
-      $.ajax({
-        url: '../controllers/horario.controller.php',
-        type: 'POST',
-        data: {
-          operacion: 'listarH',
-          idseccion: idseccionDatos,
-          dia:  diaSeleccionado
-        },
-        dataType: 'JSON',
-        success: function(result){
-            
-            $('#horario-contenido').html(result);   
-
-        },    
-        error:function(result){
-
-          console.log(result['mensajeH']);
-        }
-      });
-    });
-
-
-
-    /*function obtenerDiaActual(){
-       
-      var fechaActual = new Date();
-      var numeroDia = fechaActual.getDay();
-      var diaSemana = ["DOMINGO","LUNES","MARTES","MIERCOLES","JUEVES","VIERNES","SÁBADO"];
-      var diaActual = diaSemana[numeroDia];
-      return (diaActual === "SÁBADO" || diaActual === "DOMINGO") ? null : diaActual;
-  
-    }*/
-
-    /*$('.horario-link').click(function(){
-
-      window.diaSeleccionado = $(this).attr('value');
-
-      obtenerHorarios(diaSeleccionado);
-
-    });*/
-
-    /*var diaActual = obtenerDiaActual();
-
-    if(diaActual !== "SÁBADO" && diaActual !== "DOMINGO"){
-
-          obtenerHorarios(diaActual);
-
-    }*/
 });

@@ -1,91 +1,112 @@
+document.addEventListener('DOMContentLoaded', function() {
+  /* SIDEBAR */
 
-/*NAVBAR DEL USUARIO*/
-$(document).ready(function(){
-    /*SIDEBAR*/
+  document.querySelector('.btn-sidebar').addEventListener('click', function() {
+    this.classList.toggle('click');
+    document.querySelector('.sidebar').classList.toggle('show');
+  });
 
-    $('.btn-sidebar').click(function(){
-        $(this).toggleClass("click");
-        $('.sidebar').toggleClass("show");
-    });
+  document.querySelectorAll('.sidebar ul li a').forEach(function(link) {
+    link.addEventListener('click', function() {
+      var id = this.getAttribute('id');
+      var isActive = this.parentElement.classList.contains('active');
 
-    $('.sidebar ul li a').click(function(){
-        var id = $(this).attr('id');
-        var isActive = $(this).parent().hasClass('active');
-
-        // Ocultar todos los menús desplegables
-        $('.sidebar ul li').removeClass('active');
-        $('.sidebar ul li ul').removeClass('show');
-        $('.sidebar ul li a span').removeClass('rotate');
-
-        if (!isActive && $(this).attr('id') !== 'cerrar-sesion') {
-            // Mostrar el menú desplegable correspondiente al elemento seleccionado
-            $(this).parent().addClass('active');
-            $('nav ul li ul.item-show-'+id).addClass('show');
-            $(this).find('span').addClass('rotate');
-        }
-    });
-
-
-    $('nav ul li').click(function(){
-        $(this).addClass("active").siblings().removeClass("active");
-    });
-
-    /*NAVBAR(RESPONSIVE)*/
-
-    $('.navbar-responsive ul li a').click(function(){
-        var id = $(this).attr('id');
-        var isActive = $(this).parent().hasClass('active');
-
-        //ocultar todos los menú desplegables
-        $('.navbar-responsive ul li').removeClass('active');
-        $('.navbar-responsive ul li ul').removeClass('show');
-        $('.navbar-responsive ul li a span').removeClass('rotate');
-
-        if(!isActive && $(this).attr('id') !== 'cerrar-sesion'){
-            $(this).parent().addClass('active');
-            $('nav ul li ul.item-show-'+id).addClass('show');
-            $(this).find('span').addClass('rotate');
-        }
-    });
-
-    $('nav ul li').click(function(){
-        $(this).addClass("active").siblings().removeClass("active");
-    });
-
-
-    //CONTENT RESPONSIVO
-    var sidebarButton = $('.btn-sidebar');
-    var mainContainer = $('#mainContent');
-  
-    sidebarButton.on('click', function() {
-      mainContainer.toggleClass('sidebar-open');
-    });
-
-    $('.navbar-2 .nav-link').click(function(){
-        $('.navbar-2 .nav-link').removeClass('active');
-        $(this).addClass('active');
-        
-        var contenidoID = $(this).attr('href');
-
-        $('.tab-content .tab-pane').hide();
-
-        $(contenidoID).show();
-        
-    });
-
-    //MODAL
-    $('#modal-salud').on('show.bs.modal', function(event) {
-        // Button that triggered the modal
-        let button = event.relatedTarget;
-        // Extract info from data-bs-* attributes
-        let recipient = $(button).data('bs-whatever');
-      
-        // Use above variables to manipulate the DOM
+      // Ocultar todos los menús desplegables
+      document.querySelectorAll('.sidebar ul li').forEach(function(item) {
+        item.classList.remove('active');
       });
-   });
-/* intentando hacer un contenido dinámico
-$(document).on('click','#horarios',function(){
-    $('#contenido').load('horarios.php');
-});
-*/
+      document.querySelectorAll('.sidebar ul li ul').forEach(function(submenu) {
+        submenu.classList.remove('show');
+      });
+      document.querySelectorAll('.sidebar ul li a span').forEach(function(span) {
+        span.classList.remove('rotate');
+      });
 
+      if (!isActive && this.getAttribute('id') !== 'cerrar-sesion') {
+        // Mostrar el menú desplegable correspondiente al elemento seleccionado
+        this.parentElement.classList.add('active');
+
+        var submenu = this. parentElement.querySelector('ul')
+
+        if(submenu){
+          submenu.classList.add('show');
+        }
+  
+        this.querySelector('span').classList.add('rotate');
+      }
+    });
+  });
+
+  document.querySelectorAll('nav ul li').forEach(function(navLink) {
+    navLink.addEventListener('click', function() {
+      this.classList.add('active');
+      var siblings = Array.from(this.parentNode.children).filter(function(sibling) {
+        return sibling !== this;
+      }, this);
+      siblings.forEach(function(sibling) {
+        sibling.classList.remove('active');
+      });
+    });
+  });
+
+  /* NAVBAR (RESPONSIVE) */
+
+  document.querySelectorAll('.navbar-responsive ul li a').forEach(function(responsiveLink) {
+    responsiveLink.addEventListener('click', function() {
+      var id = this.getAttribute('id');
+      var isActive = this.parentElement.classList.contains('active');
+
+      // Ocultar todos los menús desplegables
+      document.querySelectorAll('.navbar-responsive ul li').forEach(function(item) {
+        item.classList.remove('active');
+      });
+      document.querySelectorAll('.navbar-responsive ul li ul').forEach(function(submenu) {
+        submenu.classList.remove('show');
+      });
+      document.querySelectorAll('.navbar-responsive ul li a span').forEach(function(span) {
+        span.classList.remove('rotate');
+      });
+
+      if (!isActive && this.getAttribute('id') !== 'cerrar-sesion') {
+        this.parentElement.classList.add('active');
+        document.querySelector('nav ul li ul.item-show-' + id).classList.add('show');
+        this.querySelector('span').classList.add('rotate');
+      }
+    });
+  });
+
+  /* CONTENT RESPONSIVE */
+
+  var sidebarButton = document.querySelector('.btn-sidebar');
+  var mainContainer = document.querySelector('#mainContent');
+
+  sidebarButton.addEventListener('click', function() {
+    mainContainer.classList.toggle('sidebar-open');
+  });
+
+  document.querySelectorAll('.navbar-2 .nav-link').forEach(function(navlink) {
+    navlink.addEventListener('click', function(e) {
+      e.preventDefault();
+      document.querySelectorAll('.navbar-2 .nav-link').forEach(function(link) {
+        link.classList.remove('active');
+      });
+      this.classList.add('active');
+
+      var contenidoID = this.getAttribute('href');
+
+      document.querySelectorAll('.tab-content .tab-pane').forEach(function(pane) {
+        pane.style.display = 'none';
+      });
+
+      document.querySelector(contenidoID).style.display = 'block';
+    });
+  });
+
+  /* MODAL */
+  var modalSalud = new bootstrap.Modal(document.getElementById('modal-salud'));
+  modalSalud._element.addEventListener('show.bs.modal', function(event) {
+    var button = event.relatedTarget;
+    var recipient = button.getAttribute('data-bs-whatever');
+    // Usa las variables anteriores para manipular el DOM
+  });
+});
