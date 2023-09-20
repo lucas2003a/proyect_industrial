@@ -26,7 +26,6 @@ if (isset($_POST['operacion'])) {
         } else {
             $resultado["mensaje"] = "Acceso no autorizado";
         }
-
         echo json_encode($resultado);
     }
 }
