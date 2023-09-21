@@ -3,6 +3,12 @@
     if(!isset($_SESSION['login']) || $_SESSION['login'] == false){
         header('Location:login.php');
     }
+    if(isset($_SESSION['datos_alumno'])){
+        $datos = $_SESSION['datos_alumno'];
+        //echo"<script>console.log('Datos del alumno:".json_encode($datos)."')</script>"; //solo para ver si se cargo los datos
+    }else{
+        echo "Fallo la variable de sesion";
+    }
 ?>
 
 <!doctype html>
@@ -346,6 +352,16 @@
   <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
   <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
   <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+
+  <script>  
+    /* MODAL */
+    var modalSalud = new bootstrap.Modal(document.getElementById('modal-salud'));
+    modalSalud._element.addEventListener('show.bs.modal', function(event) {
+      var button = event.relatedTarget;
+      var recipient = button.getAttribute('data-bs-whatever');
+      // Usa las variables anteriores para manipular el DOM
+    });
+  </script>
 
 </body>
 

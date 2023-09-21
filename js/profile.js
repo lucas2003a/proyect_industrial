@@ -102,11 +102,5 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  /* MODAL */
-  var modalSalud = new bootstrap.Modal(document.getElementById('modal-salud'));
-  modalSalud._element.addEventListener('show.bs.modal', function(event) {
-    var button = event.relatedTarget;
-    var recipient = button.getAttribute('data-bs-whatever');
-    // Usa las variables anteriores para manipular el DOM
-  });
+
 });

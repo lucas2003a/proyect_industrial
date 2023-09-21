@@ -3,6 +3,13 @@
     if(!isset($_SESSION['login']) || $_SESSION['login'] == false){
         header('Location:login.php');
     }
+
+    if(isset($_SESSION['datos_alumno'])){
+      $datos = $_SESSION['datos_alumno'];
+      //echo"<script>console.log('Datos del alumno:".json_encode($datos)."')</script>"; //solo para ver si se cargo los datos
+    }else{
+      echo "Fallo la variable de sesion";
+    }
 ?>
 
 <!doctype html>
@@ -144,7 +151,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> 
     <!-- Core theme JS-->
     <script src="../js/profile.js"></script>
-    <script src="../js/datos.js"></script>
+    <script src="../js/horario.js"></script>
     <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
     <!-- * *                               SB Forms JS                               * *-->
     <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->

@@ -20,6 +20,8 @@ if (isset($_POST['operacion'])) {
                 $resultado["status"] = true;
                 $resultado["mensaje"] = "Datos del alumno obtenidos correctamente";
                 $resultado["datos"] = $registro;
+
+                $_SESSION["datos_alumno"] = $registro;
             } else {
                 $resultado["mensaje"] = "No se encontraron datos del alumno";
             }

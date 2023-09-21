@@ -50,7 +50,7 @@ if(isset($_POST['operacion'])){
                 $numeroCard++;
 
             }
-            
+            header('Content-Type:application/x-www-form-urlencoded');
             echo json_encode($cardHTML);
             
         }else{
