@@ -7,7 +7,7 @@
         $datos = $_SESSION['datos_alumno'];
         //echo"<script>console.log('Datos del alumno:".json_encode($datos)."')</script>"; //solo para ver si se cargo los datos
     }else{
-        echo "Fallo la variable de sesion";
+        echo "<script>console.log('Fallo la variable de sesion')</script>";
     }
 ?>
 

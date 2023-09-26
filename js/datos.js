@@ -1,32 +1,35 @@
-/* DATOS DEL PERFIL */ 
-let datosNuevos = true; 
-let idAlumnoact = -1;
-let idmatriculaDatos;
-let idseccionDatos; 
-obtenerDatosAlumnos(); 
- 
-function obtenerDatosAlumnos(){
+document.addEventListener('DOMContentLoaded',function(){/* DATOS DEL PERFIL */ 
+  let datosNuevos = true; 
+  let idAlumnoact = -1;
+  let idmatriculaDatos;
+  let idseccionDatos; 
   
-  var ParamAlumnos = {operacion: 'obtener'}
+  obtenerDatosAlumnos(); 
+ 
+  function obtenerDatosAlumnos(){
+  
+    var ParamAlumnos = {operacion: 'obtener'}
 
-  fetch('../controllers/alumno.controller.php',{
-    method:'POST',
-    headers: {'Content-Type':'application/x-www-form-urlencoded',}, 
-    // por defecto esta es la configuracion  del header para las solicitudes post en formato HTML
-    // si se espera que el servidor RECIVA datos en formato JSON puedes cambiarlo assí 'Content-Type':'application/json'
-    // en tal caso deberias configurar el servidor para poder recivir datos en JSON
-    body: new URLSearchParams(ParamAlumnos),
-  })
+    fetch('../controllers/alumno.controller.php',{
+      method:'POST',
+      headers: {'Content-Type':'application/x-www-form-urlencoded'}, 
+      // por defecto esta es la configuracion  del header para las solicitudes post en formato HTML
+      // si se espera que el servidor RECIVA datos en formato JSON puedes cambiarlo assí 'Content-Type':'application/json'
+      // en tal caso deberias configurar el servidor para poder recivir datos en JSON
+      body: new URLSearchParams(ParamAlumnos),
+    })
 
-  .then((result) => result.json())
-  .then((data) =>{
-    console.log(data);
-    if(data.status){
-      actualizarDatos(data);
-    }else{
-      console.log("Error al obtener los datos:", error);
-    }
-  })
+    .then((result) => result.json())
+    .then((data) =>{
+      console.log(data);
+      if(data.status){
+        actualizarDatos(data);
+      }else{
+        console.log("Error al obtener los datos:", error);
+      }
+    })
+
+  }
 
   function actualizarDatos(data){
 
@@ -57,6 +60,7 @@ function obtenerDatosAlumnos(){
       console.log('Error al implementar datos:', error);
     }
   }
+
   
   const EstadoSaludElement = document.getElementById('estado-salud');
 
@@ -99,7 +103,9 @@ function obtenerDatosAlumnos(){
       console.log("Error al obtener datos de salud:", error);
     })
   }
-}
+
+});
+
 
  /*
 document.querySelectorAll('.horario-link').forEach((link) => { 
