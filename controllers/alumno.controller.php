@@ -21,7 +21,6 @@ if (isset($_POST['operacion'])) {
                 $resultado["mensaje"] = "Datos del alumno obtenidos correctamente";
                 $resultado["datos"] = $registro;
 
-                $_SESSION["datos_alumno"] = $registro;
             } else {
                 $resultado["mensaje"] = "No se encontraron datos del alumno";
             }

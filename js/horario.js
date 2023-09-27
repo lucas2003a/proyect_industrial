@@ -21,21 +21,25 @@ document.addEventListener('DOMContentLoaded',async function(){
         console.log('error en la solicitud');
       }
 
+      const data = await result.json();
+
       if(data){
-        console.log('horario:',data);
-        horario = document.getElementById('horario-contenido');
-        horario.innerHTML = data;
+        idseccionDatos = data.datos.idseccion;
+        
+        const diaHoy = obtenerDiaHorario();
+
+        obtenerHorario(idseccionDatos,diaHoy);
       }else{
         console.log('Error al cargar los datos');
       }
 
     }catch(error){
-      console.log('Error en obtener los datos',datos)
+      console.log('Error en obtener los datos',error)
     }
 
   }
 
-  obtenerDatosAlumnos();
+
      
   function obtenerDiaActual(){
 
@@ -44,64 +48,73 @@ document.addEventListener('DOMContentLoaded',async function(){
     const nombreDia = diaSemana[fechaActual.getDay()];
 
     return nombreDia;
- }
+  }
 
- function obtenerDiaActualNavbar(){
+  const diaHoy= obtenerDiaActual();
+  console.log("hoy fuera de alumno es:", diaHoy);
 
-   var diaActual = obtenerDiaActual();
-   const elementoNavHorario = document.getElementsByClassName('horario-link');
 
-   if(elementoNavHorario){
-    elementoNavHorario.texContent = diaActual;
-   }
 
-   console.log(elementoNavHorario);
- }
-  obtenerDiaActualNavbar();
+  function obtenerDiaHorario(){
+  
+    const diaHoy = obtenerDiaActual();
+    console.log('Hoy es:',diaHoy)
 
- const diaHoy= obtenerDiaActual();
- console.log("hoy es:", diaHoy);
+    const horarioLinks = document.querySelectorAll('.horario-link');
+
+    horarioLinks.forEach(enlace =>{
+      enlace.addEventListener('click',function(event){
+
+        const diaSeleccionado = event.target.getAttribute('value');
+
+        obtenerHorario(idseccionDatos,diaSeleccionado);
+
+        //Actualiza el contenido del enlace de dia seleccionado
+        event.target.textContent = diaSeleccionado;
+      })
+    })
+  }
 
  
- async function obtenerHorario(){
+  async function obtenerHorario(idseccionDatos,diaHoy){
 
-  var ParamHorario = {
-    operacion: 'listarH',
-    idseccion: idseccionDatos,
-    dia: 'Jueves'
-  };
+    var ParamHorario = {
+      operacion: 'listarH',
+      idseccion: idseccionDatos,
+      dia: diaHoy
+    };
+
     try{
-      const result = fetch('../controllers/horario.controller.php',{
+      const result = await fetch('../controllers/horario.controller.php',{
         method: 'POST',
         headers:{'Content-Type':'application/x-www-form-urlencoded'},
         body: new URLSearchParams(ParamHorario),
       })
 
-    }catch(error){}
+      if(!result){
+        console.log('Error en la solicitud');
+      }else{
+        console.log('Se realizó la solicitud');
 
+      }
 
-  then((result) => result.json())
-  .then((data) => {
+      const data = await result.json();
 
-    if(data){
-      console.log("horario:" , data)
-      horario = document.getElementById('horario-contenido');
-      horario.innerHTML = data;
-    }else{
-      console.log("error al cargar los datos:",error);
+      if(data){
+        console.log('horario:', data);
+        horario = document.getElementById('horario-contenido');
+        horario.innerHTML = data; 
+      }else{
+        console.log('Error al cargar los datos')
+      }
+
+    }catch(error){
+      console.log('Error al obtener los datos:',error);
     }
+  }
 
-  })
+ obtenerDatosAlumnos();
 
-  .catch((error) => {
-    console.log("este es el error fetch:", error);
-  })
- }
-
- var diaActual= obtenerDiaActual();
-
-
- obtenerHorario();
 
  
 });
