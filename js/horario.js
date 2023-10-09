@@ -1,45 +1,8 @@
-document.addEventListener('DOMContentLoaded',async function(){
+document.addEventListener('DOMContentLoaded',() => {
+    const controllerAlumno = `../controllers/alumno.controller.php`;
     let DatosNuevos = true;
     let idseccionDatos;
     //lee el archivo asincornía, ubicado en test/asincronia.
-  
-
-  async function obtenerDatosAlumnos(){
-
-    var ParamAlumno = {operacion: 'obtener'};
-
-    try{
-      
-        const result = await fetch('../controllers/alumno.controller.php',{
-        method: 'POST',
-        headers: {'Content-Type':'application/x-www-form-urlencoded'},
-        body: new URLSearchParams(ParamAlumno)
-      })
-
-      if(!result){
-        //throw new Error('error en la solicitud');
-        console.log('error en la solicitud');
-      }
-
-      const data = await result.json();
-
-      if(data){
-        idseccionDatos = data.datos.idseccion;
-        
-        const diaHoy = obtenerDiaHorario();
-
-        obtenerHorario(idseccionDatos,diaHoy);
-      }else{
-        console.log('Error al cargar los datos');
-      }
-
-    }catch(error){
-      console.log('Error en obtener los datos',error)
-    }
-
-  }
-
-
      
   function obtenerDiaActual(){
 
@@ -76,42 +39,74 @@ document.addEventListener('DOMContentLoaded',async function(){
   }
 
  
-  async function obtenerHorario(idseccionDatos,diaHoy){
+  function obtenerHorario(idseccionDatos,diaHoy){
 
-    var ParamHorario = {
+    let ParamHorario = {
       operacion: 'listarH',
       idseccion: idseccionDatos,
       dia: diaHoy
     };
 
     try{
-      const result = await fetch('../controllers/horario.controller.php',{
+
+      fetch(controllerAlumno,{
         method: 'POST',
-        headers:{'Content-Type':'application/x-www-form-urlencoded'},
-        body: new URLSearchParams(ParamHorario),
+        /*headers:{'Content-Type':'application/x-www-form-urlencoded'},
+        body: new URLSearchParams(ParamHorario),*/
+        body: ParamHorario
       })
-
-      if(!result){
-        console.log('Error en la solicitud');
-      }else{
-        console.log('Se realizó la solicitud');
-
-      }
-
-      const data = await result.json();
-
-      if(data){
-        console.log('horario:', data);
-        horario = document.getElementById('horario-contenido');
-        horario.innerHTML = data; 
-      }else{
-        console.log('Error al cargar los datos')
-      }
-
+        .then(result => result.json())
+        .then(data => {
+          if(data){
+            console.log('horario:', data);
+            horario = document.getElementById('horario-contenido');
+            horario.innerHTML = data; 
+          }else{
+            console.log('Error al cargar los datos')
+          }
+        })
     }catch(error){
       console.log('Error al obtener los datos:',error);
     }
   }
+  function obtenerDatosAlumnos(){
+
+    //var ParamAlumno = {operacion: 'obtener'};
+
+    const parametros = new FormData();
+
+    parametros.append("operacion","obtener");
+
+    try{
+      
+        fetch(controllerAlumno,{
+        method: 'POST',
+        /*headers: {'Content-Type':'application/x-www-form-urlencoded'},
+        body: new URLSearchParams(ParamAlumno)*/
+        body: parametros
+      })
+          .then(result => result.json())
+          .then(data =>{      
+            if(data){
+
+              console.log("si se obtuvo");
+              
+              idseccionDatos = data.datos.idseccion;
+        
+              const diaHoy = obtenerDiaHorario();
+
+              obtenerHorario(idseccionDatos,diaHoy);
+            
+            }else{
+              console.log('Error al cargar los datos');
+            }
+
+          })
+    }catch(error){
+          console.log('Error en obtener los datos',error)
+    }
+  }
+
 
  obtenerDatosAlumnos();
 
