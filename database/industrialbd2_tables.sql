@@ -26,10 +26,14 @@ create table funciones
 (
 	idfuncion		int		primary key auto_increment,
     idacceso		int		not null,
-    permiso			char(2)	not null,
-    fecharegistro	date	not null	default now(),
+    permiso			varchar(30)	not null,
+    date_creation	date	not null	default now(),
+    date_upload		date	null,
+    date_set		date	null,
+    date_delete		date	null,
     usuario			varchar(20) 		not null,
-    estado			char(1)	not null	default '1'
+    estado			char(1)	not null	default '1',
+    constraint uk_permiso_fun unique(permiso)
 )engine = innodb;
 
 -- TABLA DE USUARIOS ////////////
@@ -39,13 +43,14 @@ create table usuarios
 (
 	idusuario		int			not null auto_increment ,
     nomusuario		varchar(20)	not null,
-    claveaccceso	varchar(60)	not null,
-    t_persona		char(5)		not null,
+    claveacceso		varchar(60)	not null,
     idfuncion		int			not null,
-    fecharegistro	date		not null		default now(),
+    date_creation	date		not null		default now(),
+    date_upload		date		null,
+    date_set		date		null,
+    date_delete		date		null,
     usuario			varchar(20)	not null,
     estado			char(1)		not null 		default '1',
-    
     constraint primary key (idusuario) ,
     constraint uk_nomusuario_usu unique(nomusuario),
     constraint fk_idfuncion_usu	foreign key(idfuncion) references funciones(idfuncion)
