@@ -16,7 +16,8 @@ begin
         date_delete,
         usuario
     from accesos
-    where estado = '1';
+    where estado = '1'
+    order by codigoacceso asc;
 end $$
 delimiter ;
 
@@ -104,7 +105,8 @@ begin
  from funciones as fun
  inner join accesos as acc on acc.idacceso = fun.idacceso
  where
-	fun.estado = '1';
+	fun.estado = '1'
+order by acc.nombreacceso asc;
 end $$
 delimiter ;
 
@@ -186,18 +188,17 @@ delimiter $$
 create procedure spu_usuario_listar()
 begin
 	select
-		usu.idusuario,
-        usu.nomusuario,
-        fun.permiso,
-        usu.date_creation,
-        usu.date_upload,
-        usu.date_set,
-        usu.date_delete,
-        usu.usuario
+		idusuario,
+        nomusuario,
+        date_creation,
+        date_upload,
+        date_set,
+        date_delete,
+        usuario
 	from usuarios as  usu
-    inner join funciones as fun on fun.idfuncion = usu.idfuncion
     where
-		usu.estado = '1';
+		usu.estado = '1'
+	order by nomusuario asc;
 end $$
 delimiter ;
 
@@ -209,14 +210,13 @@ create procedure spu_usuario_registrar
 (
 	in _nomusuario		varchar(20),
     in _claveacceso		varchar(60),
-    in _idfuncion		int,
     in _usuario			varchar(20)
 )
 begin
 	insert into usuarios
-		(nomusuario,claveacceso,idfuncion,usuario)
+		(nomusuario,claveacceso,usuario)
 		values
-        (_nomusuario,_claveacceso,_idfuncion,_usuario);
+        (_nomusuario,_claveacceso,_usuario);
 end $$
 delimiter ;
 
@@ -228,13 +228,11 @@ create procedure spu_usuario_modificar
 (
 	in _idusuario		int,
     in _nomusuario		varchar(20),
-    in _idfuncion		int,
     in _usuario			varchar(60)
 )
 begin
 	update usuarios set
 		nomusuario	= _nomusuario,
-        idfuncion	= _idfuncion,
         date_set	= now(),
         usuario		= _usuario
         
@@ -299,17 +297,259 @@ delimiter $$
 create procedure spu_usuario_buscar(in _nomusuario varchar(20))
 begin
 	select
-		usu.idusuario,
-        usu.nomusuario,
-        fun.permiso,
-        usu.date_creation,
-        usu.date_upload,
-        usu.date_set,
-        usu.date_delete,
-        usu.usuario
-	from usuarios as  usu
-    inner join funciones as fun on fun.idfuncion = usu.idfuncion
+		idusuario,
+        nomusuario,
+        date_creation,
+        date_upload,
+        date_set,
+        date_delete,
+        usuario
+	from usuarios
     where
-		nomusuario like concat('%',_nomusuario,'%');
+		nomusuario like concat('%',_nomusuario,'%')
+        and
+        estado = '1'
+	order by nomusuario asc;
 end $$
 delimiter ;
+
+-- DETALLES FUNCIONES ////////////////////////////////////////////////////////////
+
+-- ////
+drop procedure if exists spu_detalle_funcion_listar;
+delimiter $$
+create procedure spu_detalle_funcion_listar()
+begin
+	select
+		detfun.id_detalle_funcion,
+        usu.nomusuario,
+        fun.permiso,
+        detfun.date_creation,
+        detfun.date_upload,
+        detfun.date_set,
+        detfun.date_delete,
+        detfun.usuario
+    from detalle_funciones as detfun
+    inner join usuarios as usu on usu.idusuario = detfun.idusuario
+    inner join funciones as fun on fun.idfuncion = detfun.idfuncion
+    where detfun.estado = '1'
+    order by usu.nomusuario asc;
+end $$
+delimiter ;
+
+-- ////
+
+drop procedure if exists spu_detalle_funcion_registrar;
+delimiter $$
+create procedure spu_detalle_funcion_registrar
+(
+	in _idusuario 	int,
+    in _idfuncion	int,
+    in _usuario		varchar(20)
+)
+begin
+	insert into detalle_funciones
+		(idusuario,idfuncion,usuario)
+        values
+        (_idusuario,_idfuncion,_usuario);
+end $$
+delimiter ;
+
+-- ///// 
+
+drop procedure if exists spu_detalle_funcion_modificar;
+delimiter $$
+create procedure spu_detalle_funcion_modificar
+(
+	in _id_detalle_funcion		int,
+    in _idusuario				int,
+    in _idfuncion				int,
+    in _usuario					varchar(20)
+)
+begin
+	update detalle_funciones set
+		idusuario	= _idusuario,
+        idfuncion	= _idfuncion,
+        date_set	= now(),
+        usuario		= _usuario
+	
+    where
+		id_detalle_funcion = _id_detalle_funcion; 
+end $$
+delimiter ;
+
+-- ///////
+
+drop procedure if exists spu_detalle_funcion_eliminar;
+delimiter $$
+create procedure spu_detalle_funcion_eliminar(in _id_detalle_funcion int)
+begin
+	update detalle_funciones set
+		date_delete = now(),
+		estado = '0'
+        
+	where 
+		id_detalle_funcion = _id_detalle_funcion;
+end $$
+delimiter ;
+
+-- ////
+
+drop procedure if exists spu_detalle_funcion_reactivar;
+delimiter $$
+create procedure spu_detalle_funcion_reactivar(in _id_detalle_funcion int)
+begin
+	update detalle_funciones set
+		date_delete = null,
+		estado = '1'
+        
+	where 
+		id_detalle_funcion = _id_detalle_funcion;
+end $$
+delimiter ;
+
+-- //////
+
+drop procedure if exists spu__detalle_funcion_buscar;
+delimiter $$
+create procedure spu__detalle_funcion_buscar(in _nomusuario varchar(20))
+begin
+	select
+		detfun.id_detalle_funcion,
+        usu.nomusuario,
+        fun.permiso,
+        detfun.date_creation,
+        detfun.date_upload,
+        detfun.date_set,
+        detfun.date_delete,
+        detfun.usuario
+    from detalle_funciones as detfun
+    inner join usuarios as usu on usu.idusuario = detfun.idusuario
+    inner join funciones as fun on fun.idfuncion = detfun.idfuncion
+    where
+		usu.nomusuario like concat('%',_nomusuario,'%')
+		and
+			detfun.estado = '1'
+    order by usu.nomusuario asc;
+end $$
+delimiter ;
+
+
+-- MADRES /////////////////////////////////////////////////////////////////////
+
+-- LISTAR
+drop procedure if exists spu_madre_listar;
+delimiter $$
+create procedure spu_madre_listar()
+begin
+	select * from madres
+    where
+		estado = '1'
+	order by apellidosM,nombresM;
+end $$
+delimiter ;
+
+-- REGISTRAR
+drop procedure spu_madre_registrar;
+delimiter $$
+create procedure spu_madre_registrar
+(
+	in _apellidosM		varchar(40),
+    in _nombresM		varchar(40),
+    in _documento_tipoM varchar(20),
+    in _documento_nroM 	varchar(20),
+    in _fechanacimientoM date,
+    in _direccionM		varchar(60),
+    in _correoM			varchar(60),
+    in _celularM		char(9),
+    in _gradoinstruccionM varchar(20),
+    in _ocupacionM		varchar(20),
+    in _convivenciaM		char(2),
+    in _religionM		varchar(20),
+    in _usuario			varchar(20)
+)
+begin
+	insert into madres
+		(apellidosM,nombresM,documento_tipoM,documento_nroM,fechanacimientoM,direccionM,
+		correoM,celularM,gradoinstruccionM,ocupacionM,convivenciaM,religionM,usuario)
+    values
+        (_apellidosM,_nombresM,_documento_tipoM,_documento_nroM,_fechanacimientoM,_direccionM,
+		_correoM,_celularM,_gradoinstruccionM,_ocupacionM,_convivenciaM,_religionM,_usuario);    
+end $$
+delimiter ;
+
+-- MODIFICAR
+drop procedure spu_madre_modificar;
+delimiter $$
+create procedure spu_madre_modificar
+(
+	in _idmadre			int,
+	in _apellidosM		varchar(40),
+    in _nombresM		varchar(40),
+    in _documento_tipoM varchar(20),
+    in _documento_nroM 	varchar(20),
+    in _fechanacimientoM date,
+    in _direccionM		varchar(60),
+    in _correoM			varchar(60),
+    in _celularM		char(9),
+    in _gradoinstruccionM varchar(20),
+    in _ocupacionM		varchar(20),
+    in _convivenciaM		char(2),
+    in _religionM		varchar(20),
+    in _usuario			varchar(20)
+)
+begin
+	update madres set
+		apellidosM			= _apellidosM,		
+		nombresM 			= _nombresM,		
+		documento_tipoM 	= _documento_tipoM,
+		documento_nroM  	=_documento_nroM,
+		fechanacimientoM 	= _fechanacimientoM,
+		direccionM		 	= _direccionM,
+		correoM 		 	=_correoM,
+		celularM		 	= _celularM,
+		gradoinstruccionM 	= _gradoinstruccionM,
+		ocupacionM		 	= _ocupacionM,
+		convivenciaM		 	= _convivenciaM,
+		religionM		 	= _religionM,
+        date_set			= now(),
+		usuario 			= _usuario
+        
+	where 
+		idmadre = _idmadre;
+end $$
+delimiter ;
+
+-- ELIMINAR
+
+drop procedure spu_madre_eliminar;
+delimiter $$
+create procedure spu_madre_eliminar(in _idmadre int)
+begin
+	update madres set
+		date_delete = now(),
+        estado = '0'
+        
+	where
+     idmadre = _idmadre;
+end $$
+delimiter ;
+
+-- REACTIVAR
+
+drop procedure spu_madre_reactivar;
+delimiter $$
+create procedure spu_madre_reactivar(in _idmadre int)
+begin
+	update madres set
+		date_delete = null,
+        estado = '1'
+        
+	where
+     idmadre = _idmadre;
+end $$
+delimiter ;
+-- LISTAR
+-- REGISTRAR
+-- MODIFICAR
+-- ELIMINAR
