@@ -549,7 +549,52 @@ begin
      idmadre = _idmadre;
 end $$
 delimiter ;
+
+-- BUSCAR
+ drop procedure if exists spu_madre_buscar;
+ delimiter $$
+ create procedure spu_madre_buscar( in _camposBuscar varchar(80))
+ begin
+	select * from madres
+    where apellidosM like concat('%',_camposBuscar,'%') or nombresM  like concat('%',_camposBuscar,'%')
+		and 
+			estado = '1'
+	order by apellidosM asc;
+ end $$
+ delimiter ;
+ 
+ -- MATRICULAS //////////////////////////////////////////////////////////////////////////////////////////
+ 
+ -- LISTAR
+  drop procedure if exists spu_matricula_listar;
+  delimiter $$
+  create procedure spu_matricula_listar()
+  begin
+	select 
+		idmatricula,
+        nromatricula,
+        cmodularbefore,
+        colegioprocedencia,
+        date_creation,
+        date_upload,
+        date_set,
+        date_delete,
+        usuario
+    from matriculas
+    where
+		estado = '1';
+  end $$
+  delimiter ;
+-- REGISTRAR
+-- MODIFICAR
+-- ELIMINAR
+-- REACTIVAR
+-- BUSCAR
+ 
+ 
 -- LISTAR
 -- REGISTRAR
 -- MODIFICAR
 -- ELIMINAR
+-- REACTIVAR
+-- BUSCAR

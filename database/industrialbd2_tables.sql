@@ -125,3 +125,23 @@ create index idx_apellidosM on madres(apellidosM);
 create index idx_nombresM on madres(nombresM);
 create index idx_documento_nroM on madres(documento_nroM);
 create index idx_celularM on madres(celularM);
+
+-- MATRICULAS ///////////////////////////////////////////////////////////////
+
+drop table if exists matriculas;
+create table matriculas
+(
+	idmatricula			int			not null	auto_increment,
+    nromatricula		varchar(10)	not null,
+    periodmatricula		year(4)		not null,
+    cmodularbefore		char(7) 	not null,
+    colegioprocedencia	varchar(50) not null,
+    date_creation		date		not null	default now(),
+    date_upload			date		null,
+    date_set			date		null,
+    date_delete			date		null,
+    usuario				varchar(20) not null,
+    estado				char(1)		not null	default '1',
+    constraint primary key(idmatricula),
+    constraint uk_nromatricula_matr unique(nromatricula)
+)engine = innodb;

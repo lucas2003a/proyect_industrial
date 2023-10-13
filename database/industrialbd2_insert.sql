@@ -51,4 +51,10 @@ call spu_madre_registrar('PEREZ APOLAYA','MARISOL MARIELA','DNI','77068573','200
 call spu_madre_modificar(7,'PEREZ LOYOLA','MARIA JIMENA','DNI','77068572','2000-01-12','AV LOS SAUCES #321','MARIAPO@GMAIL.COM','956993599','SUPERIOR','PROFESORA','SI','CATÓLICA','ADMIN');
 call spu_madre_eliminar(11);
 call spu_madre_reactivar(11);
+call spu_madre_buscar('perez apolaya');
+
+-- MATRICULAS
+
+select * from matriculas;
+call spu_matricula_listar();
 
