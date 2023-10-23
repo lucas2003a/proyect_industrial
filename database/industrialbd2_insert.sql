@@ -26,13 +26,13 @@ call spu_funcion_reactivar(3);
 select * from usuarios;
 call spu_usuarios_login('Lucas2003');
 call spu_usuario_listar();
-call spu_usuario_registrar('Lucas2003','cesar2003','ADMIN');
-call spu_usuario_modificar(1,'Cesar2000','ADMIN');
+call spu_usuario_registrar('','Lucas2005','cesar2003','ADMIN');
+call spu_usuario_modificar('',1,'Cesar2000','ADMIN');
 call spu_usuario_eliminar(2);
 call spu_usuario_reactivar(2);
 call spu_usuario_buscar('L');
 
-call spu_cambiar_clave(2,'L');
+call spu_cambiar_clave(1,'$2y$10$GoKedkPzU6Ki9pCoWuPvpOah/z/PPIuJHTn7rwFZkgqwuT/.MO.06');
 
 -- DETALLE FUNCIONES
 
@@ -58,4 +58,5 @@ call spu_madre_buscar('maria');
 
 select * from matriculas;
 call spu_matricula_listar();
+call spu_matriculas_registrar('200500','2005','1122556','JOSE PARDO Y BARREDA','ADMIN');
 
