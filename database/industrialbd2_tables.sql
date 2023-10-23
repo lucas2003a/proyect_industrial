@@ -51,6 +51,7 @@ drop table if exists usuarios;
 create table usuarios
 (
 	idusuario		int			not null auto_increment ,
+    foto_perfil		varchar(100) null,
     nomusuario		varchar(20)	not null,
     claveacceso		varchar(60)	not null,
     date_creation	date		not null		default now(),
@@ -133,7 +134,7 @@ create table matriculas
 (
 	idmatricula			int			not null	auto_increment,
     nromatricula		varchar(10)	not null,
-    periodmatricula		year(4)		not null,
+    periodomatricula		year(4)		not null,
     cmodularbefore		char(7) 	not null,
     colegioprocedencia	varchar(50) not null,
     date_creation		date		not null	default now(),

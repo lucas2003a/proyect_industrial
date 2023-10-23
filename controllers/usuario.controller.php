@@ -9,7 +9,7 @@ if(isset($_POST['operacion'])){
 
     if($_POST['operacion'] == 'login'){
         
-        $registro = $usuario->iniciarSesion($_POST['nomusuario']);
+        $registro = $usuario->login($_POST['nomusuario']);
         $_SESSION["login"] = false;
         $resultado = [
             "status" => false,
@@ -18,7 +18,7 @@ if(isset($_POST['operacion'])){
 
         if($registro){
 
-            $claveEncriptada = $registro["claveacceso"];
+            $claveEncriptada = $registro['claveacceso'];
 
             if(password_verify($_POST['claveingresada'],$claveEncriptada)){
                 $resultado["status"] = true;

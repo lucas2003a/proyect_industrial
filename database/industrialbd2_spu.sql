@@ -183,12 +183,33 @@ delimiter ;
 
 -- USUARIOS //////////////////////////////////////////////////////////////////////////////////////////
 
+-- ////////
+
+drop procedure if exists spu_usuarios_login;
+delimiter $$
+create procedure spu_usuarios_login(in _nomusuario varchar(20))
+begin
+	select 
+			idusuario,
+            nomusuario,
+            claveacceso
+		from usuarios 
+		where 
+			nomusuario = _nomusuario
+		and 
+			estado = '1';
+end $$
+delimiter ;
+
+-- ////////
+
 drop procedure if exists spu_usuario_listar;
 delimiter $$
 create procedure spu_usuario_listar()
 begin
 	select
 		idusuario,
+        foto_perfil,
         nomusuario,
         date_creation,
         date_upload,
@@ -207,16 +228,19 @@ delimiter ;
 drop procedure if exists spu_usuario_registrar;
 delimiter $$
 create procedure spu_usuario_registrar
-(
+(	
+	in _foto_perfil		varchar(100),
 	in _nomusuario		varchar(20),
     in _claveacceso		varchar(60),
     in _usuario			varchar(20)
 )
 begin
 	insert into usuarios
-		(nomusuario,claveacceso,usuario)
+		(foto_perfil,nomusuario,claveacceso,usuario)
 		values
-        (_nomusuario,_claveacceso,_usuario);
+        (nullif(_foto_perfil,''),_nomusuario,_claveacceso,_usuario);
+        
+        select @@last_insert_id 'idusuario';
 end $$
 delimiter ;
 
@@ -226,12 +250,14 @@ drop procedure if exists spu_usuario_modificar;
 delimiter $$
 create procedure spu_usuario_modificar
 (
+	in _foto_perfil		varchar(100),
 	in _idusuario		int,
     in _nomusuario		varchar(20),
     in _usuario			varchar(60)
 )
 begin
 	update usuarios set
+		foto_perfil = _foto_perfil,
 		nomusuario	= _nomusuario,
         date_set	= now(),
         usuario		= _usuario
@@ -450,7 +476,7 @@ end $$
 delimiter ;
 
 -- REGISTRAR
-drop procedure spu_madre_registrar;
+drop procedure if exists spu_madre_registrar;
 delimiter $$
 create procedure spu_madre_registrar
 (
@@ -479,7 +505,7 @@ end $$
 delimiter ;
 
 -- MODIFICAR
-drop procedure spu_madre_modificar;
+drop procedure if exists spu_madre_modificar;
 delimiter $$
 create procedure spu_madre_modificar
 (
@@ -522,7 +548,7 @@ delimiter ;
 
 -- ELIMINAR
 
-drop procedure spu_madre_eliminar;
+drop procedure if exists spu_madre_eliminar;
 delimiter $$
 create procedure spu_madre_eliminar(in _idmadre int)
 begin
@@ -537,7 +563,7 @@ delimiter ;
 
 -- REACTIVAR
 
-drop procedure spu_madre_reactivar;
+drop procedure if exists pu_madre_reactivar;
 delimiter $$
 create procedure spu_madre_reactivar(in _idmadre int)
 begin
@@ -586,6 +612,24 @@ delimiter ;
   end $$
   delimiter ;
 -- REGISTRAR
+
+drop procedure if exists spu_matricula_registrar
+delimiter $$
+create procedure spu_matriculas_registrar
+(
+		in _nromatricula		varchar(10),
+        in _periodomatricula	year(4),
+        in _cmodularbefore		char(7),
+        in _colegioprocedencia	varchar(50),
+        in _usuario				varchar(20)
+)	
+begin
+	insert into matriculas
+		(nromatricula,periodomatricula,cmodularbefore,colegioprocedencia,usuario)
+        values
+        (_nromatricula,_periodomatricula,_cmodularbefore,_colegioprocedencia,_usuario);
+end $$
+delimiter ;
 -- MODIFICAR
 -- ELIMINAR
 -- REACTIVAR

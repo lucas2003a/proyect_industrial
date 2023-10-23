@@ -3,7 +3,7 @@
 class Conexion{
     private $host = 'localhost';
     private $port = '3306';
-    private $database = 'industrialbd';
+    private $database = 'industrialbd2';
     private $charset = 'UTF8';
     private $user = 'root';
     private $password = '';
